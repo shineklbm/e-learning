@@ -9,8 +9,8 @@
 </head>
 <body data-ng-controller="rootCtrl">
 	<nav class="menu">
-		<ul data-ng-repeat = "app_menu in common_configs.app_menus">
-			<li><a href="{{app_menu.menu_url}}">{{app_menu.menu_title}}</a></li>
+		<ul>
+			<li data-ng-repeat = "app_menu in common_configs.app_menus"><a href="{{app_menu.menu_url}}">{{app_menu.menu_title}}</a></li>
 		</ul>
 	</nav>
 	<script src="assets/libs/jquery-2.1.4.min.js"></script>
