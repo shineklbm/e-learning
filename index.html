@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html lang="en" data-ng-app="ELearningApp">
-<head>
+<head data-ng-controller="rootCtrl">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>E-Learning App</title>
 	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
 	<link rel="stylesheet" href="assets/css/common.css">
 </head>
-<body data-ng-controller="loadScripts">
-	
+<body data-ng-controller="rootCtrl">
+	<nav class="menu">
+		<ul data-ng-repeat = "app_menu in common_configs.app_menus">
+			<li><a href="{{app_menu.menu_url}}">{{app_menu.menu_title}}</a></li>
+		</ul>
+	</nav>
 	<script src="assets/libs/jquery-2.1.4.min.js"></script>
     <script src="assets/libs/bootstrap.min.js"></script>
     <script src="assets/libs/angular.min.js"></script>
     <script src="modules/ELearningApp.js"></script>
-    <script src="controllers/loadScripts.js"></script>
-    <script data-ng-repeat="dependency_url in dependency_urls" data-ng-src="{{dependency_url.file_url}}" data-alt="{{dependency_url.file_name}}"></script>
+    <script src="controllers/rootCtrls.js"></script>
+    <script data-ng-repeat="common_script in common_scripts" data-ng-src="{{common_script.file_url}}" data-alt="{{common_script.file_name}}"></script>
 </body>
 </html>

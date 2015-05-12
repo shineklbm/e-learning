@@ -1,0 +1,23 @@
+{
+	"app_logo": "",
+    "app_background_color": "#fea",
+    "app_background_image": "",
+    "app_menus": [
+        {
+            "menu_title": "Module 1",
+            "menu_url": "http://google.com"
+        },
+        {
+            "menu_title": "Module 2",
+            "menu_url": "http://google.com"
+        },
+        {
+            "menu_title": "Module 3",
+            "menu_url": "http://google.com"
+        },
+        {
+            "menu_title": "Module 4",
+            "menu_url": "http://google.com"
+        }
+    ]
+}
