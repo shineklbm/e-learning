@@ -1,0 +1,40 @@
+/*********************** Style Sheet *****************************/
+
+/*------------------------Common------------------------------*/
+img
+{
+	max-width: 100%;
+	height: auto;
+}
+
+/*-------- text-with-right-image-template.css -------------*/
+  
+/*------- Content Wrapper --------*/
+#content-wrapper{
+	height: 741px;
+	padding-left: 30px;
+	padding-right: 30px;
+}
+.text-with-right-image-template
+{
+	margin:74px 0 0 0;
+	max-height: 480px;
+}
+.text-with-right-image-template #left-content
+{
+	padding:40px 40px 25px;
+	background-color: #336699;
+	color: #fff;
+	
+}
+#left-content h1
+{
+	margin-bottom: 15px;
+	font-family: 'Open Sans', sans-serif;
+}
+#left-content p 
+{
+	margin-bottom: 20px;
+	font-family: 'Open Sans', sans-serif;
+}
+

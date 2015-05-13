@@ -5,11 +5,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>E-Learning App</title>
 	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
-	<link rel="stylesheet" href="assets/css/common.css">
-    <!-- <link data-ng-repeat="common_style in common_styles" data-ng-href="{{common_style.file_url}}" data-alt="{{common_style.file_name}}"> -->
-    <link data-ng-repeat="common_style in common_styles" data-ng-href="{{common_style.file_url}}" data-alt="{{common_style.file_name}}" rel="stylesheet">
-
-    <link rel="stylesheet" href="assets/css/image-with-text-template.css">
+     <link rel="stylesheet" href="assets/css/common.css">
+	<link rel="stylesheet" href="assets/css/text-with-right-image-template.css">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,800italic,800,700italic,700,600italic,600,400italic,300italic,300' rel='stylesheet' type='text/css'>
 </head>
 <body data-ng-controller="rootCtrl">
 	
@@ -23,58 +21,60 @@
 	-->
 	<!-- Full Width Wrapper -->
     <div id="full-wrapper" class="container-fluid">
-        <div id="bg-wrapper">
-            <img ng-src="{{common_configs.background_image}}">  
-        </div>
+        <!-- <div id="bg-wrapper">
+            <img src="{{common_configs.background_image}}">  
+        </div> -->
         <!-- Container Wrapper -->
         <div id="wrapper"  class="container">
             <!-- Header -->
             <header class="row">
-            	<i class="glyphicon glyphicon-menu-hamburger"></i>
-                <h1 class="course-title">Lorem Ipsum dolor sit</h1>
-                <h2 class="course-descirption">Lorem ipsum dolor sit</h2>
-                <a href="#" class="course-exit">EXIT</a>
-                <span class="logo">
-                    <img ng-src="{{common_configs.logo}}" alt="">
-                </span>
-            	
-                <!-- <div id="header-menu" class="col-xs-2 col-lg-1">
+                <div id="header-menu" class="col-xs-2 col-md-1">
                     <i class="glyphicon glyphicon-menu-hamburger"></i>
                 </div>
-                <div id="header-content" class="col-xs-7 col-lg-8">
+                <div id="header-content" class="col-xs-7 col-md-8">
                     <div  class="row">
-                        <div id="header-title" class="col-xs-12 col-lg-5 ">
+                        <div id="header-title" class="col-xs-12 col-md-5 ">
                             <h1>Lorem Ipsum dolor sit</h1>
                         </div>
-                        <div id="header-text" class="col-xs-12 col-lg-7">
+                        <div id="header-text" class="col-xs-12 col-md-7">
                             <p>Lorem Ipsum dolor sit</p>
                         </div>
                     </div>   
                 </div>
-                <div id="header-exit-btn" class="hidden-xs hidden-sm hidden-md col-lg-1 inline">
+                <div id="header-exit-btn" class="hidden-xs hidden-sm col-md-1 inline">
                     <a href="#">EXIT</a>
                 </div>
-                <div id="header-logo" class="col-xs-3 col-lg-2 inline">
+                <div id="header-logo" class="col-xs-3 col-md-2 inline">
                     <a href="#"><img src="{{common_configs.logo}}" alt=""></a>
-                </div> -->
+                </div>
             </header> 
             <!-- Header End-->
             <!-- Content Wrapper -->
-            <div id="content-wrapper" class="row">
-                <article id="content"  class="col-xs-12">
+            <div id="content-wrapper" class="row text-with-right-image-template">
+                <article id="left-content"  class="col-xs-12  col-md-6 no-padding">
+                    <h1>LOREM IPSUM DOL</h1>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin varius tristique rhoncus. Suspendisse et pulvinar lorem, sed condimentum neque. Sed sed velit tincidunt, tempor mi vel, interdum eros. Sed tincidunt vel erat vel ullamcorper. Integer ut ante quam. Etiam sodales non ante ut dignissim. Etiam massa velit, dapibus vel rhoncus et, posuere ac lectus. Nam vel diam at purus consequat tincidunt. Nullam sed elit pretium, sollicitudin libero eget, mattis leo. Quisque ut fermentum nisl, in tempor sem. Integer at ligula vitae ipsum condimentum pellentesque et in nulla. In hac habitasse platea dictumst.
+                    </p>
+                    <p>
+                        Nullam iaculis tempor eros, eget bibendum nisl. Donec efficitur magna ligula, vitae fringilla sem molestie eget. Suspendisse potenti. Aenean eget neque tincidunt, eleifend erat non, hendrerit ligula. Sed quis urna et justo sodales facilisis. Nullam ac urna ornare, pellentesque lacus sed, dapibus sem. Phasellus mollis felis eu auctor tristique. Nullam finibus purus sapien, mattis sagittis sem elementum ac. Sed lacinia sagittis vulputate.
+                    </p>
                 </article>  
+                <div id="right-image" class="col-xs-12 col-md-6 no-padding">
+                    <img src="assets/images/person-right.jpg"/>
+                </div>
             </div>
              <!-- Content Wrapper End-->
              <!-- Footer  -->
              <footer class="row">
-                <div id="page-progress" class="progress col-lg-12 ">
+                <div id="page-progress" class="progress col-md-12 ">
                     <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 30%">
                         <span class="sr-only">60% Complete (warning)</span>
                     </div>
                 </div>
-                <div id="footer-content" class="col-lg-12">
+                <div id="footer-content" class="col-md-12">
                     <div id="footer-status" class="row no-margin">
-                        <div id="left-block" class="col-lg-8  ">
+                        <div id="left-block" class="col-md-8  ">
                              <span class=" glyphicon glyphicon-comment inline">
                                 <label class="hidden-xs"> TRANSCRIPT</label>
                             </span>
@@ -93,7 +93,7 @@
                                 <label class="hidden-xs">REPLAY</label>
                             </span> 
                         </div>
-                        <div id="right-block" class="col-lg-4 text-right">
+                        <div id="right-block" class="col-md-4 text-right">
                             <a href="#" >Click Next to continue.</a>
                             <span id="pagination">
                                 <i class="glyphicon glyphicon-menu-left inline"></i>
