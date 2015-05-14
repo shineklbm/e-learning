@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="ELearningApp">
+<head data-ng-controller="rootCtrl">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>E-Learning App</title>
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/common.css">
+    <link rel="stylesheet" href="assets/css/mcss-01-template.css">
+    <link rel="stylesheet" href="assets/js/prettyCheckable/prettyCheckable.css">
+</head>
+<body data-ng-controller="rootCtrl">
+	
+	<!-- 
+	Tree menu
+	<nav class="menu">
+		<ul>
+			<li data-ng-repeat = "app_menu in common_configs.app_menus"><a href="{{app_menu.menu_url}}">{{app_menu.menu_title}}</a></li>
+		</ul>
+	</nav>
+	-->
+	<!-- Full Width Wrapper -->
+    <div id="full-wrapper" class="container-fluid">
+        <!-- <div id="bg-wrapper">
+            <img src="{{common_configs.background_image}}">  
+        </div> -->
+        <!-- Container Wrapper -->
+        <div id="wrapper"  class="container">
+            <!-- Header -->
+            <header class="row">
+                <div id="header-menu" class="col-xs-2 col-md-1">
+                    <i class="glyphicon glyphicon-menu-hamburger"></i>
+                </div>
+                <div id="header-content" class="col-xs-7 col-md-8">
+                    <div  class="row">
+                        <div id="header-title" class="col-xs-12 col-md-5">
+                            <h1>Lorem Ipsum dolor sit</h1>
+                        </div>
+                        <div id="header-text" class="col-xs-12 col-md-7">
+                            <p>Lorem Ipsum dolor sit</p>
+                        </div>
+                    </div>   
+                </div>
+                <div id="header-exit-btn" class="hidden-xs hidden-sm  col-md-1 inline">
+                    <a href="#">EXIT</a>
+                </div>
+                <div id="header-logo" class="col-xs-3 col-md-2 inline">
+                    <a href="#"><img src="{{common_configs.logo}}" alt=""></a>
+                </div>
+            </header> 
+            <!-- Header End-->
+            <!-- Content Wrapper -->
+            <div id="content-wrapper" class="row mcss-01-template">
+                <article id="content"  class="col-xs-12">
+                    <div id="mcss-wrapper">
+                        <div id="mcss-table" class="row">
+                            <div class="col-md-12">
+                               <div class="row  display-table">
+                                   <div class="col-xs-1 col-md-1 mcss-heading-left-column no-padding equal-height">
+                                     <h1 class="text-center">Q.</h1>
+                                   </div>
+                                   <div class="col-xs-11 col-md-11 mcss-heading-right-column no-padding equal-height">
+                                      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                                      </p> 
+                                   </div>
+                               </div> 
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row display-table">
+                                    <div class="col-xs-1 col-md-1 mcss-content-left-column equal-height no-padding">
+                                          <input type="radio" class="myClass" value="yes" id="checkbox" name="answer" data-color="green" />
+                                    </div>
+                                    <div class="col-xs-11 col-md-11 mcss-content-right-column equal-height no-padding">
+                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                                        </p> 
+                                    </div>
+                                </div>   
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row display-table">
+                                    <div class="col-xs-1 col-md-1 mcss-content-left-column no-padding equal-height">
+                                        <input type="radio" class="myClass" value="yes" id="answer" name="answer" data-color="green" />  
+                                    </div>
+                                    <div class="col-xs-11 col-md-11 mcss-content-right-column no-padding equal-height">
+                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+                                        </p>   
+                                    </div>
+                                </div>   
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row display-table">
+                                    <div class="col-xs-1 col-md-1 mcss-content-left-column no-padding equal-height">
+                                        <input type="radio" class="myClass" value="yes" id="answer" name="answer" data-color="green" />
+                                    </div>
+                                    <div class="col-xs-11 col-md-11 mcss-content-right-column no-padding equal-height">
+                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+                                        </p> 
+                                    </div>
+                                </div>   
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row display-table">
+                                    <div class="col-xs-1 col-md-1 mcss-content-left-column no-padding equal-height">
+                                        <input type="radio" class="myClass" value="yes" id="answer" name="answer" data-color="green" />
+                                    </div>
+                                    <div class="col-xs-11 col-md-11 mcss-content-right-column no-padding equal-height">
+                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                                        </p> 
+                                    </div>
+                                </div>   
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-xs-12 col-md-12  mcss-table-bottom no-padding">
+                                        <p class="text-right"><em>Select the correct option and click the <strong> SUBMIT </strong>button</em></p>
+                                    </div>
+                                </div> 
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-xs-12 col-md-12 mcss-submit no-padding">
+                                        <a class="btn btn-default" href="#" role="button">SUBMIT</a>
+                                    </div>
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+
+                </article>  
+            </div>
+             <!-- Content Wrapper End-->
+             <!-- Footer  -->
+             <footer class="row">
+                <div id="page-progress" class="progress col-md-12 ">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 30%">
+                        <span class="sr-only">60% Complete (warning)</span>
+                    </div>
+                </div>
+                <div id="footer-content" class="col-md-12">
+                    <div id="footer-status" class="row no-margin">
+                        <div id="left-block" class="col-md-8  ">
+                             <span class=" glyphicon glyphicon-comment inline">
+                                <label class="hidden-xs"> TRANSCRIPT</label>
+                            </span>
+                            <span class=" glyphicon glyphicon-volume-up inline">
+                                <label class="hidden-xs" >AUDIO ON</label>
+                            </span>
+                            <div id="audio-progress" class="progress inline">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 30%">
+                                    <span class="sr-only">60% Complete (warning)</span>
+                                </div>
+                            </div>
+                            <span class=" glyphicon glyphicon-play inline">
+                                <label class="hidden-xs">PLAY</label>
+                            </span>
+                            <span class=" glyphicon glyphicon-repeat inline">
+                                <label class="hidden-xs">REPLAY</label>
+                            </span> 
+                        </div>
+                        <div id="right-block" class="col-md-4 text-right">
+                            <a href="#" >Click Next to continue.</a>
+                            <span id="pagination">
+                                <i class="glyphicon glyphicon-menu-left inline"></i>
+                                <span class="inline">01/20</span>
+                                <i class="glyphicon glyphicon-menu-right inline"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+             </footer>            
+         <!-- Footer  End -->
+        </div>
+    </div>
+    <!-- Full Width Wrapper -->
+	<script src="assets/libs/jquery-2.1.4.min.js"></script>
+    <script src="assets/libs/bootstrap.min.js"></script>
+    <script src="assets/libs/angular.min.js"></script>
+    <script src="modules/ELearningApp.js"></script>
+    <script src="controllers/rootCtrls.js"></script>
+    <script src="assets/js/prettyCheckable/prettyCheckable.min.js"></script>
+    <script src="assets/js/mcss-01-template.js"></script>
+    <script data-ng-repeat="common_script in common_scripts" data-ng-src="{{common_script.file_url}}" data-alt="{{common_script.file_name}}"></script>
+</body>
+</html>

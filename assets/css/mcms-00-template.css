@@ -1,0 +1,65 @@
+/*************************** Style Sheet mcms-00-template ***********************************/
+/*--------------- Common ----------------------*/
+.display-table{
+    display: table;
+}
+
+.equal-height {
+    float: none;
+    display: table-cell;
+    vertical-align: top;
+}
+/*------------------mcms-00-template ------------*/
+.mcms-00-template .table-heading{
+	background: #336699;
+ 	color: #fff;
+}
+.mcms-00-template  .table-heading strong{
+	margin: 15px 5px;
+	display: block;
+	color: #fff;
+}
+.mcms-00-template  .table-content,.table-content .statement{
+	background: #E7E7E7;
+
+}
+.mcms-00-template  .table-content span,.table-content p{
+	display: block;
+	margin: 15px 5px;
+}
+.mcms-00-template  .table-content .control-group{
+	background: #B9B9B9;
+}
+.mcms-00-template  .control-group input{
+	margin: 15px 5px;
+	display: block;
+}
+.mcms-00-template  .control-group label{
+	color: #fff;
+}
+.mcms-00-template .table-status {
+	background: #0D4A7E;
+	color: #fff;
+}
+
+.mcms-00-template .table-status p{
+	margin: 15px 25px;
+	color: #fff;	
+}
+.mcms-00-template .table-status em{
+	color: #fff;
+}
+
+.mcms-00-template .button-wrapper a, .button-wrapper a:hover{
+		margin: 15px 0px;
+		padding: 12px 25px;
+		border-radius: 0;
+		color: #fff;
+		background: #E68C31;
+		border: 0;
+		font-weight: bold;
+		text-align: center;
+}
+/*.mcms-00-template .table-content [class*="col-"],.table-heading [class*="col-"]{
+	border: 1px solid #fff;
+}*/

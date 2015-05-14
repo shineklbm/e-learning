@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="ELearningApp">
+<head data-ng-controller="rootCtrl">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>E-Learning App</title>
+    <link rel="stylesheet" href="assets/js/prettyCheckable/prettyCheckable.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/common.css">
+    <link rel="stylesheet" href="assets/css/mcss-00-template.css">
+
+</head>
+<body data-ng-controller="rootCtrl">
+
+<!-- 
+Tree menu
+<nav class="menu">
+<ul>
+<li data-ng-repeat = "app_menu in common_configs.app_menus"><a href="{{app_menu.menu_url}}">{{app_menu.menu_title}}</a></li>
+</ul>
+</nav>
+-->
+<!-- Full Width Wrapper -->
+<div id="full-wrapper" class="container-fluid">
+    <div id="bg-wrapper">
+        <img src="{{common_configs.background_image}}">  
+    </div>
+    <!-- Container Wrapper -->
+    <div id="wrapper"  class="container">
+        <!-- Header -->
+        <header class="row">
+            <div id="header-menu" class="col-xs-2 col-lg-1">
+                <i class="glyphicon glyphicon-menu-hamburger"></i>
+            </div>
+            <div id="header-content" class="col-xs-7 col-lg-8">
+                <div  class="row">
+                    <div id="header-title" class="col-xs-12 col-lg-5 ">
+                        <h1>Lorem Ipsum dolor sit</h1>
+                    </div>
+                    <div id="header-text" class="col-xs-12 col-lg-7">
+                        <p>Lorem Ipsum dolor sit</p>
+                    </div>
+                </div>   
+            </div>
+            <div id="header-exit-btn" class="hidden-xs hidden-sm hidden-md col-lg-1 inline">
+                <a href="#">EXIT</a>
+            </div>
+            <div id="header-logo" class="col-xs-3 col-lg-2 inline">
+                <a href="#"><img src="{{common_configs.logo}}" alt=""></a>
+            </div>
+        </header> 
+        <!-- Header End-->
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="row mcss-00-template ">
+            <article id="content"  class="col-xs-12">
+                <!-- mcms-table-wrapper -->
+                    <div id="mcss-table-wrapper" class="row no-margin ">
+                        <!-- Heading -->
+                        <div class="col-md-12 ">
+                            <div class="row table-heading ">
+                                <div class="col-xs-2 col-md-1">
+                                    <!-- No -->
+                                    <strong>No</strong>
+                                </div>
+                                <div class="col-xs-10 col-md-11">
+                                    <div class="row ">
+                                        <div class="col-xs-12 col-md-7 ">
+                                            <!-- statement heading -->
+                                            <strong>Lorem Ipsum dolor sit</strong>
+                                        </div>
+                                        <div class="hidden-xs hidden-sm col-md-5">
+                                            <div class="row ">
+                                                <div class="col-md-4 ">
+                                                    <!--column heading 1 -->
+                                                    <strong>Lorem</strong>
+                                                </div>
+                                                <div class="col-md-4 ">
+                                                    <!--column heading 2 -->
+                                                    <strong>dolor</strong>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <!--column heading 3 -->
+                                                    <strong>dolor</strong>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- content1 -->
+                        <div class="col-md-12 ">
+                            <div class="row table-content">
+                                <div class="col-xs-2 col-md-1">
+                                    <!-- No -->
+                                    <span>1</span>
+                                </div>
+                                <div class="col-xs-10 col-md-11">
+                                    <div class="row">
+                                        <div class="col-xs-12 col-md-7 statement">
+                                            <!-- statement -->
+                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                                        </div>
+                                        <div class="col-xs-12 col-md-5  control-group">
+                                            <div class="row  checkbox-group">
+                                                <div class="col-xs-4 col-md-4 ">
+                                                    <!-- radio 1 -->
+                                                    <label class="hidden-md hidden-lg">Lorem
+                                                    </label>
+                                                    <input  class="prettyradio " type="radio"  name="radio1"/>
+                                                </div>
+                                                <div class="col-xs-4 col-md-4">
+                                                    <!-- radio 2 -->
+                                                    <label class="hidden-md hidden-lg">
+                                                    dolor
+                                                    </label>
+                                                     <input type="radio" class="prettyradio " value="yes"  name="radio1"/>
+                                                </div>
+                                                <div class="col-xs-4 col-md-4">
+                                                    <!-- radio 3 -->
+                                                    <label class="hidden-md hidden-lg">
+                                                     dolor   
+                                                    </label>
+                                                     <input type="radio" class="prettyradio" value="yes" name="radio1" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- content2 -->
+                       <div class="col-md-12 ">
+                            <div class="row table-content">
+                                <div class="col-xs-2 col-md-1">
+                                    <!-- No -->
+                                    <span>2</span>
+                                </div>
+                                <div class="col-xs-10 col-md-11">
+                                    <div class="row">
+                                        <div class="col-xs-12 col-md-7 statement">
+                                            <!-- statement -->
+                                            <p>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages</p>
+                                        </div>
+                                        <div class="col-xs-12 col-md-5  control-group">
+                                            <div class="row  checkbox-group">
+                                                <div class="col-xs-4 col-md-4 ">
+                                                    <!-- radio 1 -->
+                                                    <label class="hidden-md hidden-lg">Lorem
+                                                    </label>
+                                                    <input  class="prettyradio " type="radio" name="radio2"/>
+                                                </div>
+                                                <div class="col-xs-4 col-md-4">
+                                                    <!-- radio 2 -->
+                                                    <label class="hidden-md hidden-lg">
+                                                    dolor
+                                                    </label>
+                                                     <input type="radio" class="prettyradio " value="yes"  name="radio2"/>
+                                                </div>
+                                                <div class="col-xs-4 col-md-4">
+                                                    <!-- radio 3 -->
+                                                    <label class="hidden-md hidden-lg">
+                                                     dolor   
+                                                    </label>
+                                                     <input type="radio" class="prettyradio " value="yes" name="radio2" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- content3 -->
+                        <div class="col-md-12 ">
+                            <div class="row table-content">
+                                <div class="col-xs-2 col-md-1">
+                                    <!-- No -->
+                                    <span>3</span>
+                                </div>
+                                <div class="col-xs-10 col-md-11">
+                                    <div class="row">
+                                        <div class="col-xs-12 col-md-7 statement">
+                                            <!-- statement -->
+                                            <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages</p>
+                                        </div>
+                                        <div class="col-xs-12 col-md-5  control-group">
+                                            <div class="row  checkbox-group">
+                                                <div class="col-xs-4 col-md-4 ">
+                                                    <!-- checkbox 1 -->
+                                                    <label class="hidden-md hidden-lg">Lorem
+                                                    </label>
+                                                    <input  class="prettyradio " type="radio" name="radio3"/>
+                                                </div>
+                                                <div class="col-xs-4 col-md-4">
+                                                    <!-- checkbox 2 -->
+                                                    <label class="hidden-md hidden-lg">
+                                                    dolor
+                                                    </label>
+                                                     <input type="radio" class="prettyradio" value="yes"  name="radio3"/>
+                                                </div>
+                                                <div class="col-xs-4 col-md-4">
+                                                    <!-- checkbox 3 -->
+                                                    <label class="hidden-md hidden-lg">
+                                                     dolor   
+                                                    </label>
+                                                     <input type="radio" class="prettyradio" value="yes" name="radio3" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- content4 -->
+                        <div class="col-md-12 ">
+                            <div class="row table-content">
+                                <div class="col-xs-2 col-md-1">
+                                    <!-- No -->
+                                    <span>4</span>
+                                </div>
+                                <div class="col-xs-10 col-md-11">
+                                    <div class="row">
+                                        <div class="col-xs-12 col-md-7 statement">
+                                            <!-- statement -->
+                                            <p>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages.Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                                        </div>
+                                        <div class="col-xs-12 col-md-5  control-group">
+                                            <div class="col-xs-4 col-md-4 ">
+                                                    <!-- radio 1 -->
+                                                    <label class="hidden-md hidden-lg">Lorem
+                                                    </label>
+                                                    <input  class="prettyradio " type="radio"  name="radio4"/>
+                                                </div>
+                                                <div class="col-xs-4 col-md-4">
+                                                    <!-- radio 2 -->
+                                                    <label class="hidden-md hidden-lg">
+                                                    dolor
+                                                    </label>
+                                                     <input type="radio" class="prettycheckbox " value="yes"  name="radio4"/>
+                                                </div>
+                                                <div class="col-xs-4 col-md-4">
+                                                    <!-- radio 3 -->
+                                                    <label class="hidden-md hidden-lg">
+                                                     dolor   
+                                                    </label>
+                                                     <input type="radio" class="prettyradio " value="yes" name="radio4" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- status -->
+                        <div class="col-md-12 table-status text-right">
+                            <p>
+                                <em>Select the correct option and then click the <strong>SUBMIT</strong> button</em>
+                            </p>
+                        </div>
+                        <!-- Submit btn -->
+                        <div class="col-md-12 button-wrapper text-right">
+                            <a class="btn btn-default " href="#" role="button">SUBMIT</a>
+                        </div>
+
+                    </div>
+                   <!-- mcms-table-wrapper -->     
+            </article>  
+        </div>
+        <!-- Content Wrapper End-->
+        <!-- Footer  -->
+        <footer class="row">
+            <div id="page-progress" class="progress col-lg-12 ">
+                <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 30%">
+                    <span class="sr-only">60% Complete (warning)</span>
+                </div>
+            </div>
+            <div id="footer-content" class="col-lg-12">
+                <div id="footer-status" class="row no-margin">
+                    <div id="left-block" class="col-lg-8  ">
+                        <span class=" glyphicon glyphicon-comment inline">
+                            <label class="hidden-xs"> TRANSCRIPT</label>
+                        </span>
+                        <span class=" glyphicon glyphicon-volume-up inline">
+                            <label class="hidden-xs" >AUDIO ON</label>
+                        </span>
+                        <div id="audio-progress" class="progress inline">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 30%">
+                                <span class="sr-only">60% Complete (warning)</span>
+                            </div>
+                        </div>
+                        <span class=" glyphicon glyphicon-play inline">
+                            <label class="hidden-xs">PLAY</label>
+                        </span>
+                        <span class=" glyphicon glyphicon-repeat inline">
+                            <label class="hidden-xs">REPLAY</label>
+                        </span> 
+                    </div>
+                    <div id="right-block" class="col-lg-4 text-right">
+                        <a href="#" >Click Next to continue.</a>
+                        <span id="pagination">
+                            <i class="glyphicon glyphicon-menu-left inline"></i>
+                            <span class="inline">01/20</span>
+                            <i class="glyphicon glyphicon-menu-right inline"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </footer>            
+        <!-- Footer  End -->
+    </div>
+</div>
+<!-- Full Width Wrapper -->
+<script src="assets/libs/jquery-2.1.4.min.js"></script>
+<script src="assets/libs/bootstrap.min.js"></script>
+<script src="assets/libs/angular.min.js"></script>
+<script src="assets/libs/jquery.equalheights.min.js"></script>
+<script src="assets/js/prettyCheckable/prettyCheckable.min.js"></script>
+<script src="assets/js/mcss-00-template.js"></script>
+<script src="modules/ELearningApp.js"></script>
+<script src="controllers/rootCtrls.js"></script>
+<script data-ng-repeat="common_script in common_scripts" data-ng-src="{{common_script.file_url}}" data-alt="{{common_script.file_name}}"></script>
+</body>
+</html>
