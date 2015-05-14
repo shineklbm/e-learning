@@ -1,6 +1,10 @@
 [
 	{
-	"file_name" : "Open Sans Font Family",
+	"file_name" : "Open Sans Font",
 	"file_url" : "assets/css/open-sans-regular.css"
-	}
+	},
+	{
+	"file_name" : "Iconmoon Font",
+	"file_url" : "assets/css/icomoon.css"
+	}	
 ]

@@ -16,6 +16,10 @@
    .no-padding{padding: 0;}
    .no-border{border: 0;}
    .no-shadow{box-shadow: 0;}
+   .no-margin-left{margin-left: 0;}
+   .no-margin-right{margin-right: 0;}
+   .no-padding-left{padding-left: 0;}
+   .no-padding-right{padding-right: 0;}
    .inline{display: inline-block;}
    
 
@@ -39,21 +43,26 @@ header{
 	padding: 10px 0;
 
 }
-#header-menu i{
+/* #menu i{
 	font-size: 30px;
 	font-weight: normal;
 	color: #00457B;
+} */
+.icon-menu{
+	font-size: 28px;
+	color: #00457b;
 }
-#header-title h1{
-	font-size: 25px;
+#course-title h1{
+	font-size: 18px;
 	display: inline-block;
+	text-transform: uppercase;
 }
-#header-exit-btn::after{
+/* #header-exit-btn::after{
 	content: "|";
 	display: inline-block;
 	color: #D7D6D6;
 	font-size: 25px;
-}
+} */
 
 /*------- Content Wrapper --------*/
 #content-wrapper{

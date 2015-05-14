@@ -1,0 +1,50 @@
+[
+	{
+		"title" 	: "dummy1",
+		"subtitle"	: "Demo subtitle",
+		"template"	: "text-with-image-template.html",
+		"content"	: "dummy1.json",
+		"resource"	: 	[
+							{
+								"video" : ""
+							},
+							{
+								"audio"	: [
+											{
+												"path" : "",
+												"cue_file_path" : ""
+											}
+										  ]
+
+							}
+						]
+	},
+	{
+		"title" 	: "dummy2",
+		"subtitle"	: "Demo subtitle",
+		"template"	: "",
+		"content"	: "dummy2.json",
+		"resource"	: 	[
+							{
+								"video" : ""
+							},
+							{
+								"audio"	: ""
+							}
+						]
+	},
+	{
+		"title" 	: "dummy3",
+		"subtitle"	: "Demo subtitle",
+		"template"	: "",
+		"content"	: "dummy3.json",
+		"resource"	: 	[
+							{
+								"video" : ""
+							},
+							{
+								"audio"	: ""
+							}
+						]
+	}
+]

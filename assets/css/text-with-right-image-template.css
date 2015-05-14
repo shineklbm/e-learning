@@ -15,9 +15,10 @@ img
 	padding-left: 30px;
 	padding-right: 30px;
 }
-.text-with-right-image-template
+#text-with-image-wrapper
 {
-	margin:74px 0 0 0;
+
+	margin:74px 0 105px 0;
 	max-height: 480px;
 }
 .text-with-right-image-template #left-content
