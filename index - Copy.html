@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en" ng-app="ELearningApp">
+<head data-ng-controller="rootCtrl">
+    <meta charset="utf-8">
+    
+    <title>E-Learning App</title>
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/common.css">
+    <link data-ng-repeat="common_style in common_styles" data-ng-href="{{common_style.file_url}}" data-alt="{{common_style.file_name}}" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/image-with-text-template.css">
+
+    <script src="assets/libs/angular.min.js"></script>
+    <script src="assets/libs/angular-route.min.js"></script>
+    <script src="modules/app.js"></script>
+    <script src="controllers/controllers.js"></script>
+</head>
+<body data-ng-controller="rootCtrl">
+	<!-- Full Width Wrapper -->
+    <div id="full-wrapper" class="container-fluid">
+        <div id="bg-wrapper">
+            <img data-ng-src="{{common_configs.background_image}}">  
+        </div>
+        <!-- Container Wrapper -->
+        <div id="wrapper"  class="container">
+            <!-- Header -->
+            <header class="row">
+                <div id="menu" class="col-xs-2 col-lg-1 no-padding-right">
+                    <span class="icon-menu"></span>
+                </div>
+                <div id="header-content" class="col-xs-7 col-lg-8 no-padding-left">
+                    <div  class="row">
+                        <div id="course-title" class="col-xs-12 col-lg-5 ">
+                            <h1>Lorem Ipsum dolor sit</h1>
+                        </div>
+                        <div id="course-descirption" class="col-xs-12 col-lg-7">
+                            <p>Lorem Ipsum dolor sit</p>
+                        </div>
+                    </div>   
+                </div>
+                <div id="header-exit-btn" class="hidden-xs hidden-sm hidden-md col-lg-1 inline">
+                    <a href="#">EXIT</a>
+                </div>
+                <div id="logo" class="col-xs-3 col-lg-2 inline">
+                    <a href="#"><img data-ng-src="{{common_configs.logo}}" alt=""></a>
+                </div>
+            </header> 
+            <!-- Header End-->
+            <!-- Content Wrapper -->
+            <div id="content-wrapper" class="row">
+                <article id="content"  class="col-xs-12" data-ng-view>
+                <!-- data will replace here -->
+                </article>
+            </div>
+            <!-- Footer  -->
+             <footer class="row">
+                <div id="page-progress" class="progress col-lg-12 ">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 30%">
+                        <span class="sr-only">60% Complete (warning)</span>
+                    </div>
+                </div>
+                <div id="footer-content" class="col-lg-12">
+                    <div id="footer-status" class="row no-margin">
+                        <div id="left-block" class="col-lg-8  ">
+                             <span class=" glyphicon glyphicon-comment inline">
+                                <label class="hidden-xs"> TRANSCRIPT</label>
+                            </span>
+                            <span class=" glyphicon glyphicon-volume-up inline">
+                                <label class="hidden-xs" >AUDIO ON</label>
+                            </span>
+                            <div id="audio-progress" class="progress inline">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 30%">
+                                    <span class="sr-only">60% Complete (warning)</span>
+                                </div>
+                            </div>
+                            <span class=" glyphicon glyphicon-play inline">
+                                <label class="hidden-xs">PLAY</label>
+                            </span>
+                            <span class=" glyphicon glyphicon-repeat inline">
+                                <label class="hidden-xs">REPLAY</label>
+                            </span> 
+                        </div>
+                        <div id="right-block" class="col-lg-4 text-right">
+                            <a href="#" >Click Next to continue.</a>
+                            <span id="pagination">
+                                <i class="glyphicon glyphicon-menu-left inline"></i>
+                                <span class="inline">01/20</span>
+                                <i class="glyphicon glyphicon-menu-right inline"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!-- Footer  End -->
+        </div>
+        <!-- Container Wrapper -->
+    </div>
+    <!-- Full Width Wrapper -->
+	<script src="assets/libs/jquery-2.1.4.min.js"></script>
+    <script src="assets/libs/bootstrap.min.js"></script>
+    <script data-ng-repeat="common_script in common_scripts" data-ng-src="{{common_script.file_url}}" data-alt="{{common_script.file_name}}"></script>
+</body>
+</html>
