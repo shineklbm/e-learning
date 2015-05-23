@@ -2,16 +2,8 @@
 
 /*------------------------Common------------------------------*/
 
-.display-table{
-    display: table;
-}
 
-.display-table .equal-height {
-    float: none;
-    display: table-cell;
-    vertical-align: top;
-}
-/*-------- mcms-01-template.css -------------*/
+/*-------- 01-template.css -------------*/
   
 /*------- Content Wrapper --------*/
 #content-wrapper{
@@ -23,57 +15,61 @@
 {
 	margin-top: 105px;
 }
-
-.mcms-heading-left-column 
+.heading-left
 {
 	background-color: #29527A;
 }
-.mcms-heading-left-column h1
+.heading-left h1
 {
 	margin-top: 20px;
 	color: #fff;
-
 }
-.mcms-heading-right-column
+.heading-right
 {
 	background-color:#336699;
 }
-.mcms-heading-right-column p
+.heading-right p
 {
 	margin: 25px;
 	color:#fff;
 }
-.mcms-content-left-column
+.content-left
 {
 	background-color: #B9B9B9;
 	border-bottom: 1px solid #fff;
 	text-align: center;
 }
-.mcms-content-right-column
+.content-right
 {
 	background-color: #E7E7E7;
 	border-bottom: 1px solid #fff;
 }
-.mcms-content-right-column p
+.content-right p
 {
 	margin: 25px;
 	color: #000;
 }
-.mcms-table-bottom
+#table-bottom
 {
 	background-color: #0D4A7E;
 	border-bottom: 1px solid #fff;
 }
-.mcms-table-bottom p 
+#table-bottom p 
 {
 	color: #fff;
 	margin: 10px 30px 10px;
 }
-#mcms-table em
+#table-bottom em
 {
 	color: #fff;
 } 
-.mcms-submit a 
+.submit .submit-btn,
+.submit .submit-btn.active,
+.submit .submit-btn:active,
+.submit .submit-btn.focus,
+.submit .submit-btn:focus,
+.submit .submit-btn:hover,
+.open >.dropdown-toggle.btn-default
 {
 	float: right;
 	background-color: #E68C31;
@@ -85,5 +81,22 @@
     border-color:  #b87027;
     border-bottom: 0;
     border-right: 0;
-
+}
+.submit #myModal .modal-header
+{
+	background-color: #0D4A7E;
+	color: #fff;
+}
+.submit #myModal .modal-content
+{
+	background-color:#E7E7E7;
+	border: none;
+	border-radius: 0px;
+}
+#close-button
+{
+	opacity: inherit;
+	color: #fff;
+	text-shadow: none;
+	font-weight: normal;
 }

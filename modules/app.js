@@ -4,7 +4,7 @@ var ELearningApp = angular.module('ELearningApp', [
   'ngRoute',
   'coreRoutesController'
 ]);
-ELearningApp.config(['$routeProvider',
+/*ELearningApp.config(['$routeProvider',
     function($routeProvider) {
       $routeProvider
       .when('/index', {
@@ -15,4 +15,4 @@ ELearningApp.config(['$routeProvider',
         redirectTo: '/index'
       });
     }
-  ]);
+  ]);*/

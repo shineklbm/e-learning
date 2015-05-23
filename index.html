@@ -17,8 +17,8 @@
     <div id="full-wrapper" class="container-fluid">
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="row">
-            <article id="content"  class="col-xs-12" data-ng-view>
-            <!-- data will replace here -->
+            <article id="content"  class="col-xs-12">
+                <div class="slide-animate" ng-include="components/click-and-reveal-popup.html"></div>
             </article>
         </div>
         <!-- Full Width Wrapper -->
@@ -26,6 +26,8 @@
     <!-- Full Width Wrapper -->
 	<script src="assets/libs/jquery-2.1.4.min.js"></script>
     <script src="assets/libs/bootstrap.min.js"></script>
-    <script data-ng-repeat="common_script in common_scripts" data-ng-src="{{common_script.file_url}}" data-alt="{{common_script.file_name}}"></script>
+    
+    <!--<script data-ng-repeat="common_script in common_scripts" data-ng-
+    src="{{common_script.file_url}}" data-alt="{{common_script.file_name}}"></script>-->
 </body>
 </html>

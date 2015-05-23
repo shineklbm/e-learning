@@ -5,15 +5,15 @@
 var coreRoutesController = angular.module('coreRoutesController', []);
 
 coreRoutesController.controller('rootCtrl', function($scope, $http){
-		$http.get("common/configs.json")
+		$http.get("configs/commons.json")
 		.success(function(response) {
 			$scope.common_configs = response;
 		});
-		$http.get("common/styles.json")
+		$http.get("configs/styles.json")
 		.success(function(response) {
 			$scope.common_styles = response;
 		});
-		$http.get("common/scripts.json")
+		$http.get("configs/scripts.json")
 		.success(function(response) {
 			$scope.common_scripts = response;
 		});

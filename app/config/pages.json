@@ -1,50 +1,29 @@
 [
 	{
-		"title" 	: "dummy1",
-		"subtitle"	: "Demo subtitle",
-		"template"	: "text-with-image-template.html",
-		"content"	: "dummy1.json",
-		"resource"	: 	[
-							{
-								"video" : ""
-							},
-							{
-								"audio"	: [
-											{
-												"path" : "",
-												"cue_file_path" : ""
-											}
-										  ]
-
-							}
-						]
+		"page_id"	: 	"1",
+		"title" 	: 	"dummy1",
+		"subtitle"	: 	"Demo subtitle",
+		"template"	: 	"",
+		"varient"	: 	"",
+		"content"	: 	"dummy1.json",
+		"style"		:	"page1.css"
 	},
 	{
-		"title" 	: "dummy2",
-		"subtitle"	: "Demo subtitle",
-		"template"	: "",
-		"content"	: "dummy2.json",
-		"resource"	: 	[
-							{
-								"video" : ""
-							},
-							{
-								"audio"	: ""
-							}
-						]
+		"page_id"	: 	"2",
+		"title" 	: 	"dummy2",
+		"subtitle"	: 	"Demo subtitle",
+		"template"	: 	"",
+		"varient"	: 	"",
+		"content"	: 	"dummy2.json",
+		"style"		:	"page2.css"	
 	},
 	{
-		"title" 	: "dummy3",
-		"subtitle"	: "Demo subtitle",
-		"template"	: "",
-		"content"	: "dummy3.json",
-		"resource"	: 	[
-							{
-								"video" : ""
-							},
-							{
-								"audio"	: ""
-							}
-						]
+		"page_id"	: 	"3",
+		"title" 	: 	"dummy3",
+		"subtitle"	: 	"Demo subtitle",
+		"template"	: 	"",
+		"varient"	: 	"",
+		"content"	: 	"dummy3.json",
+		"style"		:	"page3.css"
 	}
 ]
