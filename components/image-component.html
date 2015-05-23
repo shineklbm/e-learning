@@ -1,54 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Image Component</title>
 
-    <!-- Bootstrap -->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/css/common.css" rel="stylesheet">
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  
-  <!-- compoenent specific styles are here -->
-  <link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
-  <!-- compoenent specific styles are here -->
-  
-  </head>
-  <body>
-  <div class="container">
-    <div class="row">
-      <div id="component-wrapper" class="col-xs-12 v-scroll">
-        <!-- component wrapper -->
-        <!-- image-component-wrapper -->
-        <div class="row image-component-wrapper">
-          <div class="col-xs-12 image-component">
-             <img src="assets/images/person-left.jpg"/>
-          </div>
-        </div>
-        <!-- image-component-wrapper ends -->
-        <!-- component wrapper -->
-      </div>
-    </div>
+<!-- image-component-wrapper -->
+<div class="row image-component-wrapper">
+  <div class="col-xs-12 image-component" data-ng-controller="imageCtrl" data-ng-init="init('{{imageinfo}}')">
+     <!-- <img src="assets/images/person-left.jpg"/> -->
+     <!-- {{imageinfo}} -->
+     {{datasource}}
   </div>
-
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="assets/libs/jquery-2.1.4.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="assets/libs/bootstrap.min.js"></script>
-
-
-    <!-- component specific scripts here -->
-    <script src="assets/libs/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script src="assets/js/common.js"></script><!--for scroll-bar -->
-    <!-- component specific scripts here -->
-  </body>
-</html>
+</div>
+<!-- image-component-wrapper ends -->
+        

@@ -1,0 +1,51 @@
+#left-dnd
+{
+	background-color: #F1F0F0;
+	height: 500px;
+
+}
+#left-dnd-content
+{
+	margin-top: 10px;
+}
+#left-dnd-left-heading
+{
+	background-color: #336699;
+	height:40px; 
+	color: #fff;
+}
+#left-dnd-right-heading
+{
+	background-color: #336699;
+	height:40px; 
+	color: #fff;
+}
+#droppable
+{
+	height: 400px;
+	background-color: #E3E2E2
+}
+
+#right-dnd
+{
+	background-color: #F1F0F0;
+	height: 500px;
+}
+#right-dnd-heading
+{
+	background-color: #336699;
+	height:40px; 
+	color: #fff;
+	margin-bottom: 20px;
+}
+#draggable
+{
+	background-color: #336699;
+	height:40px; 
+	color: #fff;
+	margin-bottom: 20px;
+}
+.droppable
+{
+	margin-bottom: 20px;
+}

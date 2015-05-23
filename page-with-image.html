@@ -8,13 +8,14 @@
     <script src="assets/libs/angular.min.js"></script>
     <script src="assets/js/app.js"></script>
 </head>
-<body data-ng-controller="readData">
+<body>
 	<!-- Full Width Wrapper -->
     <div id="full-wrapper" class="container-fluid">
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="row">
-            <article id="content"  class="col-xs-12">
-    			<div ng-include="'components/tab-component.html'"></div>
+            <article id="content"  class="col-xs-12" data-ng-controller="pageCtrl">
+                <!-- {{imageinfo}} -->
+    			<div data-ng-include="'components/image-component.html'"></div>                
     		</article>
         </div>
         <!-- Full Width Wrapper -->
