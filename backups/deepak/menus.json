@@ -1,0 +1,93 @@
+{
+    "core": {
+		"themes" : { "theme" : "default",
+	            "dots" : false,
+	            "icons" : false 
+				},
+        "data": [
+            {
+                "id"		: 	"page1",
+                "parent"	: 	"#",
+                "text"		: 	"COURSE TITLE 01"
+            },
+				{
+					"id": "page1child1",
+					"parent": "page1",
+					"text": "Module 01"
+				},
+					{
+						"id": "page1child1subchild1",
+						"parent": "page1child1",
+						"text": "Page 01"
+					},
+					{
+						"id": "page1child1subchild2",
+						"parent": "page1child1",
+						"text": "Page 02"
+					},
+            {
+                "id": "page2",
+                "parent": "#",
+                "text": "COURSE TITLE 02"
+            },
+				{
+					"id": "page2child1",
+					"parent": "page2",
+					"text": "Module 01"
+				},
+					{
+						"id": "page2child1subchild1",
+						"parent": "page2child1",
+						"text": "Page 01"
+					},
+					{
+						"id": "page2child1subchild2",
+						"parent": "page2child1",
+						"text": "Page 02"
+					},
+				{
+					"id": "page2child2",
+					"parent": "page2",
+					"text": "Module 02"
+				},
+					{
+						"id": "page2child2subchild1",
+						"parent": "page2child2",
+						"text": "Page 01"
+					},
+					{
+						"id": "page2child2subchild2",
+						"parent": "page2child2",
+						"text": "Page 02"
+					},
+					{
+						"id": "page2child2subchild3",
+						"parent": "page2child2",
+						"text": "Page 02"
+					},
+				{
+					"id": "page2child3",
+					"parent": "page2",
+					"text": "Module 03"
+				},
+			
+					{
+						"id": "page2child3subchild1",
+						"parent": "page2child3",
+						"text": "Page 01"
+					},
+					{
+						"id": "page2child3subchild2",
+						"parent": "page2child3",
+						"text": "Page 02"
+					},
+					{
+						"id": "page2child3subchild3",
+						"parent": "page2child3",
+						"text": "Page 03"
+					}
+			
+        ]
+    },
+	"plugins" : [ "themes", "data" ]
+}

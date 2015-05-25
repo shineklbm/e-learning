@@ -9,11 +9,15 @@ angular.module("eLearning")
 	.directive('imageComponent', imageComponent)
 	.directive('accordionComponent', accordionComponent)
 	.directive('tabComponent', tabComponent);
-	
+
 function textComponent() {
 	return {
 		restirct: 'E',
-		templateUrl: 'components/text-component.html'
+		templateUrl: 'components/text-component.html',
+		controller: function($scope, $http, $element, $attrs){
+			console.log($attrs.datasource);
+			
+		}
 	};
 }
 function imageComponent() {
