@@ -8,8 +8,19 @@ a,a:hover{ text-decoration: none; color: #000; cursor: pointer; }
 .no-shadow{box-shadow: 0;}
 .inline{display: inline-block;}
 img{ max-width: 100%; height: auto; }
+header{ background: #e3e2e2; }
+h1, h2, h3,h4, h5, h6{ color: #3b3b3b; }
+h1{	font-size: 19px; text-transform: uppercase; }
+h2{	font-size: 17px; }
+h3{ font-size: 16px; }
+p{ font-size: 14px; }
 
-#component-wrapper{
-	margin-top: 60px;
-	height: 700px;
-}
+/* header seciton styles here */
+header{ padding: 6px 0; }
+header #menu-wrapper{ border-left: 6px #e3801b solid; min-height: 44px; margin-top: -6px; margin-bottom: -6px; text-align: center; font-size: 31px; }
+header #menu-wrapper span{ cursor: pointer; }
+header h1, header h2{ display: inline-block; padding: 6px 0; margin: 0; }
+header h1{ border-right: #cecdcd 1px solid; padding-right: 17px; margin-right: 26px; }
+header #logo-wrapper{ text-align: right; }
+header #logo-wrapper span{ padding: 6px 0; display: inline-block; margin-right: 16px; padding-right: 18px; border-right: #cecdcd 1px solid; }
+/* header seciton styles here */
