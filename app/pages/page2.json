@@ -1,0 +1,9 @@
+{
+	"page_id"	: 	"page2",
+	"title" 	: 	"Page 2",
+	"subtitle"	: 	"Demo subtitle",
+	"template"	: 	"",
+	"varient"	: 	"",
+	"content"	: 	"page2.json",
+	"style"		:	"page2.css"
+}

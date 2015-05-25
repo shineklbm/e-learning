@@ -1,41 +1,23 @@
 <div class="row text-component-wrapper">
 	<article class="col-xs-12 text-component" data-ng-controller="readData">
-		<!-- Nav tabs -->
-		<!-- <div class="row no-margin" id="horizondal-tab-wrapper"  role="tabpanel">
-	        <ul class="nav nav-pills col-xs-12">
-	            <li role="presentation"
-	            	class="active"
-	            	data-ng-repeat="content in contents.tabs">
-	            	<a href="#{{content.id}}" aria-controls="{{content.id}}" role="tab" data-toggle="tab">
-					{{content.title}}
-	            	</a>
-	            </li>
-	        </ul>
-			<div class="tab-content">
-	            <div role="tabpanel" class="tab-pane active" id="{{content.id}}"
-	            	 data-ng-repeat="content in contents.tabs">
-	                {{content.content}}
-	            </div>
-			</div>
-		</div> -->
 		<div class="row no-margin" id="horizondal-tab-wrapper"  role="tabpanel">
-                    <!-- Nav tabs -->
-                    <ul class="nav nav-pills col-xs-12">
-                        <li role="presentation" class="{{content.active}}" data-ng-repeat="content in contents.tabs"><a href="#{{content.id}}" aria-controls="{{content.id}}" role="tab" data-toggle="tab">
-                        	{{content.title}}
-                        </a></li>
-                    </ul>
-                    <!-- Nav tabs End-->
-                    <!-- Tab Content -->
-                    <div class="tab-content">
-                        <div role="tabpanel" class="tab-pane  {{content.active}} " id="{{content.id}}" data-ng-repeat="content in contents.tabs">
-                            <p>
-                               {{content.content}} 
-                            </p>
-                        </div>
-                    </div>
-                        <!-- tab-content End -->
+            <!-- Nav tabs -->
+            <ul class="nav nav-pills col-xs-12">
+                <li role="presentation" class="{{content.active}}" data-ng-repeat="content in contents.tabs"><a href="#{{content.id}}" aria-controls="{{content.id}}" role="tab" data-toggle="tab">
+                	{{content.title}}
+                </a></li>
+            </ul>
+            <!-- Nav tabs End-->
+            <!-- Tab Content -->
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane  {{content.active}} " id="{{content.id}}" data-ng-repeat="content in contents.tabs">
+                    <p>
+                       {{content.content}} 
+                    </p>
                 </div>
+            </div>
+            <!-- tab-content End -->
+        </div>
 	</article>
 </div>
  <!-- text-component-wrapper ends -->

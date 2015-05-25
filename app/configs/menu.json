@@ -2,9 +2,9 @@
     "core": {
         "data": [
             {
-                "id"		: 	"page1",
-                "parent"	: 	"#",
-                "text"		: 	"Image Component"
+                "id"      :   "page1",
+                "parent"  :   "#",
+                "text"    :   "Image Component"
             },
             {
                 "id": "page2",
@@ -12,15 +12,12 @@
                 "text": "Text Component"
             },
             {
-                "id": "page1child1",
+                "id": "page3",
                 "parent": "page1",
-                "text": "Demo 1",
-                "a_attr"    : 	{
-                					"data-ng-click"	:	"changeListName(22)"
-                				}
+                "text": "Demo 1"
             },
             {
-                "id": "page2child1",
+                "id": "page4",
                 "parent": "page2",
                 "text": "Demo 2"
             }
