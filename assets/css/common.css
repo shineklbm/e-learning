@@ -1,6 +1,11 @@
 /*********************** Style Sheet *****************************/
 /*-------- Common -------------*/
 html, body { height: 100%; }
+html,body,header,footer,section,aside,div,span,label,input,article,p,h1,h2,h3,h4,h5,h6{
+		margin: 0;
+		padding: 0;
+		
+}
 a,a:hover{ text-decoration: none; color: #000; cursor: pointer; }
 .no-margin{margin: 0;}
 .no-padding{padding: 0;}
@@ -16,11 +21,324 @@ h3{ font-size: 16px; }
 p{ font-size: 14px; }
 
 /* header seciton styles here */
-header{ padding: 6px 0; }
-header #menu-wrapper{ border-left: 6px #e3801b solid; min-height: 44px; margin-top: -6px; margin-bottom: -6px; text-align: center; font-size: 31px; }
+header{ padding: 6px 0; border-left: 6px #e3801b solid; }
+header #menu-wrapper{  margin-left: -7px; min-height: 44px; margin-top: -6px; margin-bottom: -6px; text-align: center; font-size: 31px; }
 header #menu-wrapper span{ cursor: pointer; }
 header h1, header h2{ display: inline-block; padding: 6px 0; margin: 0; }
 header h1{ border-right: #cecdcd 1px solid; padding-right: 17px; margin-right: 26px; }
 header #logo-wrapper{ text-align: right; }
 header #logo-wrapper span{ padding: 6px 0; display: inline-block; margin-right: 16px; padding-right: 18px; border-right: #cecdcd 1px solid; }
 /* header seciton styles here */
+
+/*------------------- Menu ---------------------------------------*/
+#inner-wrapper{
+	position: relative;
+}
+#menu-wrapper span{
+	display: block;
+}
+#vertical-menu-wrapper{
+	position: absolute;
+	background: #4E4E4E;
+	opacity: 0.9;
+	color: #E1E1E1;
+	display: none;
+	height: auto;
+	padding: 30px;
+	min-width: 315px;
+	z-index: 1000;
+}
+#vertical-menu-wrapper h3{
+	color: #fff;
+	font-size: 22px;
+	margin-top: 0;
+	display: inline-block;
+}
+#vertical-menu-wrapper a.close-btn{
+	color: #fff;
+	font-size: 22px;
+	margin-top: 0;
+	float: right;
+	display: block;
+	cursor: pointer;
+}
+#menu{
+	
+	position: relative;
+	background: #4E4E4E;
+	color: #E1E1E1;
+	height: auto;
+	
+}
+#menu ul{
+	margin: 0;
+	padding: 0;
+	height: auto;
+	background: #4E4E4E;
+	color: #E1E1E1;
+}
+#menu ul li{
+	margin: 0;
+	display: block;
+	background: #4E4E4E;
+	color: #E1E1E1;
+}	
+#menu ul li i.jstree-icon,#menu ul li i.jstree-ocl,#menu ul li i.jstree-icon:empty{
+	display: none;
+
+}
+#menu ul li a{
+	outline: 0;
+	display: inline-block;
+	padding: 4px 10px;
+	font-size: 16px;
+	font-weight: normal;
+	width: 100%;
+	border-bottom: 1px solid #838383;
+	box-shadow: none;
+}
+	 
+#menu ul li:last-child{
+	margin-bottom: 10px;
+}
+#menu ul li a:hover{
+	background: #336699;
+	color: #fff;
+	outline: 0;
+	border-radius: 0;
+	border-bottom: 1px solid #4E4E4E;
+}
+#menu ul li.jstree-open a.jstree-clicked
+#menu ul li.jstree-open a:hover,
+#menu ul li.jstree-open a:focus{
+	background: #E3801B;
+	color: #E1E1E1;
+	outline: 0;
+	width: 100%;
+	outline: 0;
+	border-radius: 0;
+	border-bottom: 1px solid #4E4E4E;
+}
+#menu ul li.jstree-closed > a:after{
+	content: "\203A";
+	color: #E1E1E1;
+	font-size: 24px;
+    position: absolute;
+    right: 10px;
+    
+    
+}
+
+#menu ul li.jstree-open > a:after{
+	content: "\203A";
+	color: #E1E1E1;
+	font-size: 24px;
+    position: absolute;
+    right: 10px;
+    -ms-transform: rotate(90deg); /* IE 9 */
+    -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
+    transform: rotate(90deg);
+
+}
+
+#menu ul li.jstree-node, #menu ul li a.jstree-anchor{
+	height: auto;
+	min-height: auto;
+}
+ 
+#menu ul li a:hover,#menu ul li a.jstree-clicked:hover{
+	background: #336699;
+	color:#E1E1E1;
+	outline: 0;
+}
+#menu ul li a.jstree-clicked{
+	background: #4E4E4E;
+	color:#E1E1E1;
+}
+/* --- Sub Menu ---- */
+
+#menu ul li ul{
+	margin: 0;
+	padding: 0;
+	height: auto;
+	background: #4E4E4E;
+	color: #E1E1E1;
+}
+#menu ul li ul li{
+	margin: 0;
+	padding: 0;
+	background: #4E4E4E;
+	color: #E1E1E1;
+}
+#menu ul li ul li > a{
+	font-size: 14px;
+	font-weight: normal;
+	padding: 4px 18px;
+}
+#menu ul li ul li > a:hover{
+	border-bottom: 1px solid #4E4E4E;
+}
+#menu ul li ul li.jstree-closed > a{
+	background:#336699;
+	color: #E1E1E1;
+	border-bottom: 1px solid #4E4E4E;
+	border-radius: 0;
+}
+#menu ul li ul li.jstree-open > a{
+	background:#E3801B; 
+	color: #E1E1E1;
+	border-bottom: 1px solid #4E4E4E;
+	border-radius: 0;
+}
+/*-------------------------------content-wrapper-------------------------------*/
+#content-wrapper{
+	
+	min-height: 500px;
+}
+/*---------------------------------Footer----------------------------------*/
+/*------- Footer --------*/
+footer{
+	background: #F2F2F2;
+	height: 45px;
+/* 	position: absolute;
+bottom: 0;
+left: 0; */
+}
+#footer-content{
+	padding: 0 12px;
+	width: 100%;
+}
+#page-progress{
+	width: 100%;
+	padding: 0;
+	/*margin-bottom: 17px;*/
+}
+/*-- Main Page Progress --*/
+.progress{
+	background: #9C9C9C;
+	width: 200px;
+	height: 3px;
+}
+#page-progress{
+	margin-bottom: 0;
+}
+#page-progress .progress-bar{
+	background: #1B9ED4;
+}
+/*-- Audio Progress --*/
+#audio-progress{
+	margin: 4px;
+}
+#audio-progress .progress-bar{
+	background: #E3801B;
+}
+/*-- Left block --*/
+#footer-content #left-block{
+	padding-top:11px;
+	/*padding-left:12px; */
+}
+#footer-content #left-block .glyphicon{
+	font-size: 14px;
+	color: #4E4E4E;
+}
+.icon-play{
+	font-size: 16px;
+	color: #4E4E4E;
+}
+#footer-content #left-block .icon-block ,#audio-progress{
+	margin-right: 12px;
+}
+#footer-content #left-block label{
+	font-weight: normal;
+	font-size: 14px;
+	margin-top: -2px;
+}
+/*-- Right Block --*/
+#footer-content #right-block a, #footer-content #right-block #pagination{
+	padding: 0 10px;
+}
+#footer-content #right-block a{
+	color: #E3801B;
+	font-style: italic;
+	float: left;
+	padding-top: 11px;
+}
+#footer #right-block em{
+	color: #E3801B;
+}
+#pagination .icon-back-arrow,#pagination .icon-next-arrow{
+	font-size: 45px;
+	color: #4E4E4E;
+}
+
+#pagination{
+	display: inline-block;
+}
+#pagination span{
+	
+	height: 30px;
+	font-size:20px;
+	color: #fff;
+	background: #E3801B;
+	padding: 3px;
+/*	display: inline-block;*/
+}
+
+/*--------------------- Media Query ---------------------------------*/
+
+@media screen and (max-width: 991px) { 
+/* header seciton styles here */
+	header{padding: 15px 0;}
+	header h1, header h2{ display: block;border: 0;}
+	header #title-wrapper{border-right: #cecdcd 1px solid;}
+	header #logo-wrapper{margin-top: 20px;}
+	header #logo-wrapper span{display: none;}
+	header #menu-wrapper{margin-top: 12px;}
+/* header seciton styles here */
+/*------------------------------------------------- Footer---------------------------*/
+	#footer-content #left-block{
+		padding-top: 2px;
+	}
+	#footer-content #left-block .icon-block {
+		margin-right: 10px;
+	}
+	#footer-content #left-block i::after{
+		content: "|";
+		display: inline-block;
+		color: #D7D6D6;
+		/*position: absolute;*/
+		top: 0;
+		font-size: 25px;
+		margin-left: 10px;
+	}
+ }
+ @media screen and (max-width: 767px) { 
+/* header seciton styles here */
+	header #title-wrapper,header h1, header h2{
+		margin-right: 0;
+		padding-right: 0;
+	}
+/* header seciton styles here */
+
+}
+ @media screen and (max-width: 430px) {
+/* header seciton styles here */
+ 	header h1{font-size: 16px;}
+ 	header h2{ font-size: 14px;}
+	header #menu-wrapper span{font-size: 21px;}
+	header #menu-wrapper{margin-top: 16px;}
+/* header seciton styles here */
+	/*------------------------------------------------- Footer---------------------------*/
+	#footer-content #left-block .icon-block {
+		margin-right: 2px;
+	}
+	#footer-content #left-block i::after{
+		content: "|";
+		display: inline-block;
+		color: #D7D6D6;
+		/*position: absolute;*/
+		top: 0;
+		font-size: 25px;
+		margin-left: 5px;
+	}
+ }

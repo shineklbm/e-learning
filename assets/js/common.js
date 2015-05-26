@@ -1,3 +1,11 @@
-jQuery(document).ready(function(){
-	$('.v-scroll').mCustomScrollbar({ theme:"light-1", scrollbarPosition: "outside" });	
+jQuery(document).ready(function($){
+	$('#menu-wrapper span').on('click',function(){
+		$('#vertical-menu-wrapper').toggle('slow');
+	});
+	$('.close-btn').on('click',function(){
+		$('#vertical-menu-wrapper').toggle('slow');
+	});
+	var content_height = ($(window).height() - $('#header').height() - $('#footer').height());
+	$("#content-wrapper").height(content_height-20);
+	$("#content-wrapper").css("background", "#577");
 });
