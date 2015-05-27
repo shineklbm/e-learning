@@ -2,8 +2,7 @@
 	"page_id"	: 	"page2",
 	"title" 	: 	"Page 2",
 	"subtitle"	: 	"Demo subtitle",
-	"template"	: 	"",
-	"varient"	: 	"",
+	"template"	: 	"single-column-template.html",
 	"content"	: 	"page2.json",
 	"style"		:	"page2.css"
 }

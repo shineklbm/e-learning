@@ -30,6 +30,22 @@ header #logo-wrapper{ text-align: right; }
 header #logo-wrapper span{ padding: 6px 0; display: inline-block; margin-right: 16px; padding-right: 18px; border-right: #cecdcd 1px solid; }
 /* header seciton styles here */
 
+/* fullwidth background */
+#background-wrapper{
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	position: absolute;
+	z-index: -1;
+	overflow: hidden;
+}
+#background-wrapper img{
+	width: 100%;
+	height: auto;
+}
+/* fullwidth background */
+
 /*------------------- Menu ---------------------------------------*/
 #inner-wrapper{
 	position: relative;

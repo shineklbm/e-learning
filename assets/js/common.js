@@ -7,5 +7,4 @@ jQuery(document).ready(function($){
 	});
 	var content_height = ($(window).height() - $('#header').height() - $('#footer').height());
 	$("#content-wrapper").height(content_height-20);
-	$("#content-wrapper").css("background", "#577");
 });

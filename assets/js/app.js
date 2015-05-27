@@ -4,46 +4,52 @@ angular.module("eLearning", []);
 //controller declaration
 angular.module("eLearning")
 	.controller('rootCtrl', ['$scope', '$http', rootController])
-	.controller('pageCtrl', ['$scope', pageController])
-	.directive('textComponent', textComponent)
-	.directive('imageComponent', imageComponent)
-	.directive('accordionComponent', accordionComponent)
-	.directive('tabComponent', tabComponent)
+	.controller('pageCtrl', ['$scope', pageController])	
 	.filter('unsafe', function($sce) {
 	    return function(val) {
 			return $sce.trustAsHtml(val);
 	    };
-	});
-function textComponent() {
-	return {
-		restirct: 'E',
-		templateUrl: 'components/text-component.html',
-		controller: function($scope, $http, $element, $attrs, $sce){
-			if($attrs.datasource.length >= 1){
-				$scope.current_content = $scope.page_content.contents[$attrs.datasource];
+	})
+	.directive('textComponent', function(){
+		return {
+			restirct: "E",
+			scope: {},
+			templateUrl: 'components/text-component.html',
+			link: function(scope, element, attrs){
+				scope.content = scope.$parent.page_content.contents[attrs.datasource];
 			}
 		}
-	};
-}
-
-function imageComponent() {
-	return {
-		restirct: 'E',
-		templateUrl: 'components/image-component.html'
-	};
-}
-function accordionComponent() {
-	return {
-		restirct: 'E',
-		templateUrl: 'components/accordion-component.html'
-	};
-}
-function tabComponent() {
-	return {
-		restirct: 'E',
-		templateUrl: 'components/tab-component.html'
-	};
-}
+	})
+	.directive('tabComponent', function(){
+		return {
+			restirct: "E",
+			scope: {},
+			templateUrl: 'components/tab-component.html',
+			link: function(scope, element, attrs){
+				scope.content = scope.$parent.page_content.contents[attrs.datasource];
+			}
+		}
+	})
+	.directive('imageComponent', function(){
+		return {
+			restirct: "E",
+			scope: {},
+			templateUrl: 'components/text-component.html',
+			link: function(scope, element, attrs){
+				scope.content = scope.$parent.page_content.contents[attrs.datasource];
+			}
+		}
+	})
+	.directive('tabComponent', function(){
+		return {
+			restirct: "E",
+			scope: {},
+			templateUrl: 'components/tab-component.html',
+			link: function(scope, element, attrs){
+				scope.content = scope.$parent.page_content.contents[attrs.datasource];
+			}
+		}
+	});
 function rootController($scope, $http){
 	$http.get('configs/commons.json')
 		.success(function(data){
