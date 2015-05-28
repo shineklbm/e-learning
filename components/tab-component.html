@@ -1,23 +1,23 @@
 <div class="row text-component-wrapper">
 	<article class="col-xs-12 tab-component">
 		<div class="row no-margin" id="horizondal-tab-wrapper"  role="tabpanel">
-            <!-- Nav tabs -->
-            <ul class="nav nav-pills col-xs-12">
-                <li role="presentation" class="{{content.active}}" data-ng-repeat="content in contents.tabs"><a href="#{{content.id}}" aria-controls="{{content.id}}" role="tab" data-toggle="tab">
-                	{{content.title}}
-                </a></li>
-            </ul>
-            <!-- Nav tabs End-->
-            <!-- Tab Content -->
-            <div class="tab-content">
-                <div role="tabpanel" class="tab-pane  {{content.active}} " id="{{content.id}}" data-ng-repeat="content in contents.tabs">
-                    <p>
-                       {{content.content}} 
-                    </p>
-                </div>
-            </div>
-            <!-- tab-content End -->
-        </div>
+			<!-- Nav tabs -->
+			<ul class="nav nav-pills col-xs-12">
+				<li role="presentation" class="{{tab.status}}" data-ng-repeat="tab in tabs">
+					<a href="#{{tab.id}}" aria-controls="{{tab.id}}" role="tab" data-toggle="tab">
+						{{tab.title}}
+					</a>
+				</li>
+			</ul>
+			<!-- Nav tabs End-->
+			<!-- Tab Content -->
+			<div class="tab-content">
+				<div role="tabpanel" class="tab-pane  {{tab.status}} " id="{{tab.id}}" data-ng-repeat="tab in tabs">
+			       <div ng-bind-html="tab.content | unsafe"></div>
+				</div>
+			</div>
+			<!-- tab-content End -->
+		</div>
 	</article>
 </div>
  <!-- tab-component-wrapper ends -->

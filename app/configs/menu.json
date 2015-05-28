@@ -20,6 +20,11 @@
                 "id": "page3",
                 "parent": "page0",
                 "text": "Single Column Layout"
+            },
+            {
+                "id": "page4",
+                "parent": "page0",
+                "text": "Complex Layout"
             }
         ]
     }

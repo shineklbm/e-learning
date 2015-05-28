@@ -33,7 +33,8 @@ angular.module("eLearning")
 			templateUrl: 'components/tab-component.html',
 			link: function(scope, element, attrs){
 				scope.custom_classes = attrs.classes;
-				scope.content = scope.$parent.page_content.contents[attrs.datasource];
+				scope.tabs = scope.$parent.page_content.contents[attrs.datasource];
+				//console.log(scope.$parent.page_content.contents);
 			}
 		}
 	})
@@ -84,7 +85,7 @@ function rootController($scope, $http){
 
 	$scope.getContent = function($scope, $http){
 		var lang = $scope.configs.lang;
-		$http.get('app/datas/'+lang+'/'+$scope.page.content)
+		$http.get('app/data/'+lang+'/'+$scope.page.content)
 		.success(function(data){
 			$scope.page_content = data;
 		});

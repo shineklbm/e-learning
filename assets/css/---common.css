@@ -48,13 +48,6 @@ p{ font-size: 14px; }
 	max-width: 100%;
 	height: auto;
 }
-/*------------------- Click and Reveal Popup------*/
-.modal-backdrop { background-color: #fff; opacity:0.8; }
-.modal .modal-content{ border-radius: 0; box-shadow: none; border: 0;}
-.modal .modal-header{ background: #336699;	color: #fff;}
-.modal .modal-header .close{color: #fff;font-size: 37px; margin-top: 0; float: right; display: block; cursor: pointer; opacity: 1; font-weight: lighter; text-shadow:none; line-height: 2.3rem;}
-.modal .modal-title { color: #fff;font-weight: bold; font-size: 16px; line-height: 2.3rem}
-.modal .modal-body{ background: #F1F0F0;color: #000; font-weight: normal; font-size: 14px; line-height: 2.3rem;}
 
 /*================================== COMPONENTS ==============================================*/
 
@@ -109,20 +102,13 @@ header #logo-wrapper span{ padding: 6px 0; display: inline-block; margin-right: 
 	margin-top: 0;
 	display: inline-block;
 }
-#vertical-menu-wrapper .close{
+#vertical-menu-wrapper a.close-btn{
 	color: #fff;
 	font-size: 22px;
 	margin-top: 0;
 	float: right;
 	display: block;
 	cursor: pointer;
-	opacity: 1;
-	font-weight: bold;
-	text-shadow:none;
-	line-height: 1.5;
-}
-#vertical-menu-wrapper .close:after{
-	content: '\2715';
 }
 #menu{
 	
