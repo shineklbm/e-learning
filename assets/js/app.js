@@ -22,7 +22,10 @@ angular.module("eLearning")
 			templateUrl: 'components/text-component.html',
 			link: function(scope, element, attrs){
 				scope.custom_classes = attrs.classes;
+				console.log(attrs.datasource);
+				console.log(scope.$parent.page_content.contents[attrs.datasource]);
 				scope.content = scope.$parent.page_content.contents[attrs.datasource];
+				scope.$apply();
 			}
 		}
 	})
@@ -33,8 +36,9 @@ angular.module("eLearning")
 			templateUrl: 'components/tab-component.html',
 			link: function(scope, element, attrs){
 				scope.custom_classes = attrs.classes;
+				console.log(scope.$parent.page_content.contents[attrs.datasource]);
 				scope.tabs = scope.$parent.page_content.contents[attrs.datasource];
-				//console.log(scope.$parent.page_content.contents);
+				scope.$apply();
 			}
 		}
 	})
@@ -46,6 +50,7 @@ angular.module("eLearning")
 			link: function(scope, element, attrs){
 				scope.custom_classes = attrs.classes;
 				scope.content = scope.$parent.page_content.contents[attrs.datasource];
+				scope.$apply();
 			}
 		}
 	})
@@ -57,6 +62,7 @@ angular.module("eLearning")
 			link: function(scope, element, attrs){
 				scope.custom_classes = attrs.classes;
 				scope.content = scope.$parent.page_content.contents[attrs.datasource];
+				scope.$apply();
 			}
 		}
 	});
@@ -87,7 +93,7 @@ function rootController($scope, $http){
 		var lang = $scope.configs.lang;
 		$http.get('app/data/'+lang+'/'+$scope.page.content)
 		.success(function(data){
-			$scope.page_content = data;
+			$scope.page_content = data;			
 		});
 	}
 
