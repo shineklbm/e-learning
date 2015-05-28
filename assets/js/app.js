@@ -34,17 +34,17 @@ angular.module("eLearning")
 		return {
 			restirct: "E",
 			scope: {},
-			templateUrl: 'components/text-component.html',
+			templateUrl: 'components/image-component.html',
 			link: function(scope, element, attrs){
 				scope.content = scope.$parent.page_content.contents[attrs.datasource];
 			}
 		}
 	})
-	.directive('tabComponent', function(){
+	.directive('collapseComponent', function(){
 		return {
 			restirct: "E",
 			scope: {},
-			templateUrl: 'components/tab-component.html',
+			templateUrl: 'components/collapse-component.html',
 			link: function(scope, element, attrs){
 				scope.content = scope.$parent.page_content.contents[attrs.datasource];
 			}

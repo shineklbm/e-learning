@@ -6,6 +6,7 @@
     "path": {
         "templates": "templates/",
         "components": "components/",
-        "directives": "directives/"
+        "directives": "directives/",
+        "app_images": "app/assets/images/"
     }
 }
