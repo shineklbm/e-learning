@@ -4,22 +4,22 @@
             {
                 "id": "page0",
                 "parent": "#",
-                "text": "Text Component Demos"
+                "text": "Layout Demos"
             },
             {
                 "id": "page1",
                 "parent": "page0",
-                "text": "Two Column Text"
+                "text": "Two Column Layout"
             },
             {
                 "id": "page2",
                 "parent": "page0",
-                "text": "Two Rows Text"
+                "text": "Two Rows Layout"
             },
             {
                 "id": "page3",
                 "parent": "page0",
-                "text": "Single Text"
+                "text": "Single Column Layout"
             }
         ]
     }

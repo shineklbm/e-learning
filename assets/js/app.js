@@ -4,18 +4,24 @@ angular.module("eLearning", []);
 //controller declaration
 angular.module("eLearning")
 	.controller('rootCtrl', ['$scope', '$http', rootController])
-	.controller('pageCtrl', ['$scope', pageController])	
+	.controller('pageCtrl', ['$scope', pageController])
+	.run(function($rootScope, $templateCache) {
+	   $rootScope.$on('$viewContentLoaded', function() {
+	      $templateCache.removeAll();
+	   });
+	})
 	.filter('unsafe', function($sce) {
 	    return function(val) {
 			return $sce.trustAsHtml(val);
 	    };
-	})
+	})	
 	.directive('textComponent', function(){
 		return {
 			restirct: "E",
 			scope: {},
 			templateUrl: 'components/text-component.html',
 			link: function(scope, element, attrs){
+				scope.custom_classes = attrs.classes;
 				scope.content = scope.$parent.page_content.contents[attrs.datasource];
 			}
 		}
@@ -26,6 +32,7 @@ angular.module("eLearning")
 			scope: {},
 			templateUrl: 'components/tab-component.html',
 			link: function(scope, element, attrs){
+				scope.custom_classes = attrs.classes;
 				scope.content = scope.$parent.page_content.contents[attrs.datasource];
 			}
 		}
@@ -36,6 +43,7 @@ angular.module("eLearning")
 			scope: {},
 			templateUrl: 'components/image-component.html',
 			link: function(scope, element, attrs){
+				scope.custom_classes = attrs.classes;
 				scope.content = scope.$parent.page_content.contents[attrs.datasource];
 			}
 		}
@@ -46,6 +54,7 @@ angular.module("eLearning")
 			scope: {},
 			templateUrl: 'components/collapse-component.html',
 			link: function(scope, element, attrs){
+				scope.custom_classes = attrs.classes;
 				scope.content = scope.$parent.page_content.contents[attrs.datasource];
 			}
 		}
