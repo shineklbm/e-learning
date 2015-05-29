@@ -3,6 +3,6 @@
 	"title" 	: 	"Page 1",
 	"subtitle"	: 	"Demo subtitle",
 	"template"	: 	"two-column-template.html",
-	"content"	: 	"page1.json",
+	"data"		: 	"page1.json",
 	"style"		:	"page2.css"
 }

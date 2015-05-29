@@ -21,12 +21,15 @@ angular.module("eLearning")
 			scope: {},
 			templateUrl: 'components/text-component.html',
 			link: function(scope, element, attrs){
-				scope.custom_classes = attrs.classes;
-				console.log(attrs.datasource);
-				console.log(scope.$parent.page_content.contents[attrs.datasource]);
-				scope.content = scope.$parent.page_content.contents[attrs.datasource];
-				scope.$apply();
-			}
+				scope.$parent.$watch('contents', function(newValue, oldValue) {
+						if (newValue){
+							console.log(scope.$parent.contents);
+						}												
+		            }, true);
+				}
+				//console.log(scope.contents);
+/*				scope.custom_classes = attrs.classes;
+				scope.text_list = scope.$parent.page_content.contents[attrs.datasource];*/
 		}
 	})
 	.directive('tabComponent', function(){
@@ -35,10 +38,9 @@ angular.module("eLearning")
 			scope: {},
 			templateUrl: 'components/tab-component.html',
 			link: function(scope, element, attrs){
-				scope.custom_classes = attrs.classes;
-				console.log(scope.$parent.page_content.contents[attrs.datasource]);
-				scope.tabs = scope.$parent.page_content.contents[attrs.datasource];
-				scope.$apply();
+				console.log(scope.contents);
+/*				scope.custom_classes = attrs.classes;
+				scope.tab_list = scope.$parent.page_content.contents[attrs.datasource];*/
 			}
 		}
 	})
@@ -48,9 +50,9 @@ angular.module("eLearning")
 			scope: {},
 			templateUrl: 'components/image-component.html',
 			link: function(scope, element, attrs){
-				scope.custom_classes = attrs.classes;
-				scope.content = scope.$parent.page_content.contents[attrs.datasource];
-				scope.$apply();
+				console.log(scope.contents);
+/*				scope.custom_classes = attrs.classes;
+				scope.image_list = scope.$parent.page_content.contents[attrs.datasource];*/
 			}
 		}
 	})
@@ -60,9 +62,9 @@ angular.module("eLearning")
 			scope: {},
 			templateUrl: 'components/collapse-component.html',
 			link: function(scope, element, attrs){
-				scope.custom_classes = attrs.classes;
-				scope.content = scope.$parent.page_content.contents[attrs.datasource];
-				scope.$apply();
+				console.log(scope.contents);
+/*				scope.custom_classes = attrs.classes;
+				scope.collapse_list = scope.$parent.page_content.contents[attrs.datasource];*/
 			}
 		}
 	});
@@ -85,17 +87,29 @@ function rootController($scope, $http){
 		$http.get('app/pages/'+pageId+'.json')
 		.success(function(data){
 			$scope.page = data;
-			$scope.getContent($scope, $http);
+			$scope.loadContent = function ($scope, $http){
+				$http.get('app/data/'+lang+'/'+$scope.page.data)
+					.success(function(data){
+						//console.log(data);
+						$scope.contents = data;
+						console.log($scope.contents);
+					});
+			}
+			$scope.loadContent($scope, $http);
+			//console.log($scope.page);
+			//$scope.getContent($scope, $http);
+/*			console.log("+++++++++++++++++++++++++++++++");
+			console.log($scope.page_content);*/
 		});
 	};
 
-	$scope.getContent = function($scope, $http){
+	/*$scope.getContent = function($scope, $http){
 		var lang = $scope.configs.lang;
 		$http.get('app/data/'+lang+'/'+$scope.page.content)
 		.success(function(data){
-			$scope.page_content = data;			
+			$scope.$parent.page_content = data;			
 		});
-	}
+	}*/
 
 }
 function pageController($scope) {

@@ -3,6 +3,6 @@
 	"title" 	: 	"Page 4",
 	"subtitle"	: 	"Demo subtitle",
 	"template"	: 	"complex-template.html",
-	"content"	: 	"page4.json",
+	"data"		: 	"page4.json",
 	"style"		:	"page4.css"
 }
