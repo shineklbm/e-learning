@@ -25,6 +25,11 @@
                 "id": "page4",
                 "parent": "page0",
                 "text": "Complex Layout"
+            },
+            {
+                "id": "page5",
+                "parent": "page0",
+                "text": "Two Column with Text and Tab"
             }
         ]
     }

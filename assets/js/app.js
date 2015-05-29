@@ -4,7 +4,6 @@ angular.module("eLearning", []);
 //controller declaration
 angular.module("eLearning")
 	.controller('rootCtrl', ['$scope', '$http', rootController])
-	.controller('pageCtrl', ['$scope', pageController])
 	.run(function($rootScope, $templateCache) {
 	   $rootScope.$on('$viewContentLoaded', function() {
 	      $templateCache.removeAll();
@@ -73,7 +72,7 @@ angular.module("eLearning")
 			link: function(scope, element, attrs){
 				scope.$parent.$watch('contents', function(newValue, oldValue) {
 						if (newValue){
-							//console.log(scope.$parent.contents);
+							/*console.log(attrs.classes);*/
 							scope.custom_classes = attrs.classes;
 							scope.collapse_list = scope.$parent.contents[attrs.datasource];
 						}												
@@ -109,8 +108,5 @@ function rootController($scope, $http){
 			$scope.loadContent($scope, $http);
 		});
 	};
-
-}
-function pageController($scope) {
 
 }

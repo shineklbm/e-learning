@@ -34,7 +34,8 @@ h1{	font-size: 19px; text-transform: uppercase; }
 h2{	font-size: 17px; }
 h3{ font-size: 16px; }
 p{ font-size: 14px; }
-.blue-wrapper{ background: #336699; color: #fff; padding:30px; }
+.blue-wrapper{ background: #336699; color: #fff; padding:30px; margin-bottom: 30px; opacity: .9; }
+.white-wrapper{ background: #FFF; color: #fff; padding:30px; margin-bottom: 30px; opacity: .9; }
 .blue-wrapper h1, .blue-wrapper p{ color: #fff;}
 /*================================== COMPONENTS ==============================================*/
 /*------------------ Text Component ----------*/
