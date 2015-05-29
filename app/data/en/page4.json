@@ -20,5 +20,25 @@
             "status": ""
         }
     ],
-    "image1": "person-left.jpg"
+    "image1": "person-left.jpg",
+    "clpse_data": [
+        {
+            "id": "collapse1",
+            "title": "Collapse One",
+            "content": "<p>This content coming from Collapse One. There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. </p>",
+            "expanded": "true"
+        },
+        {
+            "id": "collapse2",
+            "title": "Collapse Two",
+            "content": "<p>This content coming from Collapse Two. There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>",
+            "expanded": ""
+        },
+        {
+            "id": "collapse3",
+            "title": "Collapse Three",
+            "content": "<text-component datasource='text1'></text-component>",
+            "expanded": ""
+        }
+    ]
 }

@@ -23,10 +23,12 @@ angular.module("eLearning")
 			link: function(scope, element, attrs){
 				scope.$parent.$watch('contents', function(newValue, oldValue) {
 						if (newValue){
-							console.log(scope.$parent.contents);
+							//console.log(scope.$parent.contents);
+							scope.custom_classes = attrs.classes;
+							scope.text_list = scope.$parent.contents[attrs.datasource];
 						}												
-		            }, true);
-				}
+		        }, true);
+			}
 				//console.log(scope.contents);
 /*				scope.custom_classes = attrs.classes;
 				scope.text_list = scope.$parent.page_content.contents[attrs.datasource];*/
@@ -38,9 +40,13 @@ angular.module("eLearning")
 			scope: {},
 			templateUrl: 'components/tab-component.html',
 			link: function(scope, element, attrs){
-				console.log(scope.contents);
-/*				scope.custom_classes = attrs.classes;
-				scope.tab_list = scope.$parent.page_content.contents[attrs.datasource];*/
+				scope.$parent.$watch('contents', function(newValue, oldValue) {
+						if (newValue){
+							//console.log(scope.$parent.contents);
+							scope.custom_classes = attrs.classes;
+							scope.tab_list = scope.$parent.contents[attrs.datasource];
+						}												
+		        }, true);
 			}
 		}
 	})
@@ -50,9 +56,13 @@ angular.module("eLearning")
 			scope: {},
 			templateUrl: 'components/image-component.html',
 			link: function(scope, element, attrs){
-				console.log(scope.contents);
-/*				scope.custom_classes = attrs.classes;
-				scope.image_list = scope.$parent.page_content.contents[attrs.datasource];*/
+				scope.$parent.$watch('contents', function(newValue, oldValue) {
+						if (newValue){
+							//console.log(scope.$parent.contents);
+							scope.custom_classes = attrs.classes;
+							scope.image_list = scope.$parent.contents[attrs.datasource];
+						}												
+		        }, true);
 			}
 		}
 	})
@@ -62,9 +72,13 @@ angular.module("eLearning")
 			scope: {},
 			templateUrl: 'components/collapse-component.html',
 			link: function(scope, element, attrs){
-				console.log(scope.contents);
-/*				scope.custom_classes = attrs.classes;
-				scope.collapse_list = scope.$parent.page_content.contents[attrs.datasource];*/
+				scope.$parent.$watch('contents', function(newValue, oldValue) {
+						if (newValue){
+							//console.log(scope.$parent.contents);
+							scope.custom_classes = attrs.classes;
+							scope.collapse_list = scope.$parent.contents[attrs.datasource];
+						}												
+		        }, true);
 			}
 		}
 	});
