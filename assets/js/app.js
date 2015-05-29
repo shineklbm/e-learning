@@ -26,12 +26,11 @@ angular.module("eLearning")
 							//console.log(scope.$parent.contents);
 							scope.custom_classes = attrs.classes;
 							scope.text_list = scope.$parent.contents[attrs.datasource];
+							//console.log("I come here");
+							console.log(attrs.datasource+" : "+scope.text_list);
 						}												
 		        }, true);
 			}
-				//console.log(scope.contents);
-/*				scope.custom_classes = attrs.classes;
-				scope.text_list = scope.$parent.page_content.contents[attrs.datasource];*/
 		}
 	})
 	.directive('tabComponent', function(){
@@ -104,26 +103,12 @@ function rootController($scope, $http){
 			$scope.loadContent = function ($scope, $http){
 				$http.get('app/data/'+lang+'/'+$scope.page.data)
 					.success(function(data){
-						//console.log(data);
 						$scope.contents = data;
-						//console.log($scope.contents);
 					});
 			}
 			$scope.loadContent($scope, $http);
-			//console.log($scope.page);
-			//$scope.getContent($scope, $http);
-/*			console.log("+++++++++++++++++++++++++++++++");
-			console.log($scope.page_content);*/
 		});
 	};
-
-	/*$scope.getContent = function($scope, $http){
-		var lang = $scope.configs.lang;
-		$http.get('app/data/'+lang+'/'+$scope.page.content)
-		.success(function(data){
-			$scope.$parent.page_content = data;			
-		});
-	}*/
 
 }
 function pageController($scope) {
