@@ -14,7 +14,7 @@ angular.module("eLearning")
 	    return function(val) {
 			return $sce.trustAsHtml(val);
 	    };
-	})	
+	})
 	.directive('textComponent', function(){
 		return {
 			restirct: "E",
@@ -106,7 +106,7 @@ function rootController($scope, $http){
 					.success(function(data){
 						//console.log(data);
 						$scope.contents = data;
-						console.log($scope.contents);
+						//console.log($scope.contents);
 					});
 			}
 			$scope.loadContent($scope, $http);

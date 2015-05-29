@@ -10,7 +10,7 @@
                     </h4>
                 </div>
                 <div id="{{collpase.id}}" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-                    <div class="panel-body" ng-bind-html="collpase.content | unsafe">
+                    <div class="panel-body" compile="collpase.content" ng-bind-html="collpase.content | unsafe">
                     </div>
                 </div>
             </div>

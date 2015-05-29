@@ -16,7 +16,7 @@
         {
             "id": "tab3",
             "title": "Tab3",
-            "content": "<p>This content coming from Tab3</p>",
+            "content": "<text-component datasource=\"text1\"></text-component>",
             "status": ""
         }
     ],
@@ -37,7 +37,7 @@
         {
             "id": "collapse3",
             "title": "Collapse Three",
-            "content": "<text-component datasource='text1'></text-component>",
+            "content": "",
             "expanded": ""
         }
     ]
