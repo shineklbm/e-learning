@@ -412,6 +412,9 @@ left: 0; */
 		right: 162px;
 	}
 }
+
+/*--------------------- Media Query ---------------------------------*/
+
 @media screen and (max-width: 991px) { 
 /*---------------- Header --------------  */
 	header{padding: 15px 0;}
