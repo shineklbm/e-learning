@@ -1,5 +1,7 @@
 {
     "lang": "en",
+    "course_title": "E-Learning App",
+    "course_subtitle": "Lorem Ipsum Text",
     "path": {
         "templates": "templates/",
         "components": "components/",
@@ -9,6 +11,7 @@
         "libs": "assets/libs/",
         "media": "assets/images/",
         "images": "assets/images/",
+        "app_config": "app/configs/",
         "app_images": "app/assets/images/",
         "app_media": "app/assets/media/",
         "app_data": "app/assets/data/"
