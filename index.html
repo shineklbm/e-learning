@@ -18,12 +18,13 @@
                 <span class="icon-menu-main" aria-hidden="true"></span>   
             </div>
             <div id="title-wrapper" class="col-xs-8">
-                <h1>Lorem ipsum dolor sit</h1>
+                <h1>{{page}}</h1>
                 <h2>Lorem ipsum dolor sit</h2>
             </div>
             <div id="logo-wrapper" class="col-xs-3">
                 <span>EXIT</span>
-                <img src="assets/images/logo.jpg" alt="Course Logo">
+                <!-- <img src="{{configs}}" alt="Course Logo"> -->
+                <img data-ng-src="{{configs.path.images}}{{configs.logo}}" alt="">
             </div>
         </header>
         <!-- Content Wrapper -->
@@ -92,7 +93,7 @@
         <!-- Footer  End -->        
     </div>
     <div id="background-wrapper">
-        <img data-ng-src="{{configs.background_image}}" alt="">
+        <img data-ng-src="{{configs.path.images}}{{configs.background_image}}" alt="">
     </div>
     <!-- Wrapper -->
     <script src="assets/libs/jquery-2.1.4.min.js"></script>
