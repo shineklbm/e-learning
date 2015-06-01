@@ -26,7 +26,7 @@ angular.module("eLearning")
 							scope.custom_classes = attrs.classes;
 							scope.text_list = scope.$parent.contents[attrs.datasource];
 							//console.log("I come here");
-							console.log(attrs.datasource+" : "+scope.text_list);
+							//console.log(attrs.datasource+" : "+scope.text_list);
 						}												
 		        }, true);
 			}
@@ -90,10 +90,50 @@ function rootController($scope, $http){
 			$scope.menus = data;
 			$('#menu').jstree(data);			
 		});
-	$("#menu").bind("select_node.jstree", function (e, data) {
+	var menu = $("#menu").bind("select_node.jstree", function (e, data) {
 		$scope.menuClickListener($(data.node).attr('id'));
 		return data.instance.toggle_node(data.node);
 	});
+
+	$scope.pagePrevious = function(page_id){
+		if(angular.isDefined(page_id)){
+			var tree = $('#menu').jstree(true);
+		    curr = tree.get_selected(false);
+		    tree.deselect_all();
+		    tree.open_all();
+		    var n = tree.get_prev_dom(curr);
+		    tree.select_node(n);
+			//$scope.menuClickListener('page3');
+			//console.log($scope.menus.core.data);
+			/*var menuList = $scope.menus.core.data;
+			for (var i = 0, len = arr.length; i < len; i++) {
+  				var obj = arr[i];
+			}*/
+			/*curr = menu.get_selected (false);
+		    menu.deselect_all ();
+		    menu.open_all ();
+		    var n = menu.get_next_dom (curr);
+		    menu.select_node (n);*/
+		    //console.log(menu);
+		}
+		else{
+			console.log($scope.menus.core.data[0]);
+		}
+	}
+	$scope.pageNext = function(page_id){
+		if(angular.isDefined(page_id)){
+			var tree = $('#menu').jstree(true);
+		    curr = tree.get_selected(false);
+		    tree.deselect_all();
+		    tree.open_all();
+		    var n = tree.get_next_dom(curr);
+		    tree.select_node(n);
+			//$scope.menuClickListener('page3');
+			/*$("#menu").jstree("select_node", "");
+			$("#menu").jstree("select_node", "#page3");*/ 
+		}
+	}
+
 	$scope.menuClickListener = function(pageId){
 		var lang = $scope.configs.lang;
 		$http.get('app/pages/'+pageId+'.json')
@@ -107,6 +147,5 @@ function rootController($scope, $http){
 			}
 			$scope.loadContent($scope, $http);
 		});
-	};
-
+	};	
 }

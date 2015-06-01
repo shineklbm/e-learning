@@ -68,6 +68,10 @@ p{ font-size: 14px; }
 	max-width: 100%;
 	height: auto;
 }
+/*----------------- Collapse ----------------------*/
+.collapse .panel-body p{
+	color: #000;
+}
 /*------------------- Click and Reveal Popup ------*/
 .modal-backdrop { background-color: #fff; opacity:0.8; }
 .modal .modal-content{ border-radius: 0; box-shadow: none; border: 0;}
@@ -325,7 +329,7 @@ left: 0; */
 	width: 67%;
 	/*padding-left:12px; */
 }
-#footer-content #left-block [class*=" icon-"]{
+#footer-content #left-block i,#footer-content #left-block label{
 	font-size: 14px;
 	color: #4E4E4E;
 }
@@ -376,17 +380,39 @@ left: 0; */
 	top: 0;
 	right: 170px;
 }
-#pagination i, #pagination div{
+#page-left-wrapper,
+#page-counter,
+#page-right-wrapper{
+	display: inline-block;
+}
+#page-left-wrapper,
+#page-right-wrapper{
+	cursor: pointer;
+}
+#page-counter{
+	font-size:20px; 
+	line-height: 3rem; 
+	font-weight: normal;
+}
+/* #pagination i, #pagination div{
 	display: block;
 	position: absolute;
-}
-#pagination .icon-left-arrow{
-	top:7px;
-	right: 136px;
+} */
+/* #pagination .icon-left-arrow{
+	/* top:7px;
+	right: 136px; 
+	width: 50px;
+	height: 50px;
+	display: inline-block;
+	cursor: pointer;
 }
 #pagination .icon-right-arrow{
 	top:7px;
 	right: 9px;
+	width: 50px;
+	height: 50px;
+	display: inline-block;
+	cursor: pointer;
 }
 #pagination #page-num{
 	color: #fff;
@@ -402,7 +428,8 @@ left: 0; */
 	float: left;
 	line-height: 3rem; 
 	font-weight: normal;
-}
+} */
+
 /*---------------------------------- Media Query ---------------------------------*/
 @media screen and (max-width: 1199px) { 
 	#footer-content #right-block a{

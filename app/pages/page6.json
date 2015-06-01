@@ -1,0 +1,8 @@
+{
+	"page_id"	: 	"page6",
+	"title" 	: 	"Page 6",
+	"subtitle"	: 	"Demo subtitle",
+	"template"	: 	"two-column-text-image-template.html",
+	"data"		: 	"page6.json",
+	"style"		:	"page6.css"
+}

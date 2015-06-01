@@ -30,7 +30,22 @@
                 "id": "page5",
                 "parent": "page0",
                 "text": "Two Column with Text and Tab"
-            }
+            },
+            {
+                "id": "page6",
+                "parent": "page0",
+                "text": "Image Text Layout"
+            },
+            {
+                "id": "page7",
+                "parent": "page0",
+                "text": "Three Rows Layout"
+            },
+            {
+                "id": "page8",
+                "parent": "page0",
+                "text": "Four Column Layout"
+            }            
         ]
     }
 }

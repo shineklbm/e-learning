@@ -84,9 +84,10 @@
                     <a href="#" id="click-me"class= "hidden-xs hidden-sm inline text-right">Click Next to continue.</a>
                     <span class="v-divider"></span>
                     <div id="pagination" class=" pull-right">
-                        <a href=""><i class="icon-left-arrow"></i></a>
-                        <div id="page-num" ><label>01/20</label></div>
-                        <a href=""><i class="icon-right-arrow"></i></a>
+                        <!-- {{page}} -->
+                        <span id="page-left-wrapper" ng-click="pagePrevious(page.page_id)"><i class="icon-left-arrow"></i></span>
+                        <span id="page-counter">1/20</span>
+                        <span id="page-right-wrapper" ng-click="pageNext(page.page_id)"><i class="icon-right-arrow"></i></span>
                     </div>
                 </div>
             </div>
