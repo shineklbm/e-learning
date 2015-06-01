@@ -8,4 +8,15 @@ jQuery(document).ready(function($){
 	});
 	var content_height = ($(window).height() - $('#header').height() - $('#footer').height());
 	$("#content-wrapper").height(content_height-80);
+
+
+	var audioPlayer = new MediaElementPlayer("audio", 
+				{
+					videoWidth: '100%',
+					videoHeight: '100%',
+					audioWidth: '100%',
+					features: ['playpause','progress','tracks','volume'],
+					videoVolume: 'horizontal'
+				});
+	audioPlayer.play();
 });
