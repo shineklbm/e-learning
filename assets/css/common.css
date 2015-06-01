@@ -360,17 +360,6 @@ left: 0; */
 	padding-top: 11px;
 	margin-left: 42px;
 }
-
-#pagination .icon-left-arrow,#pagination .icon-right-arrow{
-	font-size: 35px;
-	color: #4E4E4E;
-	width: 20px;
-	display: block;
-}
-
-#pagination{
-	display: inline-block;
-}
 #footer-content #right-block .v-divider{
 	background: #D7D6D6;
 	min-height: 42px;
@@ -380,56 +369,35 @@ left: 0; */
 	top: 0;
 	right: 170px;
 }
+#pagination{
+	height: 44px;
+	line-height: 38px;
+}
+#page-left-wrapper,
+#page-right-wrapper{
+	cursor: pointer;
+}
 #page-left-wrapper,
 #page-counter,
 #page-right-wrapper{
+	vertical-align: middle;
+	font-size: 34px;
 	display: inline-block;
 }
-#page-left-wrapper,
+#page-left-wrapper{
+	padding-right: 10px;
+}
 #page-right-wrapper{
-	cursor: pointer;
+	padding-left: 10px;
 }
 #page-counter{
-	font-size:20px; 
-	line-height: 3rem; 
-	font-weight: normal;
-}
-/* #pagination i, #pagination div{
-	display: block;
-	position: absolute;
-} */
-/* #pagination .icon-left-arrow{
-	/* top:7px;
-	right: 136px; 
-	width: 50px;
-	height: 50px;
+	font-size: 18px;
 	display: inline-block;
-	cursor: pointer;
-}
-#pagination .icon-right-arrow{
-	top:7px;
-	right: 9px;
-	width: 50px;
-	height: 50px;
-	display: inline-block;
-	cursor: pointer;
-}
-#pagination #page-num{
+	background: #e3801b;
 	color: #fff;
-	background: #E3801B;
-	padding: 6px;
-	margin: 0 20px;
-	top: 0;
-	right: 31px;
+	line-height: 2.4;
+	padding: 0 20px;
 }
-#pagination #page-num label{
-	font-size:20px; 
-	top:0; 
-	float: left;
-	line-height: 3rem; 
-	font-weight: normal;
-} */
-
 /*---------------------------------- Media Query ---------------------------------*/
 @media screen and (max-width: 1199px) { 
 	#footer-content #right-block a{
