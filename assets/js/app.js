@@ -96,8 +96,8 @@ function rootController($scope, $http){
 	});
 
 	$scope.pagePrevious = function(page_id){
-		if(angular.isDefined(page_id)){
-			var tree = $('#menu').jstree(true);
+		var tree = $('#menu').jstree(true);
+		if(angular.isDefined(page_id)){			
 		    curr = tree.get_selected(false);
 		    tree.deselect_all();
 		    tree.open_all();
@@ -117,7 +117,7 @@ function rootController($scope, $http){
 		    //console.log(menu);
 		}
 		else{
-			console.log($scope.menus.core.data[0]);
+
 		}
 	}
 	$scope.pageNext = function(page_id){
