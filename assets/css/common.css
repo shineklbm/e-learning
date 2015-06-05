@@ -57,11 +57,12 @@ p{ font-size: 14px; }
 .collapse-component .active, 
 .collapse-component .active-panel  { background:#E3801B !important; color: #fff !important;}
 .collapse-component .panel-group{ margin-bottom: 0 !important;}
+.collapse-component .panel{background: #3E89B0; color: #fff;}
 .collapse-component .panel-group .panel,.collapse-component  .panel-group .panel-heading{ border-radius: 0;}
 .collapse-component .collapse{background:#3E89B0 !important; color: #fff;}
-.collapse-component .panel-title a{ display:block; max-width: 100%; padding: 10px 15px; text-decoration: none;}
+.collapse-component .panel-title a{ display:block; max-width: 100%; padding: 10px 15px; text-decoration: none; outline: none !important;}
 .collapse-component .panel-title{ width: 100%;max-width: 100%;}
-.collapse-component .panel-title a::after{ content: '\f05b'; font-family:'icomoon'; display:block;color: #fff; font-size: 16px; position: absolute; display: block;margin-top: -16px; right: 45px;}
+.collapse-component .panel-title a::after{ content: '\f05b'; font-family:'icomoon'; display:block;color: #fff; font-size: 16px; outline: none !important; position: absolute; display: block;margin-top: -16px; right: 45px;}
 .collapse-component .collapse .panel-body p{ color: #fff;}
 
 /*----------------------- Tab Component --------------------------*/
@@ -75,9 +76,9 @@ p{ font-size: 14px; }
 .tab-component .nav-pills > li.active > a,
 .tab-component .nav-pills > li.active > a:focus,
 .tab-component .nav-pills > li.active > a:hover,
-.tab-component .nav-pills > li > a:hover{background-color:#E3801B !important; color: #fff; border-radius:0;}
+.tab-component .nav-pills > li > a:hover{background-color:#E3801B !important; color: #fff; border-radius:0; outline: none !important;}
 .tab-component .nav-pills > li > a,
-.tab-component .nav-pills > li > a:focus{background:#A5C061 !important; color: #fff;}
+.tab-component .nav-pills > li > a:focus{background:#A5C061 !important; color: #fff;outline: none !important;}
 .tab-component .nav-pills > li.active:after,
 .tab-component .nav-pills > li:hover::after {content: "\f05b"; font-family:'icomoon';font-size: 18px; position: absolute; display: block; margin-left: -9px;bottom:-16px; left:50%; z-index: 1000;	}
 .tab-component .tab-content {border-top: 1px solid #fff;}
@@ -201,14 +202,12 @@ footer{background: #F2F2F2;min-height: 45px;max-width: 1110px;margin: 0 auto !im
 #pagination #page-counter{font-size: 18px;display: inline-block;background: #e3801b;color: #fff;line-height: 2.4;padding: 1px 10px;}
 /*---------------------------------- Media Query ---------------------------------*/
 @media screen and (max-width: 1199px) { 
-header{background: #ff0;} 
 /*---------------- Footer -----------------*/
 	#footer-content #right-block a#click-me{margin-left: 0;}
 	#footer-content #right-block .v-divider{right: 162px;}
 /*---------------- Footer -----------------*/
 }
 @media screen and (max-width: 991px) {
-header{background: #f00;} 
 html,body,header,footer,section,aside,div,span,label,input,article,p,h1,h2,h3,h4,h5,h6{ font-family: 'openSans';font-size:20px !important;}
 /*---------------- Header --------------  */
 	header{padding: 15px 0;}
@@ -224,41 +223,44 @@ html,body,header,footer,section,aside,div,span,label,input,article,p,h1,h2,h3,h4
 /*---------------- Footer -----------------*/
 	#footer-content #left-block{padding-top: 5px;}
 	#footer-content #left-block .icon-block {margin-right: 10px;}
-	#footer-content #left-block i::after{content: "|";display: inline-block;color: #D7D6D6;top: 0;font-size: 25px;margin-left: 10px;}
+	#footer-content #left-block i::after{content: "|"; display: inline-block;color: #D7D6D6;top: 0;font-size: 25px;margin-left: 10px;}
 	#footer-content #right-block .v-divider{right: 170px;}
  }
- @media screen and (max-width: 767px) { 
-header{background: #0f0;} 	
+ @media screen and (max-width: 767px) { 	
 /*---------------- Header --------------  */
 	header #title-wrapper,header h1, header h2{margin-right: 0;padding-right: 0;}
 /*---------------- Header --------------  */
 }
 @media screen and (max-width: 511px) {
-header{background: #00f;}
 /*-----------------Footer ---------------*/
 	#footer-content #left-block, #footer-content #right-block{width:50%;}
 /*-----------------Footer ---------------*/
 }
- @media screen and (max-width: 430px) {header{background: #0ff;}
+ @media screen and (max-width: 430px) {
 /*---------------- Header --------------  */
+
  	header h1{font-size: 16px;}
  	header h2{ font-size: 14px;}
 	header #menu-wrapper span{font-size: 21px;}
 	header #menu-wrapper{margin-top: 16px;}
+
 /*---------------- Header --------------  */
 /*---------------- Footer ---------------*/
+
 	#footer-content #left-block{padding-top: 5px;}
 	#footer-content #left-block .icon-block {margin-right: 2px;}
 	#footer-content #left-block i::after{margin-left: 5px;}
 	
 /*---------------- Footer ---------------*/
  }
- @media screen and (max-width: 358px) {header{background: #f0f;}
+ @media screen and (max-width: 358px) {
 /*---------------- Footer ---------------*/
+
 	#footer-content #left-block{width:45%;}
 	#footer-content #right-block{width:55%;}
 	#footer-content #right-block .v-divider{right:150px}
 	#pagination #page-left-wrapper,#pagination #page-right-wrapper{padding: 0;}
+
 /*---------------- Footer ---------------*/
  }
  
