@@ -1,15 +1,38 @@
 jQuery(document).ready(function($){
 	
 	$('.v-scroll').mCustomScrollbar({ theme:"light-1", scrollbarPosition: "outside",axis:"y"  });
+// -------------------------------------- Menu  Stripe -----------------------------------------
 
-	$('#menu-wrapper span').on('click',function(){
-		$('#vertical-menu-wrapper').toggle('slow');
+	$('.icon-menu-close').hide();
+	
+	$('.icon-menu-main').on('click',function(){
+		$('#menu-wrapper-stripe').toggle('slow');
+		$('.icon-menu-close').show();
+		$('.icon-menu-main').hide();
 	});
+	$('.icon-menu-close').on('click',function(){
+		$('#menu-wrapper-stripe').toggle('slow');
+		$('.icon-menu-close').hide();
+		$('.icon-menu-main').show();
+		$('#vertical-menu-wrapper').hide('slow');
+	});
+// -------------------------------------- Vertical Menu ----------------------------------------
+
+	$('#stripe-menu').on('click',function(){
+		$('#vertical-menu-wrapper').toggle('slow');
+		
+	});
+	
 	$('.menu-close').on('click',function(){
 		$('#vertical-menu-wrapper').toggle('slow');
 	});
+
+// -------------------------------- Content Height -----------------------------------------
+
 	var content_height = ($(window).height() - $('#header').height() - $('#footer').height());
 	$("#content-wrapper").height(content_height-80);
+
+// ------------------------------------- Audio ------------------------------------------
 
 	 $('audio').mediaelementplayer({
             videoWidth: '100%',
@@ -52,14 +75,13 @@ jQuery(document).ready(function($){
 		};
 	}});
 
-	 //----------------------------- Collapse---------------------------------------------- 
+//----------------------------------------- Collapse---------------------------------------------- 
 
 	$(document).on('click', '.panel-heading a', function(){
 	
 		$('.panel-heading a').removeClass('active');
 		$(this).addClass('active');
 		$('.panel-collapse').removeClass('in');
-
 	});
-	
+ 
 });

@@ -6,46 +6,117 @@
                 "parent": "#",
                 "text": "Layout Demos"
             },
+                {
+                    "id": "page1",
+                    "parent": "page0",
+                    "text": "Two Column Layout",
+                    "default": "true"
+                },
+                {
+                    "id": "page2",
+                    "parent": "page0",
+                    "text": "Two Rows Layout"
+                },
+                {
+                    "id": "page3",
+                    "parent": "page0",
+                    "text": "Single Column Layout"
+                },
+                {
+                    "id": "page4",
+                    "parent": "page0",
+                    "text": "Complex Layout"
+                },
+                {
+                    "id": "page5",
+                    "parent": "page0",
+                    "text": "Two Column with Text and Tab"
+                },
+                {
+                    "id": "page6",
+                    "parent": "page0",
+                    "text": "Image Text Layout"
+                },
+                {
+                    "id": "page7",
+                    "parent": "page0",
+                    "text": "Three Rows Layout"
+                },
+                {
+                    "id": "page8",
+                    "parent": "page0",
+                    "text": "Four Column Layout"
+                },
+            {   
+                "id": "module1",
+                "parent": "#",
+                "text": "Module 1"
+            },    
+                {       
+                    "id": "mod1-page01",
+                    "parent": "module1",
+                    "text": "Page 1"
+                },
+                {       
+                    "id": "mod1-page02",
+                    "parent": "module1",
+                    "text": "Page 2"
+                },
+                {       
+                    "id": "mod1-page03",
+                    "parent": "module1",
+                    "text": "Page 3"
+                },
             {
-                "id": "page1",
-                "parent": "page0",
-                "text": "Two Column Layout"
-            },
-            {
-                "id": "page2",
-                "parent": "page0",
-                "text": "Two Rows Layout"
-            },
-            {
-                "id": "page3",
-                "parent": "page0",
-                "text": "Single Column Layout"
-            },
-            {
-                "id": "page4",
-                "parent": "page0",
-                "text": "Complex Layout"
-            },
-            {
-                "id": "page5",
-                "parent": "page0",
-                "text": "Two Column with Text and Tab"
-            },
-            {
-                "id": "page6",
-                "parent": "page0",
-                "text": "Image Text Layout"
-            },
-            {
-                "id": "page7",
-                "parent": "page0",
-                "text": "Three Rows Layout"
-            },
-            {
-                "id": "page8",
-                "parent": "page0",
-                "text": "Four Column Layout"
-            }            
+                "id": "module2",
+                "parent": "#",
+                "text": "Module 2"
+            },    
+                {       
+                    "id": "mod2-page01",
+                    "parent": "module2",
+                    "text": "Page 1"
+                },
+                {       
+                    "id": "mod2-page02",
+                    "parent": "module2",
+                    "text": "Page 2"
+                },
+                    {       
+                        "id": "mod2page02-subpage01",
+                        "parent": "mod2-page02",
+                        "text": "Demo 1"
+                    },
+                     {       
+                        "id": "mod2page02-subpage02",
+                        "parent": "mod2-page02",
+                        "text": "Demo 2"
+                    },
+                    {       
+                        "id": "mod2page02-subpage03",
+                        "parent": "mod2-page02",
+                        "text": "Demo 3"
+                    },
+                {       
+                    "id": "mod2-page03",
+                    "parent": "module2",
+                    "text": "Page 3"
+                },
+                     {       
+                        "id": "mod2page03-subpage01",
+                        "parent": "mod2-page03",
+                        "text": "Demo 1"
+                    },
+                     {       
+                        "id": "mod2page03-subpage02",
+                        "parent": "mod2-page03",
+                        "text": "Demo 2"
+                    },
+                {       
+                    "id": "mod2-page04",
+                    "parent": "module2",
+                    "text": "Page 4"
+                }
         ]
     }
 }

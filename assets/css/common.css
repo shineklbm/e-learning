@@ -12,14 +12,15 @@
 
 }
 /*------------------------------- Common -----------------------------------------*/
+
 html, body { height: 100%; }
-html,body,header,footer,section,aside,div,span,label,input,article,p,h1,h2,h3,h4,h5,h6{
+html,body,header,footer,section,aside,div,span,label,input,article,p,a,h1,h2,h3,h4,h5,h6{
 	margin: 0;
 	padding: 0;
 	font-family: 'openSans';
-	outline: none;	
+	outline: none !important;	
 }
-a,a:hover{ text-decoration: none; color: #000; cursor: pointer; }
+a,a:hover{ text-decoration: none; color: #000; cursor: pointer; outline: none !important;}
 .no-margin{margin: 0;}
 .no-marign-right{ margin-right: 0; }
 .no-margin-left{ margin-left: 0; }
@@ -51,13 +52,15 @@ p{ font-size: 14px; }
 
 /*----------------- Collapse Component ----------------------*/
 
+.collapse-component .collapse-wrapper{border-bottom: 1px solid #fff;}
 .collapse-component .panel-heading { background:#A5C061 !important; color: #fff;padding: 0;}
 .collapse-component .panel-heading:hover ,
 .collapse-component .panel-heading a:hover, 
 .collapse-component .active, 
 .collapse-component .active-panel  { background:#E3801B !important; color: #fff !important;}
 .collapse-component .panel-group{ margin-bottom: 0 !important;}
-.collapse-component .panel{background: #3E89B0; color: #fff;}
+.collapse-component .panel{background: #3E89B0; color: #fff !important;}
+.collapse-component .panel, .collapse-component .panel-heading{ border-bottom: 0;}
 .collapse-component .panel-group .panel,.collapse-component  .panel-group .panel-heading{ border-radius: 0;}
 .collapse-component .collapse{background:#3E89B0 !important; color: #fff;}
 .collapse-component .panel-title a{ display:block; max-width: 100%; padding: 10px 15px; text-decoration: none; outline: none !important;}
@@ -110,6 +113,7 @@ p{ font-size: 14px; }
 .mejs-controls .mejs-time-rail .mejs-time-float-corner:after{ content: '\e603'; font-size: 16px; font-family: 'icomoon'; position: absolute; color: #595959; top: 18px; left: 0; }
 
 /*------------------- Click and Reveal Popup ------*/
+
 .modal-backdrop { background-color: #fff; opacity:0.8; }
 .modal .modal-content{ border-radius: 0; box-shadow: none; border: 0;}
 .modal .modal-header{ background: #336699;	color: #fff;}
@@ -130,14 +134,27 @@ header #logo-wrapper span{ padding: 6px 0; display: inline-block; margin-right: 
 /*--------------------------------- Header -------------------------------------  */
 
 /*--------------------------- fullwidth background -----------------------------*/
+
 #background-wrapper{width: 100%;height: 100%;top: 0;left: 0;position: absolute;z-index: -1;overflow: hidden;}
 #background-wrapper img{width: 100%;height: auto;}
+
 /*---------------------------- fullwidth background ---------------------------*/
 
-/*-------------------------------- Menu ---------------------------------------*/
+/*---------------------------- Menu Wrapper Stripe -------------------------------*/
+
+#menu-wrapper-stripe{ background: #F2F2F2; padding: 15px 30px; margin: -30px -15px 0 -15px; display: none;  position: absolute; width: 100%; z-index: 1000; }
+#menu-wrapper-stripe ul{margin: 0; padding: 0;} 
+#menu-wrapper-stripe li{margin: 0; padding: 0; display: inline-block; list-style-type: none;}
+#menu-wrapper-stripe a{  color: #01A1B9; padding: 7px 9px; outline: none!important; text-decoration: none; font-size: 16px; font-weight: normal; display: inline-block; margin-right: 80px; text-align: center; padding: 2px; line-height: 16px;}
+#menu-wrapper-stripe a:hover, #menu-wrapper-stripe a:focus{background: #DCE9EF;}
+#menu-wrapper-stripe a i{ font-size: 20px;padding-right: 7px; vertical-align: middle;}
+#menu-wrapper-stripe a label{font-weight: normal; vertical-align: middle;}
+
+/*---------------------------- Vertical Menu Wrapper -------------------------------*/
+
 #inner-wrapper{position: relative;}
 #menu-wrapper span{display: block;}
-#vertical-menu-wrapper{margin-left: -15px; position: absolute; background: #4E4E4E; opacity: 0.9; color: #E1E1E1; display: none; height: auto; padding: 30px; min-width: 315px; z-index: 1000; top: -30px;}
+#vertical-menu-wrapper{margin-left: -15px; position: absolute; top: 27px; background: #4E4E4E; opacity: 0.9; color: #E1E1E1; display: none; height: auto; padding: 30px; min-width: 315px; z-index: 1000;}
 #vertical-menu-wrapper h3{color: #fff;font-size: 22px;margin-top: 0;display: inline-block;}
 #vertical-menu-wrapper .menu-close{color: #fff;font-size: 18px;margin-top: 0;float: right;display: block;cursor: pointer;opacity: 1;font-weight: normal;text-shadow:none;line-height: 1.5;}
 #vertical-menu-wrapper .menu-close:after{content: '\e60b';font-family: 'icomoon';}
@@ -157,6 +174,7 @@ header #logo-wrapper span{ padding: 6px 0; display: inline-block; margin-right: 
 #menu ul li a:hover{background: #336699;color:#E1E1E1;outline: 0; }
 #menu ul li a.jstree-clicked:hover{background: #336699;color:#E1E1E1;outline: 0;}
 #menu ul li a.jstree-clicked{background: #4E4E4E;color:#E1E1E1;}
+
 /* --- Sub Menu ---- */
 
 #menu ul li ul{margin: 0;padding: 0;height: auto;background: #4E4E4E;color: #E1E1E1;}
@@ -165,28 +183,40 @@ header #logo-wrapper span{ padding: 6px 0; display: inline-block; margin-right: 
 #menu ul li ul li > a:hover{border-bottom: 1px solid #4E4E4E;}
 #menu ul li ul li.jstree-closed > a{background:#336699;color: #E1E1E1;border-bottom: 1px solid #4E4E4E;border-radius: 0;}
 #menu ul li ul li.jstree-open > a{background:#E3801B; color: #E1E1E1;border-bottom: 1px solid #4E4E4E;border-radius: 0;}
+
 /*-------------------------------content-wrapper-------------------------------*/
+
 #content-wrapper{min-height: 500px;padding-top: 30px;padding-bottom: 30px;}
+
 /*---------------------------------Footer----------------------------------*/
 /*------- Footer --------*/
 footer{background: #F2F2F2;min-height: 45px;max-width: 1110px;margin: 0 auto !important;bottom: 0;}
 #footer-content{padding: 0 12px;width: 100%;}
 #page-progress{width: 100%;padding: 0;}
+
 /*-- Main Page Progress --*/
+
 .progress{background: #9C9C9C;width: 200px;height: 3px;}
 #page-progress{margin-bottom: 0;}
 #page-progress .progress-bar{background: #1B9ED4;}
+
 /*-- Audio Progress --*/
+
 #audio-wrapper{margin: 4px;}
+
 /*-- Audio Progress --*/
 
 #footer-content #left-block a,#footer-content #right-block a{cursor: pointer;display: inline-block;text-decoration: none;} 
+
 /*-- Left block --*/
+
 #footer-content #left-block{padding-top:11px;float: left;width: 67%;}
 #footer-content #left-block i,#footer-content #left-block label{font-size: 14px;color: #4E4E4E;}
 #footer-content #left-block .icon-block ,#audio-progress{margin-right: 12px;cursor: pointer;}
 #footer-content #left-block label{font-weight: normal;font-size: 14px;margin-top: -2px;max-width: 100%;cursor: pointer;}
+
 /*-- Right Block --*/
+
 #right-block{float: right;width: 33%;}
 
 #footer-content #right-block a#click-me{color: #E3801B;font-style: italic;padding-top: 11px;margin-left: 42px;}
@@ -200,15 +230,20 @@ footer{background: #F2F2F2;min-height: 45px;max-width: 1110px;margin: 0 auto !im
 #pagination #page-left-wrapper{padding-right: 8px;}
 #pagination #page-right-wrapper{padding-left: 8px;margin-right:-8px; }
 #pagination #page-counter{font-size: 18px;display: inline-block;background: #e3801b;color: #fff;line-height: 2.4;padding: 1px 10px;}
+
 /*---------------------------------- Media Query ---------------------------------*/
+
 @media screen and (max-width: 1199px) { 
+
 /*---------------- Footer -----------------*/
 	#footer-content #right-block a#click-me{margin-left: 0;}
 	#footer-content #right-block .v-divider{right: 162px;}
 /*---------------- Footer -----------------*/
 }
 @media screen and (max-width: 991px) {
+
 html,body,header,footer,section,aside,div,span,label,input,article,p,h1,h2,h3,h4,h5,h6{ font-family: 'openSans';font-size:20px !important;}
+
 /*---------------- Header --------------  */
 	header{padding: 15px 0;}
 	header h1, header h2{ display: block;border: 0;}
@@ -217,16 +252,19 @@ html,body,header,footer,section,aside,div,span,label,input,article,p,h1,h2,h3,h4
 	header #logo-wrapper span{display: none;}
 	header #menu-wrapper{margin-top: 12px;}
 /*---------------- Header --------------  */
+
 /*----------------- Menu -----------------*/
 #menu ul li a{font-size: 18px;}
 /*----------------- Menu -----------------*/
+
 /*---------------- Footer -----------------*/
 	#footer-content #left-block{padding-top: 5px;}
 	#footer-content #left-block .icon-block {margin-right: 10px;}
 	#footer-content #left-block i::after{content: "|"; display: inline-block;color: #D7D6D6;top: 0;font-size: 25px;margin-left: 10px;}
 	#footer-content #right-block .v-divider{right: 170px;}
  }
- @media screen and (max-width: 767px) { 	
+ @media screen and (max-width: 767px) { 
+
 /*---------------- Header --------------  */
 	header #title-wrapper,header h1, header h2{margin-right: 0;padding-right: 0;}
 /*---------------- Header --------------  */
@@ -238,13 +276,11 @@ html,body,header,footer,section,aside,div,span,label,input,article,p,h1,h2,h3,h4
 }
  @media screen and (max-width: 430px) {
 /*---------------- Header --------------  */
-
  	header h1{font-size: 16px;}
  	header h2{ font-size: 14px;}
 	header #menu-wrapper span{font-size: 21px;}
 	header #menu-wrapper{margin-top: 16px;}
 
-/*---------------- Header --------------  */
 /*---------------- Footer ---------------*/
 
 	#footer-content #left-block{padding-top: 5px;}

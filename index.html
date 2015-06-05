@@ -10,13 +10,14 @@
     <link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
     <link rel="stylesheet" href="assets/css/common.css">
     <script src="assets/libs/angular.min.js"></script>
-    <script src="assets/js/app.js"></script>
+    <script src="modules/app.js"></script>
 </head>
 <body>      
     <div id="inner-wrapper" class="container">
         <header id="header" class="row">
             <div id="menu-wrapper" class="col-xs-1">
-                <span class="icon-menu-main" aria-hidden="true"></span>   
+                <span class="icon-menu-main" aria-hidden="true"></span>
+                <span class="icon-menu-close" aria-hidden="true"></span>   
             </div>
             <div id="title-wrapper" class="col-xs-8">            	
                 <!-- <h1>{{page.title}}</h1> -->
@@ -32,6 +33,14 @@
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="row">
             <article id="content"  class="col-xs-12">
+                <div id ="menu-wrapper-stripe">
+                    <ul>
+                        <li><a href="#" id="stripe-menu"><i class="icon-menu"></i><label>MENU</label></a></li>
+                        <li><a href="#" id="stripe-help"><i class="icon-help"></i><label>HELP</label></a></li>
+                        <li><a href="#" id="stripe-glossary"><i class="icon-glossory"></i><label>GLOSSARY</label></a></li>
+                        <li><a href="#" id="stripe-resources"><i class="icon-resources"></i><label>RESOURCES</label></a></li>
+                    </ul> 
+                </div>
                 <!-- vertical-menu-wrapper -->
                 <div id="vertical-menu-wrapper">
                     <h3>Menu</h3><a href="#" class="menu-close"></a>
@@ -108,8 +117,8 @@
     <script src="assets/libs/jstree.min.js"></script>
 	<script src='assets/libs/mediaelement.js'></script>
 	<script src='assets/libs/mediaelementplayer.js'></script>
-   <!-- <script src="assets/libs/mediaelement-and-player.min.js"></script>-->
-    <script src="assets/libs/jquery.mCustomScrollbar.concat.min.js"></script>    
+    <script src="assets/libs/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="assets/libs/defiant.min.js"></script>    
     <script src="assets/js/common.js"></script>
 </body>
 </html>
