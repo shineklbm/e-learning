@@ -1,5 +1,7 @@
 jQuery(document).ready(function($){
-	//$('.v-scroll').mCustomScrollbar({ theme:"light-1", scrollbarPosition: "outside" });
+	
+	$('.v-scroll').mCustomScrollbar({ theme:"light-1", scrollbarPosition: "outside",axis:"y"  });
+
 	$('#menu-wrapper span').on('click',function(){
 		$('#vertical-menu-wrapper').toggle('slow');
 	});
@@ -18,6 +20,7 @@ jQuery(document).ready(function($){
         });
 	 MediaElement('audio-player', {success: function(control) {
 		$('.pause').hide();
+		$('.audio-off').hide();
 		$('.mejs-time-float-corner').hide();
 		//control.play(); // auto play
 		document.getElementById('audio-play')['onclick'] = function() {
@@ -33,27 +36,30 @@ jQuery(document).ready(function($){
 				}
 		};
 		document.getElementById('audio-volume')['onclick'] = function() {
-			if(control.volume)
+			if(control.volume){
 				control.volume=0;
-			else
-				control.volume=1;	
+			$('.audio-off').show();
+			$('.audio-on').hide();
+			}else{
+				control.volume=1;
+				$('.audio-on').show();
+				$('.audio-off').hide();
+			}	
 		};
 		document.getElementById('audio-replay')['onclick'] = function() {
 			control.load();
 			control.play();
 		};
 	}});
-	//console.log(show.bs.collapse);
-	 // Collapse 
+
+	 //----------------------------- Collapse---------------------------------------------- 
 
 	$(document).on('click', '.panel-heading a', function(){
-		$('.panel-heading').removeClass('active');
-		// $('.panel-body').removeClass('in');
-	    $(this).parents('.panel-heading').addClass('active');
-	    
-	    // $('.panel-title').removeClass('active'); //just to make a visual sense
-	    // $(this).parent().addClass('active'); //just to make a visual sense
- 
-	})
+	
+		$('.panel-heading a').removeClass('active');
+		$(this).addClass('active');
+		$('.panel-collapse').removeClass('in');
 
+	});
+	
 });

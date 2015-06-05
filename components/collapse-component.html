@@ -2,19 +2,20 @@
     <article class="col-xs-12 collapse-component {{custom_classes}}">
         <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="false" data-ng-repeat="collpase in collapse_list">
             <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="headingOne">
+                <div class="panel-heading " role="tab" id="{{collpase.headid}}">
                     <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#{{collpase.id}}" aria-expanded="{{collpase.expanded}}" aria-controls="collapseOne">
-                            {{collpase.title}}
+                        <a data-toggle="collapse" class="{{collpase.status}}" data-parent="#accordion" href="#{{collpase.id}}" aria-expanded="{{collpase.expanded}}" aria-controls="{{collpase.id}}">
+                          {{collpase.title}} 
                         </a>
                     </h4>
                 </div>
-                <div id="{{collpase.id}}" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                <div id="{{collpase.id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="{{collpase.headid}}"  ng-class="(collpase.status == 'active')?'in':''">
                     <div class="panel-body" compile="collpase.content" ng-bind-html="collpase.content | unsafe">
+
                     </div>
                 </div>
-            </div>
-        </div>
+            </div>  
+        </div>  
     </article>
 </div>
  <!-- tab-component-wrapper ends -->
