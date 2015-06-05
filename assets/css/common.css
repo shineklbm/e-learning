@@ -154,7 +154,7 @@ header #logo-wrapper span{ padding: 6px 0; display: inline-block; margin-right: 
 
 #inner-wrapper{position: relative;}
 #menu-wrapper span{display: block;}
-#vertical-menu-wrapper{margin-left: -15px; position: absolute; top: 27px; background: #4E4E4E; opacity: 0.9; color: #E1E1E1; display: none; height: auto; padding: 30px; min-width: 315px; z-index: 1000;}
+#vertical-menu-wrapper{margin-left: -15px; position: absolute; top: 24px; background: #4E4E4E; opacity: 0.9; color: #E1E1E1; display: none; height: auto; padding: 30px; min-width: 315px; z-index: 1000;}
 #vertical-menu-wrapper h3{color: #fff;font-size: 22px;margin-top: 0;display: inline-block;}
 #vertical-menu-wrapper .menu-close{color: #fff;font-size: 18px;margin-top: 0;float: right;display: block;cursor: pointer;opacity: 1;font-weight: normal;text-shadow:none;line-height: 1.5;}
 #vertical-menu-wrapper .menu-close:after{content: '\e60b';font-family: 'icomoon';}
