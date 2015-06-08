@@ -92,6 +92,7 @@ function rootController($scope, $http){
     });
   var menu = $("#menu").bind("select_node.jstree", function (e, data) {
     $scope.menuClickListener($(data.node).attr('id'));
+    Pace.restart();
     return data.instance.toggle_node(data.node);
   });
   menu.bind("loaded.jstree", function (e, data) {
