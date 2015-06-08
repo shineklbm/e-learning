@@ -7,7 +7,9 @@
     <link rel="stylesheet" href="assets/css/jstree-theme/style.min.css" />
     <link rel="stylesheet" href="assets/css/mediaelement-theme/mediaelementplayer.css" />
     <link rel="stylesheet" href="assets/css/icomoon.css">
+    <!-- <link rel="stylesheet" href="assets/css/tinyscrollbar.css"  media="screen"> -->
     <link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+    <!-- <link type="text/css" rel="stylesheet" href="assets/css/jquery.custom-scrollbar.css"/> -->
     <link rel="stylesheet" href="assets/css/common.css">
     <script src="assets/libs/angular.min.js"></script>
     <script src="modules/app.js"></script>
@@ -29,27 +31,31 @@
                 <!-- <img src="{{configs}}" alt="Course Logo"> -->
                 <img data-ng-src="{{configs.path.images}}{{configs.logo}}" alt="">
             </div>
+            <!-- menu-wrapper-stripe -->
+            <div id ="menu-wrapper-stripe">
+                <ul>
+                    <li><a href="#" id="stripe-menu"><i class="icon-menu"></i><label>MENU</label></a></li>
+                    <li><a href="#" id="stripe-help"><i class="icon-help"></i><label>HELP</label></a></li>
+                    <li><a href="#" id="stripe-glossary"><i class="icon-glossory"></i><label>GLOSSARY</label></a></li>
+                    <li><a href="#" id="stripe-resources"><i class="icon-resources"></i><label>RESOURCES</label></a></li>
+                </ul> 
+            </div>
+            <!-- menu-wrapper-stripe -->
+            <!-- vertical-menu-wrapper -->
+            <div id="vertical-menu-wrapper" >
+                <h3>Menu</h3><a href="#" class="menu-close"></a>
+                    
+                <div id="menu" class="v-scroll">
+
+                </div>
+            </div>
+            <!-- vertical-menu-wrapper -->
         </header>
         <!-- Content Wrapper -->
-        <div id="content-wrapper" class="row">
-            <article id="content"  class="col-xs-12">
-                <div id ="menu-wrapper-stripe">
-                    <ul>
-                        <li><a href="#" id="stripe-menu"><i class="icon-menu"></i><label>MENU</label></a></li>
-                        <li><a href="#" id="stripe-help"><i class="icon-help"></i><label>HELP</label></a></li>
-                        <li><a href="#" id="stripe-glossary"><i class="icon-glossory"></i><label>GLOSSARY</label></a></li>
-                        <li><a href="#" id="stripe-resources"><i class="icon-resources"></i><label>RESOURCES</label></a></li>
-                    </ul> 
-                </div>
-                <!-- vertical-menu-wrapper -->
-                <div id="vertical-menu-wrapper">
-                    <h3>Menu</h3><a href="#" class="menu-close"></a>
-                        
-                    <div id="menu">
+        <div id="content-wrapper" class="row ">
+            <article id="content"  class="col-xs-12 v-scroll ">
 
-                    </div>
-                </div>
-                <!-- vertical-menu-wrapper -->
+                
                 <div ng-if="page.template" data-ng-include src="configs.path.templates+page.template"></div>
             </article>
         </div>
@@ -117,6 +123,9 @@
     <script src="assets/libs/jstree.min.js"></script>
 	<script src='assets/libs/mediaelement.js'></script>
 	<script src='assets/libs/mediaelementplayer.js'></script>
+     <!--<script src="assets/libs/jquery.tinyscrollbar.js"></script>
+    <script src="assets/libs/tinyscrollbar.js"></script>-->
+    <!--<script src="assets/libs/jquery.custom-scrollbar.min.js"></script>-->
     <script src="assets/libs/jquery.mCustomScrollbar.concat.min.js"></script>
     <script src="assets/libs/defiant.min.js"></script>    
     <script src="assets/js/common.js"></script>

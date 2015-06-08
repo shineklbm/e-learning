@@ -1,6 +1,22 @@
 jQuery(document).ready(function($){
 	
-	$('.v-scroll').mCustomScrollbar({ theme:"light-1", scrollbarPosition: "outside",axis:"y"  });
+	
+           // $(".v-scroll").customScrollbar();
+
+        //    $(".text-component").tinyscrollbar();
+       // $('#content').onchange(function(){
+        //	alert('change');
+// $('.v-scroll').mCustomScrollbar({ theme:"light-1", scrollbarPosition: "inside",axis:"y"  });
+	//});
+
+	//$('.v-scroll').mCustomScrollbar({ theme:"light-1", scrollbarPosition: "inside",axis:"y"  });
+// $(document).on('change','#content',function(){
+// alert('change');
+// });
+$('#content').change(  function() {
+		alert('change');
+    $('.v-scroll').mCustomScrollbar({ theme:"light-1", scrollbarPosition: "inside",axis:"y"  });
+});
 // -------------------------------------- Menu  Stripe -----------------------------------------
 
 	$('.icon-menu-close').hide();
@@ -26,6 +42,10 @@ jQuery(document).ready(function($){
 	$('.menu-close').on('click',function(){
 		$('#vertical-menu-wrapper').toggle('slow');
 	});
+
+	// $(document).on('click','#menu ul li.jstree-open a.jstree-clicked',function(){
+	// 	$('#vertical-menu-wrapper').hide('slow');
+	// });
 
 // -------------------------------- Content Height -----------------------------------------
 
