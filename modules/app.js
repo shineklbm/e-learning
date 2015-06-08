@@ -98,7 +98,6 @@ function rootController($scope, $http){
     var snapshot = Defiant.getSnapshot($scope.menus);
     found = JSON.search(snapshot, '//*[contains(default, "true")]');
     var tree = $('#menu').jstree(true);
-    //console.log(found[0].id);
     tree.select_node(found[0].id);
   });
 
@@ -107,18 +106,20 @@ function rootController($scope, $http){
     curr = tree.get_selected(false);
     tree.deselect_all();
     tree.open_all();
-    var n = tree.get_prev_dom(curr);
-    console.log(n);
-    tree.select_node(n);
+    var prevpage = $('#'+page_id).prev().attr("id");
+	if( prevpage != 'undefined'){
+		tree.select_node(prevpage);
+	}
   }
   $scope.pageNext = function(page_id){
     var tree = $('#menu').jstree(true);
     curr = tree.get_selected(false);
     tree.deselect_all();
     tree.open_all();
-    var n = tree.get_next_dom(curr);
-    console.log(n);
-    tree.select_node(n);
+    var nextpage = $('#'+page_id).next().attr("id");
+	if( nextpage != 'undefined'){
+		tree.select_node(nextpage);
+	}
   }
 
   $scope.menuClickListener = function(pageId){
