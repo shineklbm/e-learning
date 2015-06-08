@@ -1,8 +1,5 @@
 jQuery(document).ready(function($){
-$('#content').change(  function() {
-		alert('change');
     $('.v-scroll').mCustomScrollbar({ theme:"light-1", scrollbarPosition: "inside",axis:"y"  });
-});
 // -------------------------------------- Menu  Stripe -----------------------------------------
 
 	$('.icon-menu-close').hide();
@@ -32,7 +29,7 @@ $('#content').change(  function() {
 // -------------------------------- Content Height -----------------------------------------
 
 	var content_height = ($(window).height() - $('#header').height() - $('#footer').height());
-	$("#content-wrapper").height(content_height-80);
+	$("#content").height(content_height-119);
 
 // ------------------------------------- Audio ------------------------------------------
 

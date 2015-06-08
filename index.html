@@ -32,7 +32,7 @@
                 <img data-ng-src="{{configs.path.images}}{{configs.logo}}" alt="">
             </div>
             <!-- menu-wrapper-stripe -->
-            <div id ="menu-wrapper-stripe">
+            <div class="col-xs-12" id ="menu-wrapper-stripe">
                 <ul>
                     <li><a href="#" id="stripe-menu"><i class="icon-menu"></i><label>MENU</label></a></li>
                     <li><a href="#" id="stripe-help"><i class="icon-help"></i><label>HELP</label></a></li>
@@ -50,12 +50,11 @@
                 </div>
             </div>
             <!-- vertical-menu-wrapper -->
+
         </header>
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="row ">
-            <article id="content"  class="col-xs-12 v-scroll ">
-
-                
+            <article id="content"  class="col-xs-12 v-scroll">                
                 <div ng-if="page.template" data-ng-include src="configs.path.templates+page.template"></div>
             </article>
         </div>

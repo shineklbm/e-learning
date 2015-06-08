@@ -105,7 +105,6 @@ function rootController($scope, $http){
     var tree = $('#menu').jstree(true);
     curr = tree.get_selected(false);
     tree.deselect_all();
-    tree.open_all();
     var prevpage = $('#'+page_id).prev().attr("id");
 	if( prevpage != 'undefined'){
 		tree.select_node(prevpage);
@@ -115,7 +114,6 @@ function rootController($scope, $http){
     var tree = $('#menu').jstree(true);
     curr = tree.get_selected(false);
     tree.deselect_all();
-    tree.open_all();
     var nextpage = $('#'+page_id).next().attr("id");
 	if( nextpage != 'undefined'){
 		tree.select_node(nextpage);
