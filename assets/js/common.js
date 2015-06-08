@@ -28,8 +28,8 @@ jQuery(document).ready(function($){
 
 // -------------------------------- Content Height -----------------------------------------
 
-	var content_height = ($(window).height() - $('#header').height() - $('#footer').height());
-	$("#content").height(content_height-119);
+	var content_height = ($(window).height() - $('#header').height() - $('#footer').height()-119);
+	$("#content").height(content_height);
 
 // ------------------------------------- Audio ------------------------------------------
 

@@ -7,9 +7,7 @@
     <link rel="stylesheet" href="assets/css/jstree-theme/style.min.css" />
     <link rel="stylesheet" href="assets/css/mediaelement-theme/mediaelementplayer.css" />
     <link rel="stylesheet" href="assets/css/icomoon.css">
-    <!-- <link rel="stylesheet" href="assets/css/tinyscrollbar.css"  media="screen"> -->
     <link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
-    <!-- <link type="text/css" rel="stylesheet" href="assets/css/jquery.custom-scrollbar.css"/> -->
     <link rel="stylesheet" href="assets/css/common.css">
     <script src="assets/libs/angular.min.js"></script>
     <script src="modules/app.js"></script>
@@ -27,7 +25,7 @@
                 <h2>{{(page.subtitle)? page.subtitle : configs.course_subtitle;}}</h2>
             </div>
             <div id="logo-wrapper" class="col-xs-3">
-                <span>EXIT</span>
+                <span><a href="#">EXIT</a></span>
                 <!-- <img src="{{configs}}" alt="Course Logo"> -->
                 <img data-ng-src="{{configs.path.images}}{{configs.logo}}" alt="">
             </div>
