@@ -1,18 +1,4 @@
 jQuery(document).ready(function($){
-	
-	
-           // $(".v-scroll").customScrollbar();
-
-        //    $(".text-component").tinyscrollbar();
-       // $('#content').onchange(function(){
-        //	alert('change');
-// $('.v-scroll').mCustomScrollbar({ theme:"light-1", scrollbarPosition: "inside",axis:"y"  });
-	//});
-
-	//$('.v-scroll').mCustomScrollbar({ theme:"light-1", scrollbarPosition: "inside",axis:"y"  });
-// $(document).on('change','#content',function(){
-// alert('change');
-// });
 $('#content').change(  function() {
 		alert('change');
     $('.v-scroll').mCustomScrollbar({ theme:"light-1", scrollbarPosition: "inside",axis:"y"  });
@@ -22,30 +8,26 @@ $('#content').change(  function() {
 	$('.icon-menu-close').hide();
 	
 	$('.icon-menu-main').on('click',function(){
-		$('#menu-wrapper-stripe').toggle('slow');
+		$('#menu-wrapper-stripe').toggle();
 		$('.icon-menu-close').show();
 		$('.icon-menu-main').hide();
 	});
 	$('.icon-menu-close').on('click',function(){
-		$('#menu-wrapper-stripe').toggle('slow');
+		$('#menu-wrapper-stripe').toggle();
 		$('.icon-menu-close').hide();
 		$('.icon-menu-main').show();
-		$('#vertical-menu-wrapper').hide('slow');
+		$('#vertical-menu-wrapper').hide();
 	});
 // -------------------------------------- Vertical Menu ----------------------------------------
 
 	$('#stripe-menu').on('click',function(){
-		$('#vertical-menu-wrapper').toggle('slow');
+		$('#vertical-menu-wrapper').toggle();
 		
 	});
 	
 	$('.menu-close').on('click',function(){
-		$('#vertical-menu-wrapper').toggle('slow');
+		$('#vertical-menu-wrapper').toggle();
 	});
-
-	// $(document).on('click','#menu ul li.jstree-open a.jstree-clicked',function(){
-	// 	$('#vertical-menu-wrapper').hide('slow');
-	// });
 
 // -------------------------------- Content Height -----------------------------------------
 
