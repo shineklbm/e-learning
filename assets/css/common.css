@@ -62,12 +62,12 @@ p{ font-size: 14px; }
 .collapse-component .panel-group{ margin-bottom: 0 !important;}
 .collapse-component .panel{background: #3E89B0; color: #fff !important;}
 .collapse-component .panel, .collapse-component .panel-heading{ border-bottom: 0;}
-.collapse-component .panel-group .panel,.collapse-component  .panel-group .panel-heading{ border-radius: 0;}
-.collapse-component .collapse{background:#3E89B0 !important; color: #fff;}
+.collapse-component .panel-group .panel,.collapse-component  .panel-group .panel-heading{ border-radius: 0; color: #fff !important}
+.collapse-component .collapse{background:#3E89B0 !important; color: #fff !important;}
 .collapse-component .panel-title a{ display:block; max-width: 100%; padding: 10px 15px; text-decoration: none; outline: none !important;}
 .collapse-component .panel-title{ width: 100%;max-width: 100%;}
 .collapse-component .panel-title a::after{ content: '\f05b'; font-family:'icomoon'; display:block;color: #fff; font-size: 16px; outline: none !important; position: absolute; display: block;margin-top: -16px; right: 45px;}
-.collapse-component .collapse .panel-body p{ color: #fff;}
+.collapse-component .collapse .panel-body p{ color: #fff  !important;}
 
 /*----------------------- Tab Component --------------------------*/
 
@@ -140,10 +140,11 @@ header #logo-wrapper span{ padding: 6px 0; display: inline-block; margin-right: 
 #background-wrapper img{width: 100%;height: auto;}
 
 /*---------------------------- fullwidth background ---------------------------*/
-
+/*-----------------------------Menu Content Wrapper ----------------------------*/
+ #menu-content-wrapper{position: relative;}
 /*---------------------------- Menu Wrapper Stripe -------------------------------*/
 
-#menu-wrapper-stripe{ background: #F2F2F2; padding: 15px 30px; margin: 39px 0 0 -6px; display: none;  position: absolute; width: 100%; z-index: 1000; }
+#menu-wrapper-stripe{ background: #F2F2F2; padding: 15px 30px; display: none;  position: absolute; width: 100%; z-index: 1000; }
 #menu-wrapper-stripe ul{margin: 0; padding: 0;} 
 #menu-wrapper-stripe li{margin: 0; padding: 0; display: inline-block; list-style-type: none;}
 #menu-wrapper-stripe a{  color: #01A1B9; padding: 7px 9px; outline: none!important; text-decoration: none; font-size: 16px; font-weight: normal; display: inline-block; margin-right: 80px; text-align: center; padding: 2px; line-height: 16px;}
@@ -155,7 +156,7 @@ header #logo-wrapper span{ padding: 6px 0; display: inline-block; margin-right: 
 
 #inner-wrapper{position: relative;}
 #menu-wrapper span{display: block;}
-#vertical-menu-wrapper{margin-left: -6px; position: absolute; top:99px; background: #4E4E4E; opacity: 0.9; color: #E1E1E1; display: none; height: auto; padding: 30px; min-width: 315px; z-index: 1000;}
+#vertical-menu-wrapper{position: absolute;background: #4E4E4E; opacity: 0.9; color: #E1E1E1; display: none; height: auto; padding: 30px; width: 315px; z-index: 1000;}
 #vertical-menu-wrapper h3{color: #fff;font-size: 22px;margin-top: 0;display: inline-block;}
 #vertical-menu-wrapper .menu-close{color: #fff;font-size: 18px;margin-top: 0;float: right;display: block;cursor: pointer;opacity: 1;font-weight: normal;text-shadow:none;line-height: 1.5;}
 #vertical-menu-wrapper .menu-close:after{content: '\e60b';font-family: 'icomoon';}

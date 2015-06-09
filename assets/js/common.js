@@ -18,6 +18,9 @@ jQuery(document).ready(function($){
 // -------------------------------------- Vertical Menu ----------------------------------------
 
 	$('#stripe-menu').on('click',function(){
+		var stripe_menu_height = $('#menu-wrapper-stripe' ).height();
+		console.log(stripe_menu_height);
+ 		// $('#vertical-menu-wrapper').css("top:'stripe_menu_height'px;");
 		$('#vertical-menu-wrapper').toggle();
 		
 	});
