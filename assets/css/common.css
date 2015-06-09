@@ -92,20 +92,12 @@ p{ font-size: 14px; }
 
 #audio-container{width: 200px; }
 .mejs-container{height: 0 !important;}
+.me-cannotplay{ display: none; }
 .mejs-container,.mejs-container .mejs-controls,.mejs-container .mejs-controls div{background: none;}
 .mejs-container .mejs-controls .mejs-playpause-button,
 .mejs-container .mejs-controls .mejs-volume-button,
 .mejs-container .mejs-controls .mejs-horizontal-volume-slider{display: none;}
-.mejs-container .mejs-controls .mejs-time-rail span.mejs-time-total{
-	width: 100% !important;
-	height: 4px;
-	margin: 0;
-	background: #787878;
-	border: 0;
-	box-shadow: none;
-	margin-top: 22px;
-	border-radius: 8px;
-}
+.mejs-container .mejs-controls .mejs-time-rail span.mejs-time-total{ width: 100% !important; height: 4px; margin: 0; background: #787878; border: 0; box-shadow: none; margin-top: 22px; border-radius: 8px; }
 .mejs-container .mejs-controls .mejs-time-rail span.mejs-time-loaded{ height: 4px; background: #787878; margin-top: -1px;}
 .mejs-container .mejs-controls .mejs-time-rail span.mejs-time-current{ height: 4px; background: #E3801B; margin-top: -1px;}
 .mejs-container .mejs-controls .mejs-time-rail .mejs-time-float{ display: block !important;background: none;box-shadow: none;}

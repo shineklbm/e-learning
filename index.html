@@ -82,6 +82,7 @@
                         </a>
                     </div>
                     <div id="audio-container"  class=" icon-block inline hidden-xs hidden-sm">
+                        <!-- <audio id="audio-player" controls="" preload="none" src="assets/media/david.mp3"></audio> -->
                         <audio id="audio-player" controls="" preload="none" src="assets/media/david.mp3"></audio>
                     </div>
                     <div id="audio-play" class="icon-block inline"> 
@@ -102,7 +103,7 @@
                 <div id="right-block"  >
                     <a href="#" id="click-me"class= "hidden-xs hidden-sm inline text-right">Click Next to continue.</a>
                     <span class="v-divider"></span>
-                    <div id="pagination" class=" pull-right">
+                    <div id="pagination" class="pull-right">
                         <!-- {{page}} -->
                         <span id="page-left-wrapper" ng-click="pagePrevious(page.page_id)" class="icon-left-arrow"></span>
                         <span id="page-counter">01/20</span>
@@ -120,8 +121,9 @@
     <script src="assets/libs/jquery-2.1.4.min.js"></script>
     <script src="assets/libs/bootstrap.min.js"></script>
     <script src="assets/libs/jstree.min.js"></script>
-	<script src='assets/libs/mediaelement.js'></script>
-	<script src='assets/libs/mediaelementplayer.js'></script>    
+	<!--<script src='assets/libs/mediaelement.js'></script>-->
+    <script src="assets/libs/mediaelement-and-player.min.js"></script>
+	<script src='assets/libs/mediaelementplayer.js'></script>
     <script src="assets/libs/jquery.mCustomScrollbar.concat.min.js"></script>
     <script type="text/javascript" src="assets/libs/pace.min.js"></script>
     <script src="assets/libs/defiant.min.js"></script>

@@ -134,5 +134,45 @@ function rootController($scope, $http){
       }
       $scope.loadContent($scope, $http);
     });
-  };  
+  };
+
+
+
+  // ------------------------------------- Audio ------------------------------------------
+  $scope.audioPlayer = MediaElementPlayer('audio', {
+            audioWidth: '100%',
+            features: ['playpause','progress','tracks','volume','fullscreen'],
+            success: function(control) {
+            $('.pause').hide();
+            $('.audio-off').hide();
+            $('.mejs-time-float-corner').hide();
+            //control.play(); // auto play
+            document.getElementById('audio-play')['onclick'] = function() {
+                if (control.paused){
+                  control.play();
+                  $('.pause').show();
+                  $('.play').hide();
+                  $('.mejs-time-float-corner').show();
+                }else{
+                  control.pause();
+                  $('.play').show();
+                  $('.pause').hide();
+                }
+            };
+            document.getElementById('audio-volume')['onclick'] = function() {
+              if(control.volume){
+                control.volume=0;
+              $('.audio-off').show();
+              $('.audio-on').hide();
+              }else{
+                control.volume=1;
+                $('.audio-on').show();
+                $('.audio-off').hide();
+              } 
+            };
+            document.getElementById('audio-replay')['onclick'] = function() {
+              control.load();
+              control.play();
+            };
+          }});
 }
