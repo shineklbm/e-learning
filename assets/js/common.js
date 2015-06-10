@@ -1,5 +1,5 @@
 jQuery(document).ready(function($){
-	$("#close-course-window").click(function(){
+	$(".btn-close-yes").click(function(){
 		//alert();
 		window.close();
 	})
@@ -32,6 +32,12 @@ jQuery(document).ready(function($){
 	
 	$('.menu-close').on('click',function(){
 		$('#vertical-menu-wrapper').toggle();
+	});
+	$(document).on('click','#menu ul li.jstree-open ul.jstree-children li a.jstree-clicked ',function(){
+		$('#menu-wrapper-stripe').hide();
+		$('#vertical-menu-wrapper').hide();
+		$('.icon-menu-close').hide();
+		$('.icon-menu-main').show();
 	});
 
 // -------------------------------- Content Height -----------------------------------------
