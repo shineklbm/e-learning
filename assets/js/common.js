@@ -41,14 +41,14 @@ jQuery(document).ready(function($){
 	});
 
 // -------------------------------- Content Height -----------------------------------------
-resizeWindow();
-function resizeWindow(){	
-	var content_height = ($(window).height() - $('#header').height() - $('#footer').height() - 13);
-	$("#content").height(content_height);
-}
-$(window).resize(function(){
 	resizeWindow();
-});
+	function resizeWindow(){	
+		var content_height = ($(window).height() - $('#header').height() - $('#footer').height() - 13);
+		$("#content").height(content_height);
+	}
+	$(window).resize(function(){
+		resizeWindow();
+	});
 //----------------------------------------- Collapse---------------------------------------------- 
 
 	$(document).on('click', '.panel-heading a', function(){

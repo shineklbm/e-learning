@@ -110,7 +110,7 @@ p{ font-size: 14px; line-height:1.7;}
 .modal-backdrop { background-color: #fff; opacity:0.8; }
 .modal .modal-content{ border-radius: 0; box-shadow: none; border: 0;}
 .modal .modal-header{ background: #336699;	color: #fff; padding: 7px;}
-.modal .modal-header .close{color: #fff;font-size: 34px; margin-top: 0; float: right; display: block; cursor: pointer; opacity: 1; font-weight: lighter; text-shadow:none; line-height: 1.7;}
+.modal .modal-header .close{color: #fff;font-size: 34px; margin-top: 0; float: right; display: block; cursor: pointer; opacity: 1; font-weight: lighter; text-shadow:none; line-height: 0.7;}
 .modal .modal-title { color: #fff;font-weight: bold; font-size: 16px; line-height: 1.7;}
 .modal .modal-body{ background: #F1F0F0;color: #000; font-weight: normal; font-size: 14px; line-height:1.7;}
 
