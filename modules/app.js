@@ -22,11 +22,8 @@ angular.module("eLearning")
       link: function(scope, element, attrs){
         scope.$parent.$watch('contents', function(newValue, oldValue) {
             if (newValue){
-              //console.log(scope.$parent.contents);
               scope.custom_classes = attrs.classes;
               scope.text_list = scope.$parent.contents[attrs.datasource];
-              //console.log("I come here");
-              //console.log(attrs.datasource+" : "+scope.text_list);
             }                       
             }, true);
       }
@@ -130,6 +127,16 @@ function rootController($scope, $http){
         $http.get('app/data/'+lang+'/'+$scope.page.data)
           .success(function(data){
             $scope.contents = data;
+            //console.log($scope.contents);
+            if($scope.contents.audio){
+              $scope.audioPlayer.pause();           
+              $scope.audioPlayer.setSrc($scope.contents.audio);
+              $scope.audioPlayer.load();
+              $scope.audioPlayer.play();
+            }
+            else{
+              $scope.audioPlayer.pause();
+            }
           });
       }
       $scope.loadContent($scope, $http);
@@ -139,40 +146,40 @@ function rootController($scope, $http){
 
 
   // ------------------------------------- Audio ------------------------------------------
-  $scope.audioPlayer = MediaElementPlayer('audio', {
+  $scope.audioPlayer = MediaElementPlayer('#audio-player', {
             audioWidth: '100%',
             features: ['playpause','progress','tracks','volume','fullscreen'],
-            success: function(control) {
+            success: function(audioPlayer, domNode) {
             $('.pause').hide();
             $('.audio-off').hide();
-            $('.mejs-time-float-corner').hide();
-            //control.play(); // auto play
+            //$('.mejs-time-float-corner').hide();
+            //audioPlayer.play(); // auto play
             document.getElementById('audio-play')['onclick'] = function() {
-                if (control.paused){
-                  control.play();
+                if (audioPlayer.paused){
+                  audioPlayer.play();
                   $('.pause').show();
                   $('.play').hide();
-                  $('.mejs-time-float-corner').show();
+                  //$('.mejs-time-float-corner').show();
                 }else{
-                  control.pause();
+                  audioPlayer.pause();
                   $('.play').show();
                   $('.pause').hide();
                 }
             };
             document.getElementById('audio-volume')['onclick'] = function() {
-              if(control.volume){
-                control.volume=0;
+              if(audioPlayer.volume){
+                audioPlayer.volume=0;
               $('.audio-off').show();
               $('.audio-on').hide();
               }else{
-                control.volume=1;
+                audioPlayer.volume=1;
                 $('.audio-on').show();
                 $('.audio-off').hide();
               } 
             };
             document.getElementById('audio-replay')['onclick'] = function() {
-              control.load();
-              control.play();
+              audioPlayer.load();
+              audioPlayer.play();
             };
           }});
 }
