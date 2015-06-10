@@ -1,4 +1,8 @@
 jQuery(document).ready(function($){
+	$("#close-course-window").click(function(){
+		//alert();
+		window.close();
+	})
     $('.v-scroll').mCustomScrollbar({ theme:"light-1", scrollbarPosition: "inside",axis:"y"  });
 // -------------------------------------- Menu  Stripe -----------------------------------------
 
@@ -31,10 +35,14 @@ jQuery(document).ready(function($){
 	});
 
 // -------------------------------- Content Height -----------------------------------------
-
-	var content_height = ($(window).height() - $('#header').height() - $('#footer').height()-119);
+resizeWindow();
+function resizeWindow(){	
+	var content_height = ($(window).height() - $('#header').height() - $('#footer').height() - 13);
 	$("#content").height(content_height);
-
+}
+$(window).resize(function(){
+	resizeWindow();
+});
 //----------------------------------------- Collapse---------------------------------------------- 
 
 	$(document).on('click', '.panel-heading a', function(){

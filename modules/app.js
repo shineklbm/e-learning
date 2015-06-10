@@ -143,10 +143,8 @@ function rootController($scope, $http){
     });
   };
 
-
-
   // ------------------------------------- Audio ------------------------------------------
-  $scope.audioPlayer = MediaElementPlayer('#audio-player', {
+  $scope.audioPlayer = new MediaElementPlayer('#audio-player', {
             audioWidth: '100%',
             features: ['playpause','progress','tracks','volume','fullscreen'],
             success: function(audioPlayer, domNode) {

@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en" data-ng-app="eLearning" data-ng-controller="rootCtrl">
+<head>
+    <meta charset="utf-8">    
+    <title>E-Learning App</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/jstree-theme/style.min.css" />
+    <link rel="stylesheet" href="assets/css/mediaelement-theme/mediaelementplayer.css" />
+    <link rel="stylesheet" href="assets/css/icomoon.css">
+    <link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="assets/css/pace.css">
+    <link rel="stylesheet" href="assets/css/common.css">
+    <script src="assets/libs/angular.min.js"></script>
+    <script src="modules/app.js"></script>
+</head>
+<body>      
+    <div id="inner-wrapper" class="container">
+        <header id="header" class="row">
+            <div id="menu-wrapper" class="col-xs-1">
+                <span class="icon-menu-main" aria-hidden="true"></span>
+                <span class="icon-menu-close" aria-hidden="true"></span>   
+            </div>
+            <div id="title-wrapper" class="col-xs-8">            	
+                <!-- <h1>{{page.title}}</h1> -->
+                <h1>{{(page.title)? page.title : configs.course_title;}}</h1>
+                <h2>{{(page.subtitle)? page.subtitle : configs.course_subtitle;}}</h2>
+            </div>
+            <div id="logo-wrapper" class="col-xs-3">
+                <span><a href="#" id="close-course-window">EXIT</a></span>
+                <!-- <img src="{{configs}}" alt="Course Logo"> -->
+                <img data-ng-src="{{configs.path.images}}{{configs.logo}}" alt="">
+            </div>
+        </header>
+        <div id="menu-content-wrapper" class="row">
+        <!-- menu-wrapper-stripe -->
+            <div  id ="menu-wrapper-stripe" class="col-xs-12">
+                <ul >
+                    <li><a href="#" id="stripe-menu"><i class="icon-menu"></i><label>MENU</label></a></li>
+                    <li><a href="#" id="stripe-help"><i class="icon-help"></i><label>HELP</label></a></li>
+                    <li><a href="#" id="stripe-glossary"><i class="icon-glossory"></i><label>GLOSSARY</label></a></li>
+                    <li><a href="#" id="stripe-resources"><i class="icon-resources"></i><label>RESOURCES</label></a></li>
+                </ul> 
+            </div>
+            <!-- menu-wrapper-stripe -->
+            <!-- vertical-menu-wrapper -->
+            <div id="vertical-menu-wrapper" class="col-xs-12" >
+                <h3>Menu</h3><a href="#" class="menu-close"></a>
+                    
+                <div id="menu" class="v-scroll">
+
+                </div>
+            </div>
+            <!-- vertical-menu-wrapper -->
+        </div>
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="row ">
+            <article id="content"  class="col-xs-12 v-scroll">                
+                <div ng-if="page.template" data-ng-include src="configs.path.templates+page.template"></div>
+            </article>
+        </div>
+         <!-- Footer  -->
+        <footer id="footer" class="row">
+            <div id="page-progress" class="progress col-lg-12 ">
+                <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 30%">
+                    <span class="sr-only">60% Complete (warning)</span>
+                </div>
+            </div>
+            <div id="footer-content" class="col-lg-12">
+                <div id="left-block" class="pull-left" >
+                    <div id="transcript-block" class="icon-block inline">
+                       <a href="#">
+                            <i class="icon-transcript inline"></i>
+                            <label class="hidden-xs hidden-sm inline">TRANSCRIPT</label>
+                       </a> 
+                    </div>
+                    <div id="audio-volume" class=" icon-block inline">
+                        <a href="#">
+                            <i class="icon-audio_on audio-on inline"></i>
+                            <label class="audio-on hidden-xs hidden-sm inline">AUDIO ON</label>
+                            <i class="icon-audio_off audio-off inline"></i>
+                            <label class="audio-off hidden-xs hidden-sm inline">AUDIO OFF</label>
+                        </a>
+                    </div>
+                    <div id="audio-container"  class=" icon-block inline hidden-xs hidden-sm">
+                        <audio id="audio-player" controls="" preload="none" src="assets/media/blank.mp3"></audio>
+                    </div>
+                    <div id="audio-play" class="icon-block inline"> 
+                        <a href="#">
+                            <i class=" icon-play play inline"></i>
+                            <label class=" play hidden-xs hidden-sm inline">PLAY</label>
+                            <i class=" icon-pause pause inline"></i>
+                            <label class=" pause hidden-xs hidden-sm inline">PAUSE</label> 
+                        </a>
+                    </div>
+                    <div id="audio-replay" class="icon-block inline">
+                        <a href="#">
+                            <i class="icon-replay inline"></i>
+                            <label class="hidden-xs hidden-sm inline">REPLAY</label>
+                        </a>  
+                    </div>
+                </div>
+                <div id="right-block"  >
+                    <a href="#" id="click-me"class= "hidden-xs hidden-sm inline text-right">Click Next to continue.</a>
+                    <span class="v-divider"></span>
+                    <div id="pagination" class="pull-right">
+                        <!-- {{page}} -->
+                        <span id="page-left-wrapper" ng-click="pagePrevious(page.page_id)" class="icon-left-arrow"></span>
+                        <span id="page-counter">01/20</span>
+                        <span id="page-right-wrapper" ng-click="pageNext(page.page_id)" class="icon-right-arrow"></span>
+                    </div>
+                </div>
+            </div>
+        </footer>            
+        <!-- Footer  End -->        
+    </div>
+    <div id="background-wrapper">
+        <img data-ng-src="{{configs.path.images}}{{configs.background_image}}" alt="">
+    </div>
+    <!-- Wrapper -->
+    <script src="assets/libs/jquery-2.1.4.min.js"></script>
+    <script src="assets/libs/bootstrap.min.js"></script>
+    <script src="assets/libs/jstree.min.js"></script>
+	<!--<script src='assets/libs/mediaelement.js'></script>-->
+    <script src="assets/libs/mediaelement-and-player.min.js"></script>
+	<script src='assets/libs/mediaelementplayer.js'></script>
+    <script src="assets/libs/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script type="text/javascript" src="assets/libs/pace.min.js"></script>
+    <script src="assets/libs/defiant.min.js"></script>
+    <script src="assets/js/common.js"></script>
+</body>
+</html>
