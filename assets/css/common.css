@@ -95,7 +95,8 @@ p{ font-size: 14px; }
 .mejs-container,.mejs-container .mejs-controls,.mejs-container .mejs-controls div{background: none;}
 .mejs-container .mejs-controls .mejs-playpause-button,
 .mejs-container .mejs-controls .mejs-volume-button,
-.mejs-container .mejs-controls .mejs-horizontal-volume-slider{display: none;}
+.mejs-container .mejs-controls .mejs-horizontal-volume-slider,
+.mejs-container .mejs-controls .mejs-time-float-corner{display: none;}
 .mejs-container .mejs-controls .mejs-time-rail span.mejs-time-total{ width: 100% !important; height: 4px; margin: 0; background: #787878; border: 0; box-shadow: none; margin-top: 22px; border-radius: 8px; }
 .mejs-container .mejs-controls .mejs-time-rail span.mejs-time-loaded{ height: 4px; background: #787878; margin-top: -1px;}
 .mejs-container .mejs-controls .mejs-time-rail span.mejs-time-current{ height: 4px; background: #E3801B; margin-top: -1px;}
@@ -202,10 +203,13 @@ footer{background: #F2F2F2;min-height: 45px;max-width: 1110px;margin: 0 auto !im
 #footer-content #left-block a,#footer-content #right-block a{cursor: pointer;display: inline-block;text-decoration: none;} 
 
 /*-- Left block --*/
-
 #footer-content #left-block{padding-top:11px;float: left;width: 67%;}
 #footer-content #left-block i,#footer-content #left-block label{font-size: 14px;color: #4E4E4E;}
 #footer-content #left-block .icon-block ,#audio-progress{margin-right: 12px;cursor: pointer;}
+#footer-content #left-block #transcript-block, 
+#footer-content #left-block #transcript-block a,
+#footer-content #left-block #transcript-block label{cursor:default;}
+
 #footer-content #left-block label{font-weight: normal;font-size: 14px;margin-top: -2px;max-width: 100%;cursor: pointer;}
 
 /*-- Right Block --*/

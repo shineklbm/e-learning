@@ -148,7 +148,8 @@ function rootController($scope, $http){
             audioWidth: '100%',
             features: ['playpause','progress','tracks','volume','fullscreen'],
             success: function(audioPlayer, domNode) {
-            $('.pause').hide();
+            $('.play').hide();
+            $('.pause').show();
             $('.audio-off').hide();
             //$('.mejs-time-float-corner').hide();
             //audioPlayer.play(); // auto play
