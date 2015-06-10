@@ -85,8 +85,12 @@ function rootController($scope, $http){
   $http.get('app/configs/menu.json')
     .success(function(data){
       $scope.menus = data;
-      $('#menu').jstree(data);      
+      $('#menu').jstree(data);
+      	var snapshot = Defiant.getSnapshot($scope.menus);
+    	found = JSON.search(snapshot, '//*[contains(parent, "#")]');
+		$scope.page_count = $scope.menus.core.data.length - found.length;
     });
+
   var menu = $("#menu").bind("select_node.jstree", function (e, data) {
     $scope.menuClickListener($(data.node).attr('id'));
     Pace.restart();
