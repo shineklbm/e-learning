@@ -136,6 +136,7 @@ function rootController($scope, $http){
             }
             else{
               $scope.audioPlayer.pause();
+              $scope.audioPlayer.setCurrentTime(0.0);
             }
           });
       }
@@ -167,9 +168,9 @@ function rootController($scope, $http){
             };
             document.getElementById('audio-volume')['onclick'] = function() {
               if(audioPlayer.volume){
-                audioPlayer.volume=0;
-              $('.audio-off').show();
-              $('.audio-on').hide();
+				audioPlayer.volume=0;
+				$('.audio-off').show();
+				$('.audio-on').hide();
               }else{
                 audioPlayer.volume=1;
                 $('.audio-on').show();
