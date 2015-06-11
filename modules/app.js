@@ -37,7 +37,6 @@ angular.module("eLearning")
       link: function(scope, element, attrs){
         scope.$parent.$watch('contents', function(newValue, oldValue) {
             if (newValue){
-              //console.log(scope.$parent.contents);
               scope.custom_classes = attrs.classes;
               scope.tab_list = scope.$parent.contents[attrs.datasource];
             }                       
@@ -53,7 +52,6 @@ angular.module("eLearning")
       link: function(scope, element, attrs){
         scope.$parent.$watch('contents', function(newValue, oldValue) {
             if (newValue){
-              //console.log(scope.$parent.contents);
               scope.custom_classes = attrs.classes;
               scope.image_list = scope.$parent.contents[attrs.datasource];
             }                       
@@ -69,7 +67,6 @@ angular.module("eLearning")
       link: function(scope, element, attrs){
         scope.$parent.$watch('contents', function(newValue, oldValue) {
             if (newValue){
-              /*console.log(attrs.classes);*/
               scope.custom_classes = attrs.classes;
               scope.collapse_list = scope.$parent.contents[attrs.datasource];
             }                       
@@ -93,31 +90,37 @@ function rootController($scope, $http){
     });
   $scope.menuOrganizer = function(menu){
     var menu_items = new Array();
-    //var level1 = new Array();
     var snapshot = Defiant.getSnapshot($scope.menus);
     found = JSON.search(snapshot, '//*[contains(parent, "#")]');
-    //console.log(found);
-    $(found).each(function( index, item ){
-      menu_items[index] = item;
-      pattern = '//*[contains(parent,"' + item.id + '")]';
-      children = JSON.search(snapshot, pattern);
-      if(children.length > 0){
-        menu_items[index]['children'] = children;       
-      }
-    });
-    /*$(menu_items).each(function(index, item){
-      if(item.children.length > 0){
-        var snapshot = Defiant.getSnapshot(item);
-        pattern = '//*[contains(parent,"' + item.id + '")]';
-        children2 = JSON.search(snapshot, pattern);
-        console.log(children2);
-      }
-    });*/
+    if(found.length > 0){
+	    $(found).each(function( index, item ){
+	      menu_items[index] = item;
+	      pattern = '//*[contains(parent,"' + item.id + '")]';
+	      children = JSON.search(snapshot, pattern);
+	      if(children.length > 0){
+	        menu_items[index]['children'] = children;       
+	      }
+	    });
+		$(menu_items).each(function(index, item){
+	    	if(item.children.length > 0){
+	    		$(item.children).each(function(child_index, child_item){
+	    			var snapshot = Defiant.getSnapshot($scope.menus);
+	    			pattern = '//*[contains(parent,"' + child_item.id + '")]';
+	    			children_level2 = JSON.search(snapshot, pattern);
+	    			if(children_level2.length > 0)
+	    			{
+						menu_items[index]['children'][child_index]['children'] = children_level2;
+	    			}
+	    		})
+	    	}
+	    });
+	}
+	if(menu_items.length > 0)
+		$scope.menu_hierarchy = menu_items;
   }
   var menu = $("#menu").bind("select_node.jstree", function (e, data) {
-    $scope.menuClickListener($(data.node).attr('id'));
-    Pace.restart();
-    return data.instance.toggle_node(data.node);
+	$scope.menuClickListener(data);
+	return data.instance.toggle_node(data.node);
   });
   menu.bind("loaded.jstree", function (e, data) {
     var snapshot = Defiant.getSnapshot($scope.menus);
@@ -145,30 +148,32 @@ function rootController($scope, $http){
 	}
   }
 
-  $scope.menuClickListener = function(pageId){
-    var lang = $scope.configs.lang;
-    $http.get('app/pages/'+pageId+'.json')
-    .success(function(data){
-      $scope.page = data;
-      $scope.loadContent = function ($scope, $http){
-        $http.get('app/data/'+lang+'/'+$scope.page.data)
-          .success(function(data){
-            $scope.contents = data;
-            //console.log($scope.contents);
-            if($scope.contents.audio){
-              $scope.audioPlayer.pause();           
-              $scope.audioPlayer.setSrc($scope.contents.audio);
-              $scope.audioPlayer.load();
-              $scope.audioPlayer.play();
-            }
-            else{
-              $scope.audioPlayer.pause();
-              $scope.audioPlayer.setCurrentTime(0.0);
-            }
-          });
-      }
-      $scope.loadContent($scope, $http);
-    });
+  $scope.menuClickListener = function(data){
+  	if(data.node.parent != "#"){
+	    var lang = $scope.configs.lang;
+	    $http.get('app/pages/'+data.node.id+'.json')
+	    .success(function(data){
+	      $scope.page = data;
+	      $scope.loadContent = function ($scope, $http){
+	        $http.get('app/data/'+lang+'/'+$scope.page.data)
+	          .success(function(data){
+	            $scope.contents = data;
+	            Pace.restart();
+	            if($scope.contents.audio){
+	              $scope.audioPlayer.pause();           
+	              $scope.audioPlayer.setSrc($scope.contents.audio);
+	              $scope.audioPlayer.load();
+	              $scope.audioPlayer.play();
+	            }
+	            else{
+	              $scope.audioPlayer.pause();
+	              $scope.audioPlayer.setCurrentTime(0.0);
+	            }
+	          });
+	      }
+	      $scope.loadContent($scope, $http);
+	    });
+	}
   };
 
   // ------------------------------------- Audio ------------------------------------------
