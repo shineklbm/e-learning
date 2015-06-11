@@ -86,11 +86,34 @@ function rootController($scope, $http){
     .success(function(data){
       $scope.menus = data;
       $('#menu').jstree(data);
-      	var snapshot = Defiant.getSnapshot($scope.menus);
+      var snapshot = Defiant.getSnapshot($scope.menus);
     	found = JSON.search(snapshot, '//*[contains(parent, "#")]');
-		$scope.page_count = $scope.menus.core.data.length - found.length;
+		  $scope.page_count = $scope.menus.core.data.length - found.length;
+      $scope.menuOrganizer($scope.menus.core.data);
     });
-
+  $scope.menuOrganizer = function(menu){
+    var menu_items = new Array();
+    //var level1 = new Array();
+    var snapshot = Defiant.getSnapshot($scope.menus);
+    found = JSON.search(snapshot, '//*[contains(parent, "#")]');
+    //console.log(found);
+    $(found).each(function( index, item ){
+      menu_items[index] = item;
+      pattern = '//*[contains(parent,"' + item.id + '")]';
+      children = JSON.search(snapshot, pattern);
+      if(children.length > 0){
+        menu_items[index]['children'] = children;       
+      }
+    });
+    /*$(menu_items).each(function(index, item){
+      if(item.children.length > 0){
+        var snapshot = Defiant.getSnapshot(item);
+        pattern = '//*[contains(parent,"' + item.id + '")]';
+        children2 = JSON.search(snapshot, pattern);
+        console.log(children2);
+      }
+    });*/
+  }
   var menu = $("#menu").bind("select_node.jstree", function (e, data) {
     $scope.menuClickListener($(data.node).attr('id'));
     Pace.restart();
