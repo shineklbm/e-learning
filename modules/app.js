@@ -145,7 +145,7 @@ function rootController($scope, $http){
           if(value.id == page_id)
           {
             for(i = index-1; i >= 0 ; i--){
-              if(!jstree_json[i].data.has_child){
+              if(!jstree_json[i].data.has_children){
                 previous_element = jstree_json[i];
                 break;
               }
@@ -172,7 +172,7 @@ function rootController($scope, $http){
           if(value.id == page_id)
           {
             for(i = index+1; i < jstree_json.length ; i++){
-              if(!jstree_json[i].data.has_child){
+              if(!jstree_json[i].data.has_children){
                 next_element = jstree_json[i];
                 break;
               }
