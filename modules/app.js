@@ -127,53 +127,120 @@ function rootController($scope, $http){
     found = JSON.search(snapshot, '//*[contains(default, "true")]');
     var tree = $('#menu').jstree(true);
     tree.select_node(found[0].id);
+
+
+    /**
+    Previous Click Handler
+    */
+    $("#page-left-wrapper").click(function(){
+      var previous_element = {};
+      var page_id = $scope.page.page_id;
+      var tree = $('#menu').jstree(true);
+      //tree.deselect_all();
+      $('#menu').jstree('open_all');
+
+      var jstree_json = $("#menu").jstree(true).get_json('#', { 'flat': true });
+
+      $(jstree_json).each(function(index, value){
+          if(value.id == page_id)
+          {
+            for(i = index-1; i >= 0 ; i--){
+              if(!jstree_json[i].data.has_child){
+                previous_element = jstree_json[i];
+                break;
+              }
+            }
+            return false;
+          }
+      });
+      if(previous_element.id){
+        $scope.menuClickListener(previous_element, true);
+      }
+    });
+
+    /*Next Click Handler*/
+    $("#page-right-wrapper").click(function(){
+      var next_element = {};
+      var page_id = $scope.page.page_id;
+      var tree = $('#menu').jstree(true);
+      //tree.deselect_all();
+      $('#menu').jstree('open_all');
+
+      var jstree_json = $("#menu").jstree(true).get_json('#', { 'flat': true });
+
+      $(jstree_json).each(function(index, value){
+          if(value.id == page_id)
+          {
+            for(i = index+1; i < jstree_json.length ; i++){
+              if(!jstree_json[i].data.has_child){
+                next_element = jstree_json[i];
+                break;
+              }
+            }
+            return false;
+          }
+      });
+      if(next_element.id){
+        console.log(next_element);
+        $scope.menuClickListener(next_element, true);
+      }
+    });
   });
-
-  $scope.pagePrevious = function(page_id){
-    var tree = $('#menu').jstree(true);
-    curr = tree.get_selected(false);
-    tree.deselect_all();
-    var prevpage = $('#'+page_id).prev().attr("id");
-	if( prevpage != 'undefined'){
-		tree.select_node(prevpage);
-	}
-  }
-  $scope.pageNext = function(page_id){
-    var tree = $('#menu').jstree(true);
-    curr = tree.get_selected(false);
-    tree.deselect_all();
-    var nextpage = $('#'+page_id).next().attr("id");
-	if( nextpage != 'undefined'){
-		tree.select_node(nextpage);
-	}
-  }
-
-  $scope.menuClickListener = function(data){
-  	if(data.node.parent != "#"){
-	    var lang = $scope.configs.lang;
-	    $http.get('app/pages/'+data.node.id+'.json')
-	    .success(function(data){
-	      $scope.page = data;
-	      $scope.loadContent = function ($scope, $http){
-	        $http.get('app/data/'+lang+'/'+$scope.page.data)
-	          .success(function(data){
-	            $scope.contents = data;
-	            Pace.restart();
-	            if($scope.contents.audio){
-	              $scope.audioPlayer.pause();           
-	              $scope.audioPlayer.setSrc($scope.contents.audio);
-	              $scope.audioPlayer.load();
-	              $scope.audioPlayer.play();
-	            }
-	            else{
-	              $scope.audioPlayer.pause();
-	              $scope.audioPlayer.setCurrentTime(0.0);
-	            }
-	          });
-	      }
-	      $scope.loadContent($scope, $http);
-	    });
-	}
+  $scope.menuClickListener = function(data, custom = false){
+    if(custom !== true){
+    	if(data.node.parent != "#"){
+  	    var lang = $scope.configs.lang;
+  	    $http.get('app/pages/'+data.node.id+'.json')
+  	    .success(function(data){
+  	      $scope.page = data;
+  	      $scope.loadContent = function ($scope, $http){
+  	        $http.get('app/data/'+lang+'/'+$scope.page.data)
+  	          .success(function(data){
+  	            $scope.contents = data;
+  	            Pace.restart();
+  	            if($scope.contents.audio){
+  	              $scope.audioPlayer.pause();           
+  	              $scope.audioPlayer.setSrc($scope.contents.audio);
+  	              $scope.audioPlayer.load();
+  	              $scope.audioPlayer.play();
+  	            }
+  	            else{
+  	              $scope.audioPlayer.pause();
+  	              $scope.audioPlayer.setCurrentTime(0.0);
+  	            }
+  	          });
+  	      }
+  	      $scope.loadContent($scope, $http);
+  	    });
+      }
+    }
+    else{
+      if(data.parent != "#"){
+        var lang = $scope.configs.lang;
+        $http.get('app/pages/'+data.id+'.json')
+          .success(function(data){
+            $scope.page = data;
+            $scope.loadContent = function ($scope, $http){
+              $http.get('app/data/'+lang+'/'+$scope.page.data)
+                .success(function(data){
+                  $scope.contents = data;
+                  Pace.restart();
+                  if($scope.contents.audio){
+                    $scope.audioPlayer.pause();           
+                    $scope.audioPlayer.setSrc($scope.contents.audio);
+                    $scope.audioPlayer.load();
+                    $scope.audioPlayer.play();
+                  }
+                  else{
+                    $scope.audioPlayer.pause();
+                    $scope.audioPlayer.setCurrentTime(0.0);
+                  }
+                });
+            }
+            $scope.loadContent($scope, $http);
+          });
+      }
+    }
   };
 
   // ------------------------------------- Audio ------------------------------------------
