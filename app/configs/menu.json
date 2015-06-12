@@ -1,87 +1,56 @@
 {
     "core": {
-        "check_callback" : true,
         "data": [
             {
                 "id": "page0",
                 "parent": "#",
-                "text": "Module1",
-                "data": {
-                    "has_child" : true
-                }
+                "text": "Module1"
             },
             {
                 "id": "page1",
                 "parent": "page0",
                 "text": "Two Column Layout",
-                "default": "true",
-                "data": {
-                    "has_child" : false
-                } 
+                "default": "true"
             },
             {
                 "id": "page2",
-                "parent": "root2",
-                "text": "Two Rows Layout",
-                "data": {
-                    "has_child" : false
-                }
+                "parent": "page0",
+                "text": "Two Rows Layout"
             },
             {
                 "id": "page3",
                 "parent": "page0",
-                "text": "Single Column Layout",
-                "data": {
-                    "has_child" : false
-                } 
+                "text": "Single Column Layout"
             },
             {
                 "id": "page4",
                 "parent": "page0",
-                "text": "Complex Layout",
-                "data": {
-                    "has_child" : false
-                } 
+                "text": "Complex Layout"
             },
             {
                 "id": "root2",
                 "parent": "#",
-                "text": "Module2",
-                "data": {
-                    "has_child" : true
-                }
+                "text": "Module2"
             },
             {
                 "id": "page5",
                 "parent": "root2",
-                "text": "Two Column with Text and Tab",
-                "data": {
-                    "has_child" : false
-                } 
+                "text": "Two Column with Text and Tab"
             },
             {
                 "id": "page6",
                 "parent": "root2",
-                "text": "Image Text Layout",
-                "data": {
-                    "has_child" : false
-                } 
+                "text": "Image Text Layout"
             },
             {
                 "id": "page7",
-                "parent": "page0",
-                "text": "Three Rows Layout",
-                "data": {
-                    "has_child" : false
-                } 
+                "parent": "root2",
+                "text": "Three Rows Layout"
             },
             {
                 "id": "page8",
                 "parent": "root2",
-                "text": "Four Column Layout",
-                "data": {
-                    "has_child" : false
-                } 
+                "text": "Four Column Layout"
             }
         ]
     }

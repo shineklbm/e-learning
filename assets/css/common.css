@@ -34,17 +34,18 @@ h1, h2, h3,h4, h5, h6,p{ color: #3b3b3b; margin-bottom: 20px;}
 h1{	font-size: 19px; text-transform: uppercase; }
 h2{	font-size: 17px; }
 h3{ font-size: 16px; }
-p{ font-size: 14px; line-height:1.7;}
+p{ font-size: 14px;}
 .blue-wrapper{ background: #336699; color: #fff; padding:30px; margin-bottom: 30px; opacity: .9; }
 .white-wrapper{ background: #FFF; color: #fff; padding:30px; margin-bottom: 30px; opacity: .9; }
 .blue-wrapper h1, .blue-wrapper p{ color: #fff; }
 /*.close{color: #fff;font-size: 18px;margin-top: 0;float: right;display: block;cursor: pointer;opacity: 1;font-weight: normal;text-shadow:none;line-height: 1.5;}
 .close:after{content: '\e606';font-family: 'icomoon';}*/
 /*================================== COMPONENTS ==============================================*/
-
+.tab-component{display: block;}
+.collapse-component{display: none;}
 /*------------------ Text Component ----------*/
 
-.text-component{font-size: 14px ;font-weight: normal;line-height:1.7;}
+.text-component{font-size: 14px ;font-weight: normal}
 
 /*------------------ Image Component --------------*/
 
@@ -52,20 +53,21 @@ p{ font-size: 14px; line-height:1.7;}
 
 /*----------------- Collapse Component ----------------------*/
 
-.collapse-component .collapse-wrapper{border-bottom: 1px solid #fff;}
-.collapse-component .panel-heading { background:#A5C061 !important; color: #fff;padding: 0;}
+.collapse-component .collapse-wrapper{border-bottom: 1px solid #fff; color: #fff !important; }
+.collapse-component .panel-heading { background:#A5C061 !important; color: #fff !important;padding: 0;}
 .collapse-component .panel-heading:hover ,
 .collapse-component .panel-heading a:hover, 
 .collapse-component .active, 
 .collapse-component .active-panel  { background:#E3801B !important; color: #fff !important;}
-.collapse-component .panel-group{ margin-bottom: 0 !important;}
+.collapse-component .panel-group{ margin-bottom: 0 !important;color: #fff !important;}
 .collapse-component .panel{background: #3E89B0; color: #fff !important;}
-.collapse-component .panel, .collapse-component .panel-heading{ border-bottom: 0;}
+.collapse-component .panel, .collapse-component .panel-heading{ border-bottom: 0; color: #fff !important;}
 .collapse-component .panel-group .panel,.collapse-component  .panel-group .panel-heading{ border-radius: 0; color: #fff !important}
 .collapse-component .collapse{background:#3E89B0 !important; color: #fff !important;}
-.collapse-component .panel-title a{ display:block; max-width: 100%; padding: 10px 15px; text-decoration: none; outline: none !important;}
-.collapse-component .panel-title{ width: 100%;max-width: 100%;}
-.collapse-component .panel-title a::after{ content: '\f05b'; font-family:'icomoon'; display:block;color: #fff; font-size: 16px; outline: none !important; position: absolute; display: block;margin-top: -16px; right: 45px;}
+.collapse-component .panel-title a{ display:block; max-width: 100%; padding: 10px 15px; text-decoration: none; outline: none !important; color: #fff !important;}
+.collapse-component .panel-title{ width: 100%;max-width: 100%; color: #fff  !important;}
+.collapse-component .panel-title a::after{ content: '\f05b'; font-family:'icomoon'; display:block;color: #fff !important; font-size: 16px; outline: none !important; position: absolute; display: block;margin-top: -16px; right: 45px;}
+.collapse-component .collapse .panel-body,
 .collapse-component .collapse .panel-body p{ color: #fff  !important;}
 
 /*----------------------- Tab Component --------------------------*/
@@ -85,7 +87,7 @@ p{ font-size: 14px; line-height:1.7;}
 .tab-component .nav-pills > li.active:after,
 .tab-component .nav-pills > li:hover::after {content: "\f05b"; font-family:'icomoon';font-size: 18px; position: absolute; display: block; margin-left: -9px;bottom:-16px; left:50%; z-index: 1000;	}
 .tab-component .tab-content {border-top: 1px solid #fff;}
-.tab-component .tab-pane p{color: #fff; line-height:1.7;}
+.tab-component .tab-pane p{color: #fff;}
 
 /*--------------------------- Audio -----------------------------*/
 
@@ -111,8 +113,8 @@ p{ font-size: 14px; line-height:1.7;}
 .modal .modal-content{ border-radius: 0; box-shadow: none; border: 0;}
 .modal .modal-header{ background: #336699;	color: #fff; padding: 7px;}
 .modal .modal-header .close{color: #fff;font-size: 34px; margin-top: 0; float: right; display: block; cursor: pointer; opacity: 1; font-weight: lighter; text-shadow:none; line-height: 0.7;}
-.modal .modal-title { color: #fff;font-weight: bold; font-size: 16px; line-height: 1.7;}
-.modal .modal-body{ background: #F1F0F0;color: #000; font-weight: normal; font-size: 14px; line-height:1.7;}
+.modal .modal-title { color: #fff;font-weight: bold; font-size: 16px; }
+.modal .modal-body{ background: #F1F0F0;color: #000; font-weight: normal; font-size: 14px;}
 
 /*================================== COMPONENTS ==============================================*/
 
@@ -139,7 +141,7 @@ header #logo-wrapper span{ padding: 6px 0; display: inline-block; margin-right: 
 #menu-wrapper-stripe{ background: #F2F2F2; padding: 15px 30px; display: none;  position: absolute; width: 100%; z-index: 1000; }
 #menu-wrapper-stripe ul{margin: 0; padding: 0;} 
 #menu-wrapper-stripe li{margin: 0; padding: 0; display: inline-block; list-style-type: none;}
-#menu-wrapper-stripe a{  color: #01A1B9; padding: 7px 9px; outline: none!important; text-decoration: none; font-size: 16px; font-weight: normal; display: inline-block; margin-right: 80px; text-align: center; padding: 2px; line-height: 1.7;}
+#menu-wrapper-stripe a{  color: #01A1B9; padding: 7px 9px; outline: none!important; text-decoration: none; font-size: 16px; font-weight: normal; display: inline-block; margin-right: 80px; text-align: center; padding: 2px; }
 #menu-wrapper-stripe a:hover, #menu-wrapper-stripe a:focus{background: #DCE9EF;}
 #menu-wrapper-stripe a i{ font-size: 20px;padding-right: 7px; vertical-align: middle; cursor: pointer;}
 #menu-wrapper-stripe a label{font-weight: normal; vertical-align: middle; cursor: pointer;}
@@ -150,7 +152,7 @@ header #logo-wrapper span{ padding: 6px 0; display: inline-block; margin-right: 
 #menu-wrapper span{display: block;}
 #vertical-menu-wrapper{position: absolute;background: #4E4E4E; opacity: 0.9; color: #E1E1E1; display: none; height: auto; padding: 30px; width: 315px; z-index: 1000;}
 #vertical-menu-wrapper h3{color: #fff;font-size: 22px;margin-top: 0;display: inline-block;}
-#vertical-menu-wrapper .menu-close{color: #fff;font-size: 18px;margin-top: 0;float: right;display: block;cursor: pointer;opacity: 1;font-weight: normal;text-shadow:none;line-height: 1.7;}
+#vertical-menu-wrapper .menu-close{color: #fff;font-size: 18px;margin-top: 0;float: right;display: block;cursor: pointer;opacity: 1;font-weight: normal;text-shadow:none;}
 #vertical-menu-wrapper .menu-close:after{content: '\e60b';font-family: 'icomoon';}
 #menu{position: relative;background: #4E4E4E;color: #E1E1E1;}
 #menu ul{margin: 0;padding: 0;height: auto;background: #4E4E4E;color: #E1E1E1;}
@@ -216,7 +218,7 @@ footer{background: #F2F2F2;min-height: 45px;max-width: 1110px;margin: 0 auto !im
 
 #right-block{float: right;width: 33%;}
 
-#footer-content #right-block a#click-me{color: #E3801B;font-style: italic;padding-top: 11px;margin-left: 42px;}
+#footer-content #right-block a#click-me{color: #E3801B;font-style: italic;/*padding-top: 11px;margin-left: 42px;*/position: absolute; right: 186px;top:11px;}
 #footer-content #right-block .v-divider{background: #D7D6D6;min-height: 44px;width: 1px;display: block;position: absolute;top: 0;right: 170px;}
 #pagination{height: 44px;line-height: 2;}
 #pagination #page-left-wrapper,
@@ -233,13 +235,11 @@ footer{background: #F2F2F2;min-height: 45px;max-width: 1110px;margin: 0 auto !im
 @media screen and (max-width: 1199px) { 
 
 /*---------------- Footer -----------------*/
-	#footer-content #right-block a#click-me{margin-left: 0;}
 	#footer-content #right-block .v-divider{right: 162px;}
 /*---------------- Footer -----------------*/
 }
 @media screen and (max-width: 991px) {
 
-html,body,header,footer,section,aside,div,span,label,input,article,p,h1,h2,h3,h4,h5,h6{ font-family: 'openSans';font-size:20px !important;}
 
 /*---------------- Header --------------  */
 	header{padding: 15px 0;}
@@ -251,33 +251,54 @@ html,body,header,footer,section,aside,div,span,label,input,article,p,h1,h2,h3,h4
 /*---------------- Header --------------  */
 
 /*----------------- Menu -----------------*/
-#menu ul li a{font-size: 18px;}
+	#menu ul li a{font-size: 18px;}
 /*----------------- Menu -----------------*/
 
 /*---------------- Footer -----------------*/
-	#footer-content #left-block{padding-top: 5px;}
+	#footer-content #left-block{padding-top: 5px;width:35%;}
 	#footer-content #left-block .icon-block {margin-right: 10px;}
 	#footer-content #left-block i::after{content: "|"; display: inline-block;color: #D7D6D6;top: 0;font-size: 25px;margin-left: 10px;}
+	#footer-content #right-block{width:65%;}
 	#footer-content #right-block .v-divider{right: 170px;}
+/*-----------------Footer ---------------*/
+	
  }
  @media screen and (max-width: 767px) { 
 
 /*---------------- Header --------------  */
 	header #title-wrapper,header h1, header h2{margin-right: 0;padding-right: 0;}
 /*---------------- Header --------------  */
+/*-------------- Component --------------*/
+	.tab-component{display: none;}
+	.collapse-component{display: block;}
+/*--------------- Footer ----------------*/
+	#footer-content #right-block a#click-me {margin-left: 90px;}
 }
-@media screen and (max-width: 511px) {
-/*-----------------Footer ---------------*/
+@media screen and (max-width: 535px) {
+	/*-----------------Footer ---------------*/
 	#footer-content #left-block, #footer-content #right-block{width:50%;}
-/*-----------------Footer ---------------*/
+	#footer-content #right-block a#click-me{display: none;}
+	/*-----------------Footer ---------------*/
 }
+@media screen and (max-width: 525px){
+/*---------- menu-wrapper-strip ----------*/
+	#menu-wrapper-stripe a i {padding: 0;}
+	#menu-wrapper-stripe a {margin-right: 60px;}
+/*---------- menu-wrapper-strip ----------*/
+
+}
+
  @media screen and (max-width: 430px) {
 /*---------------- Header --------------  */
  	header h1{font-size: 16px;}
  	header h2{ font-size: 14px;}
 	header #menu-wrapper span{font-size: 21px;}
 	header #menu-wrapper{margin-top: 16px;}
-
+/*----------------- Header ----------------*/
+/*---------- menu-wrapper-strip ----------*/
+	#menu-wrapper-stripe a i {padding: 0;}
+	#menu-wrapper-stripe a {margin-right: 35px;}
+/*---------- menu-wrapper-strip ----------*/
 /*---------------- Footer ---------------*/
 
 	#footer-content #left-block{padding-top: 5px;}
@@ -285,6 +306,7 @@ html,body,header,footer,section,aside,div,span,label,input,article,p,h1,h2,h3,h4
 	#footer-content #left-block i::after{margin-left: 5px;}
 	
 /*---------------- Footer ---------------*/
+
  }
  @media screen and (max-width: 358px) {
 /*---------------- Footer ---------------*/

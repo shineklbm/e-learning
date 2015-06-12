@@ -49,10 +49,10 @@
         <!-- menu-wrapper-stripe -->
             <div  id ="menu-wrapper-stripe" class="col-xs-12">
                 <ul >
-                    <li><a href="#" id="stripe-menu"><i class="icon-menu"></i><label>MENU</label></a></li>
-                    <li><a href="#" id="stripe-help"><i class="icon-help"></i><label>HELP</label></a></li>
-                    <li><a href="#" id="stripe-glossary"><i class="icon-glossory"></i><label>GLOSSARY</label></a></li>
-                    <li><a href="#" id="stripe-resources"><i class="icon-resources"></i><label>RESOURCES</label></a></li>
+                    <li><a href="#" id="stripe-menu"><i class="icon-menu"></i><label class=" hidden-xs hidden-sm">MENU</label></a></li>
+                    <li><a href="#" id="stripe-help"><i class="icon-help"></i><label class=" hidden-xs hidden-sm">HELP</label></a></li>
+                    <li><a href="#" id="stripe-glossary"><i class="icon-glossory"></i><label class=" hidden-xs hidden-sm">GLOSSARY</label></a></li>
+                    <li><a href="#" id="stripe-resources"><i class="icon-resources"></i><label class=" hidden-xs hidden-sm">RESOURCES</label></a></li>
                 </ul> 
             </div>
             <!-- menu-wrapper-stripe -->
@@ -111,17 +111,17 @@
                     </div>
                 </div>
                 <div id="right-block"  >
-                    <a href="#" id="click-me"class= "hidden-xs hidden-sm inline text-right">Click Next to continue.</a>
+                    <a href="#" id="click-me"class= "inline text-right">Click Next to continue.</a>
                     <span class="v-divider"></span>
                     <div id="pagination" class="pull-right">
                         <!-- {{page}} -->
-                        <span id="page-left-wrapper" class="icon-left-arrow"></span>
+                        <span id="page-left-wrapper" ng-click="pagePrevious(page.page_id)" class="icon-left-arrow"></span>
                         <span id="page-counter">01/{{page_count}}</span>
-                        <span id="page-right-wrapper" class="icon-right-arrow"></span>
+                        <span id="page-right-wrapper" ng-click="pageNext(page.page_id)" class="icon-right-arrow"></span>
                     </div>
                 </div>
             </div>
-        </footer>
+        </footer>            
         <!-- Footer  End -->        
     </div>
     <div id="background-wrapper">
