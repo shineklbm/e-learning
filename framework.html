@@ -66,7 +66,7 @@
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="row ">
             <article id="content"  class="col-xs-12 v-scroll">              
-                <div ng-if="page.template" data-ng-include src="configs.path.templates+page.template"></div>
+                <div data-ng-if="page.template" data-ng-include src="configs.path.templates+page.template"></div>
             </article>
         </div>
          <!-- Footer  -->
@@ -115,9 +115,9 @@
                     <span class="v-divider"></span>
                     <div id="pagination" class="pull-right">
                         <!-- {{page}} -->
-                        <span id="page-left-wrapper" ng-click="pagePrevious(page.page_id)" class="icon-left-arrow"></span>
+                        <span id="page-left-wrapper" data-ng-click="pagePrevious(page.page_id)" class="icon-left-arrow"></span>
                         <span id="page-counter">{{page.page_index}}/{{total_pages}}</span>
-                        <span id="page-right-wrapper" ng-click="pageNext(page.page_id)" class="icon-right-arrow"></span>
+                        <span id="page-right-wrapper" data-ng-click="pageNext(page.page_id)" class="icon-right-arrow"></span>
                     </div>
                 </div>
             </div>
