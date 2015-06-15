@@ -192,7 +192,6 @@ function rootController($scope, $http){
           }
       });
       if(next_element.id){
-        //console.log(next_element);
         $scope.menuClickListener(next_element, true);
       }
     });
@@ -201,7 +200,6 @@ function rootController($scope, $http){
     */
     $(jstree_json).each(function(key, value){
       if(value.data.has_children !== true){
-        //console.log(value.data.has_children);
         counter++;
         //jstree_json[key].index = counter;
         if(counter < 10)
