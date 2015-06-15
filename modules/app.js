@@ -212,7 +212,7 @@ function rootController($scope, $http){
     });
     $scope.page_index = page_index;
   });
-  $scope.menuClickListener = function(data, custom = false){
+  $scope.menuClickListener = function(data, custom){
     if(custom !== true){
     	if(data.node.parent != "#"){
   	    var lang = $scope.configs.lang;
