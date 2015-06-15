@@ -1,12 +1,9 @@
-jQuery(document).ready(function($){
+jQuery(document).ready(function($){	
 	$(".btn-close-yes").click(function(){
 		window.close();
 	})
     $('.v-scroll').mCustomScrollbar({ theme:"light-1", scrollbarPosition: "inside",axis:"y"  });
-// -------------------------------------- Menu  Stripe -----------------------------------------
-
 	$('.icon-menu-close').hide();
-	
 	$('.icon-menu-main').on('click',function(){
 		$('#menu-wrapper-stripe').toggle();
 		$('.icon-menu-close').show();
@@ -18,7 +15,6 @@ jQuery(document).ready(function($){
 		$('.icon-menu-main').show();
 		$('#vertical-menu-wrapper').hide();
 	});
-// -------------------------------------- Vertical Menu ----------------------------------------
 	$( window ).resize(function() {
 		 $('#vertical-menu-wrapper').hide();
 	});
@@ -28,7 +24,6 @@ jQuery(document).ready(function($){
 		$('#vertical-menu-wrapper').toggle();
 		
 	});
-	
 	$('.menu-close').on('click',function(){
 		$('#vertical-menu-wrapper').toggle();
 	});
@@ -38,8 +33,6 @@ jQuery(document).ready(function($){
 		$('.icon-menu-close').hide();
 		$('.icon-menu-main').show();
 	});
-
-// -------------------------------- Content Height -----------------------------------------
 	resizeWindow();
 	function resizeWindow(){	
 		var content_height = ($(window).height() - $('#header').height() - $('#footer').height() - 13);
@@ -48,42 +41,22 @@ jQuery(document).ready(function($){
 	$(window).resize(function(){
 		resizeWindow();
 	});
-//----------------------------------------- Collapse---------------------------------------------- 
-
 	$(document).on('click', '.panel-heading a', function(){
 	
 		$('.panel-heading a').removeClass('active');
 		$(this).addClass('active');
 		$('.panel-collapse').removeClass('in');
 	});
-
-
-	/**
-	* Vertically center Bootstrap 3 modals so they aren't always stuck at the top
-	*/
 	$(function() {
-
 		function reposition() {
-
 		    var modal = $(this),
 		        dialog = modal.find('.modal-dialog');
-
 		    modal.css('display', 'block');
-		    
-		    // Dividing by two centers the modal exactly, but dividing by three 
-		    // or four works better for larger screens.
 		    dialog.css("margin-top", Math.max(0, ($(window).height() - dialog.height()) / 2));
-
 		}
-
-		// Reposition when a modal is shown
 		$('.modal').on('show.bs.modal', reposition);
-
-		// Reposition when the window is resized
 		$(window).on('resize', function() {
 		    $('.modal:visible').each(reposition);
 		});
-
 	});
- 
 });

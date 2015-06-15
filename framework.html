@@ -26,10 +26,10 @@
                 <h2>{{ (page.subtitle)? page.subtitle : configs.course_subtitle; }}</h2>                
             </div>
             <div id="logo-wrapper" class="col-xs-3">
-                <span><a href="#"  data-toggle="modal" data-target="#exit-confirm">EXIT</a></span>
+                <span><a href="#" id="exit-app" data-toggle="modal" data-target="#exit-confirm">EXIT</a></span>
                 <img data-ng-src="{{configs.path.images}}{{configs.logo}}" alt="">
             </div>
-            <div class="modal fade modal-content-panel " id="exit-confirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal fade modal-content-panel " id="exit-confirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
                 <div class="modal-dialog modal-sm">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -110,7 +110,7 @@
                     </div>
                 </div>
                 <div id="right-block"  >
-                    <a href="#" id="click-me"class= "inline text-right">Click Next to continue.</a>
+                    <p href="#" id="click-me"class= "inline text-right">Click Next to continue.</p>
                     <span class="v-divider"></span>
                     <div id="pagination" class="pull-right">
                         <!-- {{page}} -->

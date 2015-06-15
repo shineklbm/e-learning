@@ -1,7 +1,5 @@
-// app module declartion
 angular.module("eLearning", []);
 
-//controller declaration
 angular.module("eLearning")
   .controller('rootCtrl', ['$scope', '$http', rootController])
   .run(function($rootScope, $templateCache) {
@@ -93,7 +91,7 @@ function rootController($scope, $http){
         $scope.total_pages = total_pages;
       }
     });
-  var menu = $("#menu").bind("select_node.jstree", function (e, data) {
+  var menu = $("#menu").bind("select_node.jstree", function (e, data) {    
   	$scope.menuClickListener(data);
   	return data.instance.toggle_node(data.node);
   });
@@ -114,7 +112,6 @@ function rootController($scope, $http){
       var previous_element = {};
       var page_id = $scope.page.page_id;
       var tree = $('#menu').jstree(true);
-      //tree.deselect_all();
       $('#menu').jstree('open_all');
       $(jstree_json).each(function(index, value){
           if(value.id == page_id)
@@ -143,7 +140,6 @@ function rootController($scope, $http){
       var next_element = {};
       var page_id = $scope.page.page_id;
       var tree = $('#menu').jstree(true);
-      //tree.deselect_all();
       $('#menu').jstree('open_all');
 
       $(jstree_json).each(function(index, value){
@@ -168,7 +164,6 @@ function rootController($scope, $http){
     $(jstree_json).each(function(key, value){
       if(value.data.has_children !== true){
         counter++;
-        //jstree_json[key].index = counter;
         if(counter < 10)
           page_index[value.id] = '0'+counter;
         else
@@ -178,8 +173,14 @@ function rootController($scope, $http){
     $scope.page_index = page_index;
   });
   $scope.menuClickListener = function(data, custom){
+    var current_item = false;
+    if(typeof $scope.page != "undefined"){
+      current_item = $scope.page.page_id;
+    }
+    console.log(current_item);
+
     if(custom !== true){
-    	if(data.node.parent != "#"){
+    	if(data.node.parent != "#" && current_item != data.node.id){
   	    var lang = $scope.configs.lang;
   	    $http.get('app/pages/'+data.node.id+'.json')
   	    .success(function(data){
@@ -207,7 +208,7 @@ function rootController($scope, $http){
       }
     }
     else{
-      if(data.parent != "#"){
+      if(data.parent != "#" && current_item != data.id){
         var lang = $scope.configs.lang;
         $http.get('app/pages/'+data.id+'.json')
           .success(function(data){
@@ -236,7 +237,6 @@ function rootController($scope, $http){
     }
   };
 
-  // ------------------------------------- Audio ------------------------------------------
   $scope.audioPlayer = new MediaElementPlayer('#audio-player', {
             audioWidth: '100%',
             features: ['playpause','progress','tracks','volume','fullscreen'],
@@ -244,14 +244,11 @@ function rootController($scope, $http){
             $('.play').hide();
             $('.pause').show();
             $('.audio-off').hide();
-            //$('.mejs-time-float-corner').hide();
-            //audioPlayer.play(); // auto play
             document.getElementById('audio-play')['onclick'] = function() {
                 if (audioPlayer.paused){
                   audioPlayer.play();
                   $('.pause').show();
                   $('.play').hide();
-                  //$('.mejs-time-float-corner').show();
                 }else{
                   audioPlayer.pause();
                   $('.play').show();
@@ -260,9 +257,9 @@ function rootController($scope, $http){
             };
             document.getElementById('audio-volume')['onclick'] = function() {
               if(audioPlayer.volume){
-				audioPlayer.volume=0;
-				$('.audio-off').show();
-				$('.audio-on').hide();
+        				audioPlayer.volume=0;
+        				$('.audio-off').show();
+        				$('.audio-on').hide();
               }else{
                 audioPlayer.volume=1;
                 $('.audio-on').show();
