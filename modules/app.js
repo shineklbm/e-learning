@@ -92,42 +92,10 @@ function rootController($scope, $http){
       else{
         $scope.total_pages = total_pages;
       }
-      //$scope.menuOrganizer($scope.menus.core.data);
     });
-  /*$scope.menuOrganizer = function(menu){
-    var menu_items = new Array();
-    var snapshot = Defiant.getSnapshot($scope.menus);
-    found = JSON.search(snapshot, '//*[contains(parent, "#")]');
-    var counter = 0; 
-    if(found.length > 0){
-	    $(found).each(function( index, item ){
-	      menu_items[index] = item;
-	      pattern = '//*[contains(parent,"' + item.id + '")]';
-	      children = JSON.search(snapshot, pattern);
-	      if(children.length > 0){
-	        menu_items[index]['children'] = children;
-	      }
-	    });
-		$(menu_items).each(function(index, item){
-	    	if(item.children.length > 0){
-	    		$(item.children).each(function(child_index, child_item){
-	    			var snapshot = Defiant.getSnapshot($scope.menus);
-	    			pattern = '//*[contains(parent,"' + child_item.id + '")]';
-	    			children_level2 = JSON.search(snapshot, pattern);
-	    			if(children_level2.length > 0)
-	    			{
-						menu_items[index]['children'][child_index]['children'] = children_level2;
-	    			}
-	    		})
-	    	}
-	    });
-    }
-  	if(menu_items.length > 0)
-  		$scope.menu_hierarchy = menu_items;
-  }*/
   var menu = $("#menu").bind("select_node.jstree", function (e, data) {
-	$scope.menuClickListener(data);
-	return data.instance.toggle_node(data.node);
+  	$scope.menuClickListener(data);
+  	return data.instance.toggle_node(data.node);
   });
   menu.bind("loaded.jstree", function (e, data) {
     var snapshot = Defiant.getSnapshot($scope.menus);
@@ -139,7 +107,6 @@ function rootController($scope, $http){
     var counter = 0;
 
     var page_index = new Array();
-
     /**
     Previous Click Handler
     */

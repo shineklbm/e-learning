@@ -1,6 +1,5 @@
 jQuery(document).ready(function($){
 	$(".btn-close-yes").click(function(){
-		//alert();
 		window.close();
 	})
     $('.v-scroll').mCustomScrollbar({ theme:"light-1", scrollbarPosition: "inside",axis:"y"  });
@@ -33,7 +32,7 @@ jQuery(document).ready(function($){
 	$('.menu-close').on('click',function(){
 		$('#vertical-menu-wrapper').toggle();
 	});
-	$(document).on('click','#menu ul li.jstree-open ul.jstree-children li a.jstree-clicked ',function(){
+	$(document).on('click','#menu ul li.jstree-open ul.jstree-children li a.jstree-clicked',function(){
 		$('#menu-wrapper-stripe').hide();
 		$('#vertical-menu-wrapper').hide();
 		$('.icon-menu-close').hide();
@@ -56,6 +55,35 @@ jQuery(document).ready(function($){
 		$('.panel-heading a').removeClass('active');
 		$(this).addClass('active');
 		$('.panel-collapse').removeClass('in');
+	});
+
+
+	/**
+	* Vertically center Bootstrap 3 modals so they aren't always stuck at the top
+	*/
+	$(function() {
+
+		function reposition() {
+
+		    var modal = $(this),
+		        dialog = modal.find('.modal-dialog');
+
+		    modal.css('display', 'block');
+		    
+		    // Dividing by two centers the modal exactly, but dividing by three 
+		    // or four works better for larger screens.
+		    dialog.css("margin-top", Math.max(0, ($(window).height() - dialog.height()) / 2));
+
+		}
+
+		// Reposition when a modal is shown
+		$('.modal').on('show.bs.modal', reposition);
+
+		// Reposition when the window is resized
+		$(window).on('resize', function() {
+		    $('.modal:visible').each(reposition);
+		});
+
 	});
  
 });
