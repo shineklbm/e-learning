@@ -85,20 +85,27 @@ function rootController($scope, $http){
       $('#menu').jstree(data);
       var snapshot = Defiant.getSnapshot($scope.menus);
     	found = JSON.search(snapshot, '//*[contains(parent, "#")]');
-		  $scope.page_count = $scope.menus.core.data.length - found.length;
-      $scope.menuOrganizer($scope.menus.core.data);
+		  var total_pages = $scope.menus.core.data.length - found.length;
+      if(total_pages < 10){
+        $scope.total_pages = '0'+total_pages;
+      }
+      else{
+        $scope.total_pages = total_pages;
+      }
+      //$scope.menuOrganizer($scope.menus.core.data);
     });
-  $scope.menuOrganizer = function(menu){
+  /*$scope.menuOrganizer = function(menu){
     var menu_items = new Array();
     var snapshot = Defiant.getSnapshot($scope.menus);
     found = JSON.search(snapshot, '//*[contains(parent, "#")]');
+    var counter = 0; 
     if(found.length > 0){
 	    $(found).each(function( index, item ){
 	      menu_items[index] = item;
 	      pattern = '//*[contains(parent,"' + item.id + '")]';
 	      children = JSON.search(snapshot, pattern);
 	      if(children.length > 0){
-	        menu_items[index]['children'] = children;       
+	        menu_items[index]['children'] = children;
 	      }
 	    });
 		$(menu_items).each(function(index, item){
@@ -114,10 +121,10 @@ function rootController($scope, $http){
 	    		})
 	    	}
 	    });
-	}
-	if(menu_items.length > 0)
-		$scope.menu_hierarchy = menu_items;
-  }
+    }
+  	if(menu_items.length > 0)
+  		$scope.menu_hierarchy = menu_items;
+  }*/
   var menu = $("#menu").bind("select_node.jstree", function (e, data) {
 	$scope.menuClickListener(data);
 	return data.instance.toggle_node(data.node);
@@ -128,6 +135,10 @@ function rootController($scope, $http){
     var tree = $('#menu').jstree(true);
     tree.select_node(found[0].id);
 
+    var jstree_json = $("#menu").jstree(true).get_json('#', { 'flat': true });
+    var counter = 0;
+
+    var page_index = new Array();
 
     /**
     Previous Click Handler
@@ -138,9 +149,6 @@ function rootController($scope, $http){
       var tree = $('#menu').jstree(true);
       //tree.deselect_all();
       $('#menu').jstree('open_all');
-
-      var jstree_json = $("#menu").jstree(true).get_json('#', { 'flat': true });
-
       $(jstree_json).each(function(index, value){
           if(value.id == page_id)
           {
@@ -157,16 +165,19 @@ function rootController($scope, $http){
         $scope.menuClickListener(previous_element, true);
       }
     });
+    /**
+    Previous Click Handler
+    */
 
-    /*Next Click Handler*/
+    /**
+    Next Click Handler
+    */
     $("#page-right-wrapper").click(function(){
       var next_element = {};
       var page_id = $scope.page.page_id;
       var tree = $('#menu').jstree(true);
       //tree.deselect_all();
       $('#menu').jstree('open_all');
-
-      var jstree_json = $("#menu").jstree(true).get_json('#', { 'flat': true });
 
       $(jstree_json).each(function(index, value){
           if(value.id == page_id)
@@ -181,10 +192,25 @@ function rootController($scope, $http){
           }
       });
       if(next_element.id){
-        console.log(next_element);
+        //console.log(next_element);
         $scope.menuClickListener(next_element, true);
       }
     });
+    /**
+    Next Click Handler
+    */
+    $(jstree_json).each(function(key, value){
+      if(value.data.has_children !== true){
+        //console.log(value.data.has_children);
+        counter++;
+        //jstree_json[key].index = counter;
+        if(counter < 10)
+          page_index[value.id] = '0'+counter;
+        else
+          page_index[value.id] = counter;
+      }
+    });
+    $scope.page_index = page_index;
   });
   $scope.menuClickListener = function(data, custom = false){
     if(custom !== true){
@@ -193,10 +219,11 @@ function rootController($scope, $http){
   	    $http.get('app/pages/'+data.node.id+'.json')
   	    .success(function(data){
   	      $scope.page = data;
+          $scope.page.page_index = $scope.page_index[$scope.page.page_id];
   	      $scope.loadContent = function ($scope, $http){
   	        $http.get('app/data/'+lang+'/'+$scope.page.data)
   	          .success(function(data){
-  	            $scope.contents = data;
+  	            $scope.contents = data;                
   	            Pace.restart();
   	            if($scope.contents.audio){
   	              $scope.audioPlayer.pause();           
@@ -220,6 +247,7 @@ function rootController($scope, $http){
         $http.get('app/pages/'+data.id+'.json')
           .success(function(data){
             $scope.page = data;
+            $scope.page.page_index = $scope.page_index[$scope.page.page_id];
             $scope.loadContent = function ($scope, $http){
               $http.get('app/data/'+lang+'/'+$scope.page.data)
                 .success(function(data){

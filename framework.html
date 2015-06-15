@@ -23,7 +23,7 @@
             <div id="title-wrapper" class="col-xs-8">            	
                 <!-- <h1>{{page.title}}</h1> -->
                 <h1>{{(page.title)? page.title : configs.course_title;}}</h1>
-                <h2>{{(page.subtitle)? page.subtitle : configs.course_subtitle;}}</h2>
+                <h2>{{(page.subtitle)? page.subtitle : configs.course_subtitle;}}</h2>                
             </div>
             <div id="logo-wrapper" class="col-xs-3">
                 <span><a href="#"  data-toggle="modal" data-target="#exit-confirm">EXIT</a></span>
@@ -116,7 +116,7 @@
                     <div id="pagination" class="pull-right">
                         <!-- {{page}} -->
                         <span id="page-left-wrapper" ng-click="pagePrevious(page.page_id)" class="icon-left-arrow"></span>
-                        <span id="page-counter">01/{{page_count}}</span>
+                        <span id="page-counter">{{page.page_index}}/{{total_pages}}</span>
                         <span id="page-right-wrapper" ng-click="pageNext(page.page_id)" class="icon-right-arrow"></span>
                     </div>
                 </div>
