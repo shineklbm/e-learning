@@ -196,10 +196,14 @@ function rootController($scope, $http){
   	              $scope.audioPlayer.setSrc($scope.contents.audio);
   	              $scope.audioPlayer.load();
   	              $scope.audioPlayer.play();
+                  $('.pause').show();
+                  $('.play').hide();
   	            }
   	            else{
-  	              $scope.audioPlayer.pause();
-  	              $scope.audioPlayer.setCurrentTime(0.0);
+                  $('.pause').hide();
+                  $('.play').show();
+                  $scope.audioPlayer.setCurrentRail();        
+                  $scope.audioPlayer.setSrc('');                  
   	            }
   	          });
   	      }
@@ -224,10 +228,14 @@ function rootController($scope, $http){
                     $scope.audioPlayer.setSrc($scope.contents.audio);
                     $scope.audioPlayer.load();
                     $scope.audioPlayer.play();
+                    $('.pause').show();
+                    $('.play').hide();
                   }
-                  else{
-                    $scope.audioPlayer.pause();
-                    $scope.audioPlayer.setCurrentTime(0.0);
+                  else{                    
+                    $('.pause').hide();
+                    $('.play').show();
+                    $scope.audioPlayer.setCurrentRail();       
+                    $scope.audioPlayer.setSrc('');
                   }
                 });
             }
@@ -240,6 +248,7 @@ function rootController($scope, $http){
   $scope.audioPlayer = new MediaElementPlayer('#audio-player', {
             audioWidth: '100%',
             features: ['playpause','progress','tracks','volume','fullscreen'],
+            type: 'audio/mp3',
             success: function(audioPlayer, domNode) {
             $('.play').hide();
             $('.pause').show();
@@ -257,11 +266,11 @@ function rootController($scope, $http){
             };
             document.getElementById('audio-volume')['onclick'] = function() {
               if(audioPlayer.volume){
-        				audioPlayer.volume=0;
+        				audioPlayer.volume = 0;
         				$('.audio-off').show();
         				$('.audio-on').hide();
               }else{
-                audioPlayer.volume=1;
+                audioPlayer.volume = 1;
                 $('.audio-on').show();
                 $('.audio-off').hide();
               } 

@@ -43,8 +43,7 @@ jQuery(document).ready(function($){
 	$(window).resize(function(){
 		resizeWindow();
 	});
-	$(document).on('click', '.panel-heading a', function(){
-	
+	$(document).on('click', '.panel-heading a', function(){	
 		$('.panel-heading a').removeClass('active');
 		$(this).addClass('active');
 		$('.panel-collapse').removeClass('in');
