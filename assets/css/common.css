@@ -185,8 +185,12 @@ header #logo-wrapper span{ padding: 6px 0; display: inline-block; margin-right: 
 
 /*-------------------------------content-wrapper-------------------------------*/
 
-#content-wrapper{/* min-height: 500px; padding-top: 95px;padding-bottom: 30px; */}
-
+#content-wrapper{max-width: 1110px;margin: 0 auto !important;/* min-height: 500px; padding-top: 95px;padding-bottom: 30px; */}
+#content{padding-right: 0; padding-left: 0;}
+.pace{position: absolute;border: 0;}
+/*---- Scroll Bar ----*/
+.mCSB_outside + .mCSB_scrollTools { right: -24px;}
+.mCSB_scrollTools .mCSB_draggerContainer {right: 15px;}
 /*---------------------------------Footer----------------------------------*/
 /*------- Footer --------*/
 footer{background: #F2F2F2;min-height: 45px;max-width: 1110px;margin: 0 auto !important;bottom: 0;}
@@ -221,7 +225,7 @@ footer{background: #F2F2F2;min-height: 45px;max-width: 1110px;margin: 0 auto !im
 
 #right-block{float: right;width: 33%;}
 
-#footer-content #right-block #click-me{color: #E3801B;font-style: italic;/*padding-top: 11px;margin-left: 42px;*/position: absolute; right: 186px;top:11px;}
+#footer-content #right-block a#click-me{color: #E3801B;font-style: italic;/*padding-top: 11px;margin-left: 42px;*/position: absolute; right: 186px;top:11px;}
 #footer-content #right-block .v-divider{background: #D7D6D6;min-height: 44px;width: 1px;display: block;position: absolute;top: 0;right: 170px;}
 #pagination{height: 44px;line-height: 2;}
 #pagination #page-left-wrapper,
@@ -234,7 +238,6 @@ footer{background: #F2F2F2;min-height: 45px;max-width: 1110px;margin: 0 auto !im
 #pagination #page-counter{font-size: 18px;display: inline-block;background: #e3801b;color: #fff;line-height: 2.4;padding: 1px 10px;}
 
 /*---------------------------------- Media Query ---------------------------------*/
-
 @media screen and (max-width: 1199px) { 
 
 /*---------------- Footer -----------------*/
@@ -245,7 +248,6 @@ footer{background: #F2F2F2;min-height: 45px;max-width: 1110px;margin: 0 auto !im
 
 
 /*---------------- Header --------------  */
-	/* header{padding: 15px 0;} */
 	header h1, header h2{ display: block;border: 0;}
 	header #title-wrapper{border-right: #cecdcd 1px solid;}
 	header #logo-wrapper{margin-top: 20px;}
@@ -253,15 +255,20 @@ footer{background: #F2F2F2;min-height: 45px;max-width: 1110px;margin: 0 auto !im
 	header #menu-wrapper{margin-top: 12px;}
 /*---------------- Header --------------  */
 
+/*---------- menu-wrapper-strip ----------*/
+	#menu-wrapper-stripe a i {padding-right: 0; font-size: 25px;}
+/*---------- menu-wrapper-strip ----------*/
+
 /*----------------- Menu -----------------*/
 	#menu ul li a{font-size: 18px;}
 /*----------------- Menu -----------------*/
 
 /*---------------- Footer -----------------*/
-	#footer-content #left-block{padding-top: 5px;width:35%;}
-	#footer-content #left-block .icon-block {margin-right: 10px;}
+	#footer-content #left-block{padding-top: 5px;width:200px;}
+	#footer-content #left-block .icon-block {margin-right: 12px;}
+	#footer-content #left-block i{font-size: 20px;}
 	#footer-content #left-block i::after{content: "|"; display: inline-block;color: #D7D6D6;top: 0;font-size: 25px;margin-left: 10px;}
-	#footer-content #right-block{width:65%;}
+	#footer-content #right-block{width:320px;}
 	#footer-content #right-block .v-divider{right: 170px;}
 /*-----------------Footer ---------------*/
 	
@@ -271,19 +278,36 @@ footer{background: #F2F2F2;min-height: 45px;max-width: 1110px;margin: 0 auto !im
 /*---------------- Header --------------  */
 	header #title-wrapper,header h1, header h2{margin-right: 0;padding-right: 0;}
 /*---------------- Header --------------  */
+
+
+
 /*-------------- Component --------------*/
 	.tab-component{display: none;}
 	.collapse-component{display: block;}
+/*-------------- Component --------------*/
+
 /*--------------- Footer ----------------*/
-	#footer-content #right-block #click-me {margin-left: 90px;}
+	#footer-content #right-block a#click-me {margin-left: 90px;}
+/*--------------- Footer ----------------*/
 }
-@media screen and (max-width: 535px) {
-	/*-----------------Footer ---------------*/
-	#footer-content #left-block, #footer-content #right-block{width:50%;}
-	#footer-content #right-block #click-me{display: none;}
-	/*-----------------Footer ---------------*/
+@media screen and (max-width: 575px) {
+/*--------------- Footer ----------------*/
+	#footer-content #left-block{width: 163px}
+	#footer-content #left-block .icon-block {margin-right: 5px;}
+	#footer-content #left-block i{font-size: 18px;}
+/*--------------- Footer ----------------*/
 }
+@media screen and (max-width: 540px) {
+
+/*-----------------Footer ---------------*/
+	#footer-content #left-block{padding-top: 7px; }
+	#footer-content #right-block{width:163px;}
+	#footer-content #right-block a#click-me{display: none;}
+/*-----------------Footer ---------------*/
+}
+
 @media screen and (max-width: 525px){
+
 /*---------- menu-wrapper-strip ----------*/
 	#menu-wrapper-stripe a i {padding: 0;}
 	#menu-wrapper-stripe a {margin-right: 60px;}
@@ -292,33 +316,37 @@ footer{background: #F2F2F2;min-height: 45px;max-width: 1110px;margin: 0 auto !im
 }
 
  @media screen and (max-width: 430px) {
+
 /*---------------- Header --------------  */
  	header h1{font-size: 16px;}
  	header h2{ font-size: 14px;}
 	header #menu-wrapper span{font-size: 21px;}
 	header #menu-wrapper{margin-top: 16px;}
 /*----------------- Header ----------------*/
+
 /*---------- menu-wrapper-strip ----------*/
 	#menu-wrapper-stripe a i {padding: 0;}
 	#menu-wrapper-stripe a {margin-right: 35px;}
 /*---------- menu-wrapper-strip ----------*/
-/*---------------- Footer ---------------*/
-
-	#footer-content #left-block{padding-top: 5px;}
-	#footer-content #left-block .icon-block {margin-right: 2px;}
-	#footer-content #left-block i::after{margin-left: 5px;}
-	
-/*---------------- Footer ---------------*/
 
  }
- @media screen and (max-width: 358px) {
+ @media screen and (max-width: 382px) {
+	#footer-content #left-block{width: 131px;}
+	#footer-content #left-block .icon-block {margin-right: 2px;}
+	#footer-content #left-block i::after{margin-left: 5px;}
+ }
+ @media screen and (max-width: 353px) {
+
+/*---------- menu-wrapper-strip ----------*/
+	#menu-wrapper-stripe a {margin-right: 30px;}
+/*---------- menu-wrapper-strip ----------*/
+
 /*---------------- Footer ---------------*/
-
-	#footer-content #left-block{width:45%;}
-	#footer-content #right-block{width:55%;}
-	#footer-content #right-block .v-divider{right:150px}
+	#footer-content #left-block i{font-size: 17px}
+	#footer-content #left-block{width:127px;}
+	#footer-content #right-block{width:136px; }
+	#footer-content #right-block .v-divider{right:147px}
 	#pagination #page-left-wrapper,#pagination #page-right-wrapper{padding: 0;}
-
 /*---------------- Footer ---------------*/
  }
  

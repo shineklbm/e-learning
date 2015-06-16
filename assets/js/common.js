@@ -2,7 +2,7 @@ jQuery(document).ready(function($){
 	$(".btn-close-yes").click(function(){
 		window.close();
 	})
-    $('.v-scroll').mCustomScrollbar({ theme:"light-1", scrollbarPosition: "inside",axis:"y"  });
+    $('.v-scroll').mCustomScrollbar({ theme:"light-1", scrollbarPosition: "outside",axis:"y"  });
 	$('.icon-menu-close').hide();
 	$('.icon-menu-main').on('click',function(){
 		$('#menu-wrapper-stripe').toggle();

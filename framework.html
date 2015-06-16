@@ -72,7 +72,7 @@
          <!-- Footer  -->
         <footer id="footer" class="row">
             <div id="page-progress" class="progress col-lg-12 ">
-                <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+                <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: {{ (page.page_index*100)/total_pages }}%">
                 </div>
             </div>
             <div id="footer-content" class="col-lg-12">
@@ -110,7 +110,7 @@
                     </div>
                 </div>
                 <div id="right-block"  >
-                    <p href="#" id="click-me"class= "inline text-right">Click Next to continue.</p>
+                    <a href="#" id="click-me"class= "inline text-right">Click Next to continue.</a>
                     <span class="v-divider"></span>
                     <div id="pagination" class="pull-right">
                         <!-- {{page}} -->
