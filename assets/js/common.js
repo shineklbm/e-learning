@@ -34,8 +34,10 @@ jQuery(document).ready(function($){
 		$('.icon-menu-main').show();
 	});
 	resizeWindow();
-	function resizeWindow(){	
-		var content_height = ($(window).height() - $('#header').height() - $('#footer').height() - 13);
+	function resizeWindow(){
+		var window_width = $(window).width();
+		var deduct_padding = 12;
+		var content_height = ($(window).height() - $('#header').height() - $('#footer').height() - deduct_padding);
 		$("#content").height(content_height);
 	}
 	$(window).resize(function(){

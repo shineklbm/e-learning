@@ -245,7 +245,7 @@ footer{background: #F2F2F2;min-height: 45px;max-width: 1110px;margin: 0 auto !im
 
 
 /*---------------- Header --------------  */
-	header{padding: 15px 0;}
+	/* header{padding: 15px 0;} */
 	header h1, header h2{ display: block;border: 0;}
 	header #title-wrapper{border-right: #cecdcd 1px solid;}
 	header #logo-wrapper{margin-top: 20px;}
