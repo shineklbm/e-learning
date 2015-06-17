@@ -192,24 +192,17 @@ function rootController($scope, $http){
   	            $scope.contents = data;                
   	            Pace.restart();
   	            if($scope.contents.audio){
-                $scope.audioPlayer.pause();           
-                $scope.audioPlayer.setSrc($scope.contents.audio);
-                $scope.audioPlayer.load();
-                $scope.audioPlayer.play();
-
-              }
-              else{
-                $('#audio-volume a,#audio-volume a i,#audio-volume a label ').css({'cursor':'default','color':'#9d9d9d'});
-                $('#audio-play a,#audio-play a i,#audio-play a label ').css({'cursor':'default','color':'#9d9d9d'});
-                $('#audio-replay a,#audio-replay a i,#audio-replay a label ').css({'cursor':'default','color':'#9d9d9d'});
-                $('mejs-container, .mejs-controls').css({'cursor':'default'});
-                $('.mejs-controls .mejs-time-rail span .mejs-time-loaded').css({'cursor':'default','background':'#9d9d9d'});
-                $('.play').show();
-                $('.pause').hide();
-                $scope.audioPlayer.pause();
-                $scope.audioPlayer.setCurrentTime(0.0);
-                
-              }
+                  $scope.audioPlayer.pause();           
+                  $scope.audioPlayer.setSrc($scope.contents.audio);
+                  $scope.audioPlayer.load();
+                  $scope.audioPlayer.play();
+                }
+                else{
+                  $('.play').show();
+                  $('.pause').hide();
+                  $scope.audioPlayer.pause();
+                  $scope.audioPlayer.setCurrentTime(0.0);
+                }
   	          });
   	      }
   	      $scope.loadContent($scope, $http);
