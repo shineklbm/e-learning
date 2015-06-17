@@ -111,6 +111,7 @@ function rootController($scope, $http){
     $("#page-left-wrapper").click(function(){
       var previous_element = {};
       var page_id = $scope.page.page_id;
+    
       var tree = $('#menu').jstree(true);
       $('#menu').jstree('open_all');
       $(jstree_json).each(function(index, value){
@@ -177,7 +178,7 @@ function rootController($scope, $http){
     if(typeof $scope.page != "undefined"){
       current_item = $scope.page.page_id;
     }
-    console.log(current_item);
+   // console.log(current_item);
 
     if(custom !== true){
     	if(data.node.parent != "#" && current_item != data.node.id){
@@ -186,7 +187,17 @@ function rootController($scope, $http){
   	    .success(function(data){
   	      $scope.page = data;
           $scope.page.page_index = $scope.page_index[$scope.page.page_id];
+          if($scope.page.page_index == "01"){
+            $("#page-left-wrapper").css({'color':'#ccc','cursor':'default'});
+          }
   	      $scope.loadContent = function ($scope, $http){
+            /*if($scope.page.page_index ==01){
+              $("#page-left-wrapper").css({'color':'#ccc','cursor':'default'});
+            }
+            else{
+                $("#page-left-wrapper").css('color','#333');
+              }*/
+            
   	        $http.get('app/data/'+lang+'/'+$scope.page.data)
   	          .success(function(data){
   	            $scope.contents = data;                
@@ -216,6 +227,18 @@ function rootController($scope, $http){
           .success(function(data){
             $scope.page = data;
             $scope.page.page_index = $scope.page_index[$scope.page.page_id];
+            if($scope.page.page_index == "01"){
+              $("#page-left-wrapper").css({'color':'#ccc','cursor':'default'});
+            }
+            else{
+              $("#page-left-wrapper").css({'color':'#333','cursor':'pointer'});
+            }
+            if($scope.page.page_index === $scope.total_pages){
+              $("#page-right-wrapper").css({'color':'#ccc','cursor':'default'});
+            }
+            else{
+              $("#page-right-wrapper").css({'color':'#333','cursor':'pointer'});
+            }
             $scope.loadContent = function ($scope, $http){
               $http.get('app/data/'+lang+'/'+$scope.page.data)
                 .success(function(data){
