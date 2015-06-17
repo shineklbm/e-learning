@@ -187,17 +187,13 @@ function rootController($scope, $http){
   	    .success(function(data){
   	      $scope.page = data;
           $scope.page.page_index = $scope.page_index[$scope.page.page_id];
+          var page_pogress = 0;
+          page_pogress =($scope.page.page_index*100)/$scope.total_pages;
+          $("#page-progress .progress-bar").css("width",page_pogress+"%");
           if($scope.page.page_index == "01"){
             $("#page-left-wrapper").css({'color':'#ccc','cursor':'default'});
           }
   	      $scope.loadContent = function ($scope, $http){
-            /*if($scope.page.page_index ==01){
-              $("#page-left-wrapper").css({'color':'#ccc','cursor':'default'});
-            }
-            else{
-                $("#page-left-wrapper").css('color','#333');
-              }*/
-            
   	        $http.get('app/data/'+lang+'/'+$scope.page.data)
   	          .success(function(data){
   	            $scope.contents = data;                
@@ -227,6 +223,9 @@ function rootController($scope, $http){
           .success(function(data){
             $scope.page = data;
             $scope.page.page_index = $scope.page_index[$scope.page.page_id];
+            var page_pogress = 0;
+            page_pogress =($scope.page.page_index*100)/$scope.total_pages;
+            $("#page-progress .progress-bar").css("width",page_pogress+"%");
             if($scope.page.page_index == "01"){
               $("#page-left-wrapper").css({'color':'#ccc','cursor':'default'});
             }
