@@ -105,19 +105,21 @@ function rootController($scope, $http){
     var counter = 0;
 
     var page_index = new Array();
+    
     /**
     Previous Click Handler
     */
     $("#page-left-wrapper").click(function(){
       var previous_element = {};
       var page_id = $scope.page.page_id;
-    
       var tree = $('#menu').jstree(true);
+      $('#menu').jstree("deselect_all");
       $('#menu').jstree('open_all');
+
       $(jstree_json).each(function(index, value){
           if(value.id == page_id)
           {
-            for(i = index-1; i >= 0 ; i--){
+            for(i = index-1; i > 0 ; i--){
               if(!jstree_json[i].data.has_children){
                 previous_element = jstree_json[i];
                 break;
@@ -126,8 +128,9 @@ function rootController($scope, $http){
             return false;
           }
       });
+      //console.log(previous_element.id);
       if(previous_element.id){
-        $scope.menuClickListener(previous_element, true);
+        tree.select_node(previous_element.id);
       }
     });
     /**
@@ -141,6 +144,7 @@ function rootController($scope, $http){
       var next_element = {};
       var page_id = $scope.page.page_id;
       var tree = $('#menu').jstree(true);
+      $('#menu').jstree("deselect_all");
       $('#menu').jstree('open_all');
 
       $(jstree_json).each(function(index, value){
@@ -156,7 +160,7 @@ function rootController($scope, $http){
           }
       });
       if(next_element.id){
-        $scope.menuClickListener(next_element, true);
+        tree.select_node(next_element.id);
       }
     });
     /**
@@ -174,18 +178,17 @@ function rootController($scope, $http){
     $scope.page_index = page_index;
   });
   $scope.menuClickListener = function(data, custom){
+
     var current_item = false;
     if(typeof $scope.page != "undefined"){
       current_item = $scope.page.page_id;
     }
-   // console.log(current_item);
-
-    if(custom !== true){
-    	if(data.node.parent != "#" && current_item != data.node.id){
-  	    var lang = $scope.configs.lang;
-  	    $http.get('app/pages/'+data.node.id+'.json')
-  	    .success(function(data){
-  	      $scope.page = data;
+    
+    if(data.node.parent != "#" && current_item != data.node.id){
+      var lang = $scope.configs.lang;
+      $http.get('app/pages/'+data.node.id+'.json')
+        .success(function(data){
+          $scope.page = data;
           $scope.page.page_index = $scope.page_index[$scope.page.page_id];
           var page_pogress = 0;
           page_pogress =($scope.page.page_index*100)/$scope.total_pages;
@@ -193,78 +196,40 @@ function rootController($scope, $http){
           if($scope.page.page_index == "01"){
             $("#page-left-wrapper").css({'color':'#ccc','cursor':'default'});
           }
-  	      $scope.loadContent = function ($scope, $http){
-  	        $http.get('app/data/'+lang+'/'+$scope.page.data)
-  	          .success(function(data){
-  	            $scope.contents = data;                
-  	            Pace.restart();
-  	            if($scope.contents.audio){
+          else{
+            $("#page-left-wrapper").css({'color':'#333','cursor':'pointer'});
+          }
+          if($scope.page.page_index === $scope.total_pages){
+            $("#page-right-wrapper").css({'color':'#ccc','cursor':'default'});
+          }
+          else{
+            $("#page-right-wrapper").css({'color':'#333','cursor':'pointer'});
+          }
+          $scope.loadContent = function ($scope, $http){
+            $http.get('app/data/'+lang+'/'+$scope.page.data)
+              .success(function(data){
+                $scope.contents = data;
+                Pace.restart();
+                if($scope.contents.audio){
                   $scope.audioPlayer.pause();           
                   $scope.audioPlayer.setSrc($scope.contents.audio);
                   $scope.audioPlayer.load();
                   $scope.audioPlayer.play();
+                  $('.pause').show();
+                  $('.play').hide();
                 }
-                else{
-                  $('.play').show();
+                else{                    
                   $('.pause').hide();
-                  $scope.audioPlayer.pause();
-                  $scope.audioPlayer.setCurrentTime(0.0);
+                  $('.play').show();
+                  $scope.audioPlayer.setCurrentRail();       
+                  $scope.audioPlayer.setSrc('');
                 }
-  	          });
-  	      }
-  	      $scope.loadContent($scope, $http);
-  	    });
-      }
-    }
-    else{
-      if(data.parent != "#" && current_item != data.id){
-        var lang = $scope.configs.lang;
-        $http.get('app/pages/'+data.id+'.json')
-          .success(function(data){
-            $scope.page = data;
-            $scope.page.page_index = $scope.page_index[$scope.page.page_id];
-            var page_pogress = 0;
-            page_pogress =($scope.page.page_index*100)/$scope.total_pages;
-            $("#page-progress .progress-bar").css("width",page_pogress+"%");
-            if($scope.page.page_index == "01"){
-              $("#page-left-wrapper").css({'color':'#ccc','cursor':'default'});
-            }
-            else{
-              $("#page-left-wrapper").css({'color':'#333','cursor':'pointer'});
-            }
-            if($scope.page.page_index === $scope.total_pages){
-              $("#page-right-wrapper").css({'color':'#ccc','cursor':'default'});
-            }
-            else{
-              $("#page-right-wrapper").css({'color':'#333','cursor':'pointer'});
-            }
-            $scope.loadContent = function ($scope, $http){
-              $http.get('app/data/'+lang+'/'+$scope.page.data)
-                .success(function(data){
-                  $scope.contents = data;
-                  Pace.restart();
-                  if($scope.contents.audio){
-                    $scope.audioPlayer.pause();           
-                    $scope.audioPlayer.setSrc($scope.contents.audio);
-                    $scope.audioPlayer.load();
-                    $scope.audioPlayer.play();
-                    $('.pause').show();
-                    $('.play').hide();
-                  }
-                  else{                    
-                    $('.pause').hide();
-                    $('.play').show();
-                    $scope.audioPlayer.setCurrentRail();       
-                    $scope.audioPlayer.setSrc('');
-                  }
-                });
-            }
-            $scope.loadContent($scope, $http);
-          });
-      }
+              });
+          }
+          $scope.loadContent($scope, $http);
+        });
     }
   };
-
   $scope.audioPlayer = new MediaElementPlayer('#audio-player', {
             audioWidth: '100%',
             features: ['playpause','progress','tracks','volume','fullscreen'],
