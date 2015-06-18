@@ -286,4 +286,13 @@ function rootController($scope, $http){
               }
             };
           }});
+  $('.modal').on('show.bs.modal', function(){
+    $scope.audioPlayer.pause();
+    $(".btn-close-yes").click(function(){
+      window.close();
+    })
+    $(".btn-close-no").click(function(){
+      $scope.audioPlayer.play();
+    })
+  });
 }
