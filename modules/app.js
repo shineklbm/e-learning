@@ -209,12 +209,11 @@ function rootController($scope, $http){
             $http.get('app/data/'+lang+'/'+$scope.page.data)
               .success(function(data){
                 $scope.contents = data;
-                Pace.restart();
+                Pace.restart();                
                 if($scope.contents.audio){
                   $scope.audioPlayer.pause();           
                   $scope.audioPlayer.setSrc($scope.contents.audio);
-                  $scope.audioPlayer.load();
-                  $scope.audioPlayer.play();
+                  $scope.audioPlayer.load();                  
                   $('.pause').show();
                   $('.play').hide();
                 }
@@ -224,6 +223,9 @@ function rootController($scope, $http){
                   $scope.audioPlayer.setCurrentRail();       
                   $scope.audioPlayer.setSrc('');
                 }
+                Pace.on('hide', function(){
+                  $scope.audioPlayer.play();
+                })
               });
           }
           $scope.loadContent($scope, $http);
