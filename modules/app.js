@@ -211,15 +211,28 @@ function rootController($scope, $http){
                 $scope.contents = data;
                 Pace.restart();                
                 if($scope.contents.audio){
+                  $("#footer-content #left-block label").css("cursor", "pointer");
+                  $('#audio-volume').css("cursor", "pointer");
+                  $('#audio-replay').css("cursor", "pointer");
+                  $('#audio-play').css("cursor", "pointer");
+                  $('.icon-block').css("cursor", "pointer");
+                  $('.mejs-time-loaded').css("cursor", "pointer");
                   $scope.audioPlayer.pause();           
                   $scope.audioPlayer.setSrc($scope.contents.audio);
                   $scope.audioPlayer.load();                  
                   $('.pause').show();
                   $('.play').hide();
                 }
-                else{                    
+                else{
+                  $("#footer-content #left-block label").css("cursor", "default");
+                  $('#audio-volume').css("cursor", "default");
+                  $('#audio-replay').css("cursor", "default");
+                  $('#audio-play').css("cursor", "default");
+                  $('.icon-block').css("cursor", "default");
+                  $('.mejs-time-loaded').css("cursor", "default");
                   $('.pause').hide();
                   $('.play').show();
+                  $scope.audioPlayer.setCurrentTime(0);
                   $scope.audioPlayer.setCurrentRail();       
                   $scope.audioPlayer.setSrc('');
                 }
@@ -241,30 +254,36 @@ function rootController($scope, $http){
             $('.pause').show();
             $('.audio-off').hide();
             document.getElementById('audio-play')['onclick'] = function() {
-                if (audioPlayer.paused){
-                  audioPlayer.play();
-                  $('.pause').show();
-                  $('.play').hide();
-                }else{
-                  audioPlayer.pause();
-                  $('.play').show();
-                  $('.pause').hide();
+                if($("#audio-player").attr("src") !== ""){
+                  if (audioPlayer.paused){
+                    audioPlayer.play();
+                    $('.pause').show();
+                    $('.play').hide();
+                  }else{
+                    audioPlayer.pause();
+                    $('.play').show();
+                    $('.pause').hide();
+                  }
                 }
             };
             document.getElementById('audio-volume')['onclick'] = function() {
-              if(audioPlayer.volume){
-        				audioPlayer.volume = 0;
-        				$('.audio-off').show();
-        				$('.audio-on').hide();
-              }else{
-                audioPlayer.volume = 1;
-                $('.audio-on').show();
-                $('.audio-off').hide();
-              } 
+              if($("#audio-player").attr("src") !== ""){
+                if(audioPlayer.volume){
+          				audioPlayer.volume = 0;
+          				$('.audio-off').show();
+          				$('.audio-on').hide();
+                }else{
+                  audioPlayer.volume = 1;
+                  $('.audio-on').show();
+                  $('.audio-off').hide();
+                }
+              }
             };
             document.getElementById('audio-replay')['onclick'] = function() {
-              audioPlayer.load();
-              audioPlayer.play();
+              if($("#audio-player").attr("src") !== ""){
+                audioPlayer.load();
+                audioPlayer.play();
+              }
             };
           }});
 }
