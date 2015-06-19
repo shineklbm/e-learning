@@ -247,6 +247,16 @@ function rootController($scope, $http){
             $('.play').hide();
             $('.pause').show();
             $('.audio-off').hide();
+
+            // add event listener
+			audioPlayer.addEventListener('ended', function(e) {
+				$('.pause').hide();
+                $('.play').show();
+                $('#audio-play, #left-block label').removeClass("el-enabled");
+				$('#audio-play, #left-block label').addClass("el-disabled");
+				$('#audio-play').prop('onclick',null).off('click');
+			}, false);
+
             document.getElementById('audio-play')['onclick'] = function() {
                 if($("#audio-player").attr("src") !== ""){
                     if (audioPlayer.paused){
