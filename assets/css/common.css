@@ -38,6 +38,10 @@ h1{	font-size: 19px; text-transform: uppercase; }
 h2{	font-size: 17px; }
 h3{ font-size: 16px; }
 p{ font-size: 14px;}
+
+.el-enabled{ opacity: 1; cursor: pointer !important; }
+.el-disabled{ opacity: .5; cursor: default !important; }
+
 .blue-wrapper{ background: #336699; color: #fff; padding:30px; margin-bottom: 30px; opacity: .9; }
 .white-wrapper{ background: #FFF; color: #fff; padding:30px; margin-bottom: 30px; opacity: .9; }
 .blue-wrapper h1, .blue-wrapper p{ color: #fff; }
@@ -222,7 +226,7 @@ footer{background: #F2F2F2;min-height: 45px;max-width: 1110px;margin: 0 auto !im
 #footer-content #left-block #transcript-block a,
 #footer-content #left-block #transcript-block label{cursor:default;}
 
-#footer-content #left-block label{font-weight: normal;font-size: 14px;margin-top: -2px;max-width: 100%;cursor: pointer;}
+#footer-content #left-block label{font-weight: normal;font-size: 14px;margin-top: -2px;max-width: 100%;}
 
 /*-- Right Block --*/
 
