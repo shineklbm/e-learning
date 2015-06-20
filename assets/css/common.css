@@ -115,7 +115,7 @@ p{ font-size: 14px;}
 .mejs-controls .mejs-time-rail .mejs-time-float-corner{ border: 0;}
 .mejs-controls .mejs-time-rail .mejs-time-float-corner:after{ content: '\e603'; font-size: 16px; font-family: 'icomoon'; position: absolute; color: #595959; top: 18px; left: 0; }
 
-/*------------------- Click and Reveal Popup ------*/
+/*------------------- Click and Reveal Popup ------------*/
 
 .modal-backdrop { background-color: #fff; opacity:0.8; }
 .modal .modal-content{ border-radius: 0; box-shadow: none; border: 0;}
@@ -124,6 +124,11 @@ p{ font-size: 14px;}
 .modal .modal-title { color: #fff;font-weight: bold; font-size: 16px; }
 .modal .modal-body{ background: #F1F0F0;color: #000; font-weight: normal; font-size: 14px;}
 
+/*------------------- Overlays ---------------------------*/
+#content-overlay,
+#safari-start-overlay{ width: 100%; position: absolute; display: none; top: 0; left: 0; z-index: 100; background: rgba(0, 0, 0, .5);}
+#safari-start-overlay{ z-index: 10000; }
+#safari-start-overlay #start-course{ background: url('../images/play_btn.png'); width: 161px; height: 161px; cursor: pointer; margin: auto; }
 /*================================== COMPONENTS ==============================================*/
 
 /*--------------------------------- Header -------------------------------------  */
@@ -194,7 +199,6 @@ header #logo-wrapper span{ padding: 6px 0; display: inline-block; margin-right: 
 /*-------------------------------content-wrapper-------------------------------*/
 
 #content-wrapper{max-width: 1110px;margin: 0 auto !important;/* min-height: 500px; padding-top: 95px;padding-bottom: 30px; */}
-#content-overlay{width: 100%; position: absolute; top: 0; left: 0; z-index: 100; background: rgba(0, 0, 0, .5);}
 #content{padding-right: 0; padding-left: 0;}
 .pace{position: absolute;border: 0;}
 /*---- Scroll Bar ----*/

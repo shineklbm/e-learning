@@ -208,8 +208,8 @@ function rootController($scope, $http){
                 $scope.loadContent = function ($scope, $http){
                     $http.get('app/data/'+lang+'/'+$scope.page.data)
                     .success(function(data){
-                        $scope.contents = data;
-                        Pace.restart();                
+                        $scope.contents = data;                        
+                        Pace.restart();
                         if($scope.contents.audio){
                             $('#audio-volume, #audio-play, #audio-replay, .icon-block, .mejs-time-loaded').removeClass("el-disabled"); 
                             $('#audio-volume, #audio-play, #audio-replay, .icon-block, .mejs-time-loaded').addClass("el-enabled"); 
@@ -229,7 +229,14 @@ function rootController($scope, $http){
                             $scope.audioPlayer.setSrc('');
                         }
                         Pace.on('hide', function(){
-                            $scope.audioPlayer.play();
+                            if((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)) || (navigator.userAgent.match(/iPad/i))) {
+                                if($scope.page.page_index == "01"){
+                                    $("#safari-start-overlay").show();
+                                }                                
+                            }
+                            else{
+                                $scope.audioPlayer.play();
+                            }                            
                         })
                     });
                 }
@@ -252,7 +259,6 @@ function rootController($scope, $http){
 			audioPlayer.addEventListener('ended', function(e) {
 				$('.pause').hide();
                 $('.play').show();
-                //$('#audio-play').prop('onclick', null).off('click');
                 $('#audio-play').removeClass('el-enabled').addClass('el-disabled');
 			}, false);
 
@@ -310,5 +316,9 @@ function rootController($scope, $http){
     $('#menu-wrapper-stripe').on("hide", function(){
         $("#content-overlay").fadeOut();
         $scope.audioPlayer.play();
+    });
+    $('#start-course').click(function(){
+        $("#safari-start-overlay").fadeOut();
+        $("#audio-play").trigger("click");
     });
 }
