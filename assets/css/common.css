@@ -39,8 +39,8 @@ h2{	font-size: 17px; }
 h3{ font-size: 16px; }
 p{ font-size: 14px;}
 
-.el-enabled{ opacity: 1; cursor: pointer !important; }
-.el-disabled{ opacity: .5; cursor: default !important; }
+.el-enabled, .el-enabled label{ opacity: 1; cursor: pointer !important; }
+.el-disabled, .el-disabled label{ opacity: .5; cursor: default !important; }
 
 .blue-wrapper{ background: #336699; color: #fff; padding:30px; margin-bottom: 30px; opacity: .9; }
 .white-wrapper{ background: #FFF; color: #fff; padding:30px; margin-bottom: 30px; opacity: .9; }
@@ -106,6 +106,7 @@ p{ font-size: 14px;}
 .mejs-container .mejs-controls .mejs-volume-button,
 .mejs-container .mejs-controls .mejs-horizontal-volume-slider,
 .mejs-container .mejs-controls .mejs-time-float-corner{display: none;}
+.mejs-container .mejs-controls, .mejs-container .mejs-controls .mejs-time-rail, .mejs-time-rail .mejs-time-total .mejs-time-float{ cursor: default; }
 .mejs-container .mejs-controls .mejs-time-rail span.mejs-time-total{ width: 100% !important; height: 4px; margin: 0; background: #787878; border: 0; box-shadow: none; margin-top: 22px; border-radius: 8px; }
 .mejs-container .mejs-controls .mejs-time-rail span.mejs-time-loaded{ height: 4px; background: #787878; margin-top: -1px;}
 .mejs-container .mejs-controls .mejs-time-rail span.mejs-time-current{ height: 4px; background: #E3801B; margin-top: -1px;}
@@ -126,7 +127,7 @@ p{ font-size: 14px;}
 /*================================== COMPONENTS ==============================================*/
 
 /*--------------------------------- Header -------------------------------------  */
-header{ padding: 6px 0; border-left: 6px #e3801b solid; }
+header{ padding: 6px 0; border-left: 6px #e3801b solid; z-index: 101; position: relative;}
 header #menu-wrapper{  margin-left: -7px; min-height: 44px; margin-top: -6px; /* margin-bottom: -6px; */ text-align: center;  }
 header #menu-wrapper span{ cursor: pointer; text-align: center; font-size: 22px; display: block; color: #00457B;margin-top: 10px;}
 header h1, header h2{ display: inline-block; padding: 6px 0; margin: 0; }
@@ -170,7 +171,7 @@ header #logo-wrapper span{ padding: 6px 0; display: inline-block; margin-right: 
 #menu ul li a:hover{background: #336699;color: #fff;outline: 0;border-radius: 0;border-bottom: 1px solid #4E4E4E;}
 #menu ul li.jstree-open, 
 #menu ul li.jstree-open:focus{background: #E3801B;color: #E1E1E1;outline: 0; margin: 0; padding: 0;}
-#menu ul li.jstree-open a.jstree-clicked{background: #336699;color: #E1E1E1;outline: 0;width: 100%;outline: 0;border-radius: 0;border-bottom: 1px solid #4E4E4E;}
+#menu ul li.jstree-open a.jstree-clicked{background: #336699;color: #E1E1E1;outline: 0;width: 100%;outline: 0;border-radius: 0;border-bottom: 1px solid #4E4E4E; cursor: default;}
 #menu ul li.jstree-open ul li.jstree-last{margin-bottom: 0;}
 #menu ul li.jstree-closed a, 
 #menu ul li.jstree-closed a:focus{background: #336699;color: #E1E1E1;outline: 0;padding: 4px 0px; margin: 0; border-radius: 0;border-bottom: 1px solid #4E4E4E;}
@@ -193,6 +194,7 @@ header #logo-wrapper span{ padding: 6px 0; display: inline-block; margin-right: 
 /*-------------------------------content-wrapper-------------------------------*/
 
 #content-wrapper{max-width: 1110px;margin: 0 auto !important;/* min-height: 500px; padding-top: 95px;padding-bottom: 30px; */}
+#content-overlay{width: 100%; position: absolute; top: 0; left: 0; z-index: 100; background: rgba(0, 0, 0, .5);}
 #content{padding-right: 0; padding-left: 0;}
 .pace{position: absolute;border: 0;}
 /*---- Scroll Bar ----*/

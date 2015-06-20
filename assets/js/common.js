@@ -1,11 +1,12 @@
-jQuery(document).ready(function($){	
+jQuery(document).ready(function($){
+	$("#content-overlay").hide();
 	$('.v-scroll').mCustomScrollbar({ theme:"light-1", scrollbarPosition: "outside",axis:"y"  });
 	$('.icon-menu-close').hide();
 	$('.icon-menu-main').on('click',function(){
 		$('#menu-wrapper-stripe').toggle();
 		$('.icon-menu-close').show();
 		$('.icon-menu-main').hide();
-	});
+	});	
 	$('.icon-menu-close').on('click',function(){
 		$('#menu-wrapper-stripe').toggle();
 		$('.icon-menu-close').hide();
@@ -36,6 +37,7 @@ jQuery(document).ready(function($){
 		var deduct_padding = 12;
 		var content_height = ($(window).height() - $('#header').height() - $('#footer').height() - deduct_padding);
 		$("#content").height(content_height);
+		$("#content-overlay").height($(window).height());
 	}
 	$(window).resize(function(){
 		resizeWindow();
@@ -56,5 +58,12 @@ jQuery(document).ready(function($){
 		$(window).on('resize', function() {
 		    $('.modal:visible').each(reposition);
 		});
+	});
+	$.each(['show', 'hide'], function (i, ev) {
+		var el = $.fn[ev];
+		$.fn[ev] = function () {
+			this.trigger(ev);
+			return el.apply(this, arguments);
+		};
 	});
 });

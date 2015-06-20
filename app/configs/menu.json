@@ -37,7 +37,7 @@
             {
                 "id": "page4",
                 "parent": "page0",
-                "text": "Complex Layout",
+                "text": "Complex Layout 1",
                 "data": {
                     "has_children": false
                 }
@@ -77,7 +77,7 @@
             {
                 "id": "page8",
                 "parent": "root2",
-                "text": "Four Column Layout",
+                "text": "Complex Layout 2",
                 "data": {
                     "has_children": false
                 }

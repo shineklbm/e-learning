@@ -2,11 +2,11 @@ angular.module("eLearning", []);
 
 angular.module("eLearning")
 .controller('rootCtrl', ['$scope', '$http', rootController])
-/*.run(function($rootScope, $templateCache) {
+.run(function($rootScope, $templateCache) {
     $rootScope.$on('$viewContentLoaded', function() {
         $templateCache.removeAll();
     });
-})*/
+})
 .filter('unsafe', function($sce) {
     return function(val) {
         return $sce.trustAsHtml(val);
@@ -211,8 +211,8 @@ function rootController($scope, $http){
                         $scope.contents = data;
                         Pace.restart();                
                         if($scope.contents.audio){
-                            $('#audio-volume, #audio-play, #audio-replay, .icon-block, .mejs-time-loaded, #left-block label').removeClass("el-disabled"); 
-                            $('#audio-volume, #audio-play, #audio-replay, .icon-block, .mejs-time-loaded, #left-block label').addClass("el-enabled"); 
+                            $('#audio-volume, #audio-play, #audio-replay, .icon-block, .mejs-time-loaded').removeClass("el-disabled"); 
+                            $('#audio-volume, #audio-play, #audio-replay, .icon-block, .mejs-time-loaded').addClass("el-enabled"); 
                             $scope.audioPlayer.pause();           
                             $scope.audioPlayer.setSrc($scope.contents.audio);
                             $scope.audioPlayer.load();                  
@@ -220,8 +220,8 @@ function rootController($scope, $http){
                             $('.play').hide();
                         }
                         else{
-                            $('#audio-volume, #audio-play, #audio-replay, .icon-block, .mejs-time-loaded, #left-block label').removeClass("el-enabled");
-                            $('#audio-volume, #audio-play, #audio-replay, .icon-block, .mejs-time-loaded, #left-block label').addClass("el-disabled");
+                            $('#audio-volume, #audio-play, #audio-replay, .icon-block, .mejs-time-loaded').removeClass("el-enabled");
+                            $('#audio-volume, #audio-play, #audio-replay, .icon-block, .mejs-time-loaded').addClass("el-disabled");
                             $('.pause').hide();
                             $('.play').show();
                             $scope.audioPlayer.setCurrentTime(0);
@@ -252,13 +252,12 @@ function rootController($scope, $http){
 			audioPlayer.addEventListener('ended', function(e) {
 				$('.pause').hide();
                 $('.play').show();
-                $('#audio-play, #left-block label').removeClass("el-enabled");
-				$('#audio-play, #left-block label').addClass("el-disabled");
-				$('#audio-play').prop('onclick',null).off('click');
+                //$('#audio-play').prop('onclick', null).off('click');
+                $('#audio-play').removeClass('el-enabled').addClass('el-disabled');
 			}, false);
 
             document.getElementById('audio-play')['onclick'] = function() {
-                if($("#audio-player").attr("src") !== ""){
+                if($("#audio-player").attr("src") !== "" && !($("#audio-play").hasClass("el-disabled"))){
                     if (audioPlayer.paused){
                         audioPlayer.play();
                         $('.pause').show();
@@ -285,14 +284,16 @@ function rootController($scope, $http){
             };
             document.getElementById('audio-replay')['onclick'] = function() {
                 if($("#audio-player").attr("src") !== ""){
+                    $('.play').hide();
+                    $('.pause').show();
+                    $('#audio-play').removeClass('el-disabled').addClass('el-enabled');
                     audioPlayer.load();
                     audioPlayer.play();
                 }
             };
         }
     });
-
-
+    
     $('.modal').on('show.bs.modal', function(){
         $scope.audioPlayer.pause();
         $(".btn-close-yes").click(function(){
@@ -302,5 +303,12 @@ function rootController($scope, $http){
             $scope.audioPlayer.play();
         })
     });
-
+    $('#menu-wrapper-stripe').on("show", function(){
+        $("#content-overlay").fadeIn();
+        $scope.audioPlayer.pause();
+    });
+    $('#menu-wrapper-stripe').on("hide", function(){
+        $("#content-overlay").fadeOut();
+        $scope.audioPlayer.play();
+    });
 }
