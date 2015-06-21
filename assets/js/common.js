@@ -37,7 +37,9 @@ jQuery(document).ready(function($){
 		var deduct_padding = 13;
 		var content_height = ($(window).height() - $('#header').height() - $('#footer').height() - deduct_padding);
 		$("#content").height(content_height);
-		$("#content-overlay").height($(window).height());
+		$("#content-overlay, #safari-start-overlay").height($(window).height());
+		var start_course_top = ($(window).height()/2) - ($('#start-course').height()/2)
+		$('#start-course').css('margin-top', start_course_top);
 	}
 	$(window).resize(function(){
 		resizeWindow();
