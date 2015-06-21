@@ -34,8 +34,8 @@ jQuery(document).ready(function($){
 	resizeWindow();
 	function resizeWindow(){
 		var window_width = $(window).width();
-		var deduct_padding = 13;
-		var content_height = ($(window).height() - $('#header').height() - $('#footer').height() - deduct_padding);
+		$("#inner-wrapper").height($(window).height()); 
+		var content_height = ($(window).height() - $('#header').outerHeight(true) - $('#footer').height());
 		$("#content").height(content_height);
 		$("#content-overlay, #safari-start-overlay").height($(window).height());
 		var start_course_top = ($(window).height()/2) - ($('#start-course').height()/2)

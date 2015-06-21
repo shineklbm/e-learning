@@ -254,7 +254,6 @@ function rootController($scope, $http){
             $('.pause').show();
             $('.audio-off').hide();
 
-            // add event listener
 			audioPlayer.addEventListener('ended', function(e) {
 				$('.pause').hide();
                 $('.play').show();
@@ -275,7 +274,7 @@ function rootController($scope, $http){
                 }
             };
             document.getElementById('audio-volume')['onclick'] = function() {
-                if($("#audio-player").attr("src") !== ""){
+                if($("#audio-player").attr("src") !== "" && !($("#audio-volume").hasClass("el-disabled"))){
                     if(audioPlayer.volume){
                         audioPlayer.volume = 0;
                         $('.audio-off').show();
@@ -288,7 +287,7 @@ function rootController($scope, $http){
                 }
             };
             document.getElementById('audio-replay')['onclick'] = function() {
-                if($("#audio-player").attr("src") !== ""){
+                if($("#audio-player").attr("src") !== "" && !($("#audio-replay").hasClass("el-disabled"))){
                     $('.play').hide();
                     $('.pause').show();
                     $('#audio-play').removeClass('el-disabled').addClass('el-enabled');

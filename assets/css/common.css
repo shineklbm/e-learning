@@ -235,7 +235,7 @@ footer{background: #F2F2F2;min-height: 45px;max-width: 1110px;margin: 0 auto !im
 #pagination #page-right-wrapper{vertical-align: middle;font-size: 34px;display: inline-block;}
 #pagination #page-left-wrapper{padding-right: 8px;}
 #pagination #page-right-wrapper{padding-left: 8px;margin-right:-8px; }
-#pagination #page-counter{font-size: 18px;display: inline-block;background: #e3801b;color: #fff;line-height: 2.4;padding: 1px 10px;}
+#pagination #page-counter{font-size: 18px;display: inline-block;background: #e3801b;color: #fff;/* line-height: 2.4; */padding: 4px 10px;}
 
 
 /*-- Main Page Progress --*/
@@ -277,7 +277,7 @@ footer{background: #F2F2F2;min-height: 45px;max-width: 1110px;margin: 0 auto !im
 /*----------------- Menu -----------------*/
 
 /*---------------- Footer -----------------*/
-	#footer-content #left-block{padding-top: 5px;width:200px;}
+	#footer-content #left-block{padding-top: 5px; width:200px;}
 	#footer-content #left-block .icon-block {margin-right: 12px;}
 	#footer-content #left-block i{font-size: 20px;}
 	#footer-content #left-block i::after{content: "|"; display: inline-block;color: #D7D6D6;top: 0;font-size: 25px;margin-left: 10px;}
@@ -300,25 +300,18 @@ footer{background: #F2F2F2;min-height: 45px;max-width: 1110px;margin: 0 auto !im
 /*-------------- Component --------------*/
 
 /*--------------- Footer ----------------*/
-	#footer-content #right-block #click-me {margin-left: 90px;}
+    #footer-content #left-block{position: absolute; left: 5px; top: 0; width: 40%;}
+    #footer-content #right-block{position: absolute; right: 5px; top: 0; width: 60%;}
+    #pagination #page-right-wrapper{ margin-right: 0; }
 /*--------------- Footer ----------------*/
 }
 @media screen and (max-width: 575px) {
 /*--------------- Footer ----------------*/
-	#footer-content #left-block{width: 163px}
 	#footer-content #left-block .icon-block {margin-right: 5px;}
 	#footer-content #left-block i{font-size: 18px;}
+    #footer-content #right-block #click-me{display: none;}
 /*--------------- Footer ----------------*/
 }
-@media screen and (max-width: 540px) {
-
-/*-----------------Footer ---------------*/
-	#footer-content #left-block{padding-top: 7px; }
-	#footer-content #right-block{width:163px;}
-	#footer-content #right-block #click-me{display: none;}
-/*-----------------Footer ---------------*/
-}
-
 @media screen and (max-width: 525px){
 
 /*---------- menu-wrapper-strip ----------*/
@@ -345,8 +338,7 @@ footer{background: #F2F2F2;min-height: 45px;max-width: 1110px;margin: 0 auto !im
 
  }
  @media screen and (max-width: 382px) {
-	#footer-content #left-block{position: absolute; left: 0; top: 0;}
-	#footer-content #right-block{position: absolute; right: 0; top: 0;}
+    #footer-content #left-block, #footer-content #right-block{ width: 50%;}
 	#footer-content #left-block .icon-block {margin-right: 2px;}
 	#footer-content #left-block i::after{margin-left: 5px;}
  }
@@ -358,8 +350,6 @@ footer{background: #F2F2F2;min-height: 45px;max-width: 1110px;margin: 0 auto !im
 
 /*---------------- Footer ---------------*/
 	#footer-content #left-block i{font-size: 17px}
-	/* #footer-content #left-block{position: absolute; left: 2%; top: 0;}
-	#footer-content #right-block{position: absolute; right: 2%; top: 0;} */
 	#footer-content #right-block .v-divider{right:147px}
 	#pagination #page-left-wrapper,#pagination #page-right-wrapper{padding: 0;}
 /*---------------- Footer ---------------*/
