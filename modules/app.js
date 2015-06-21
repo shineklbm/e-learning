@@ -223,10 +223,9 @@ function rootController($scope, $http){
                             $('#audio-volume, #audio-play, #audio-replay, .icon-block, .mejs-time-loaded').removeClass("el-enabled");
                             $('#audio-volume, #audio-play, #audio-replay, .icon-block, .mejs-time-loaded').addClass("el-disabled");
                             $('.pause').hide();
-                            $('.play').show();
-                            $scope.audioPlayer.setCurrentTime(0);
-                            $scope.audioPlayer.setCurrentRail();       
-                            $scope.audioPlayer.setSrc('');
+                            $('.play').show();  
+                            $scope.audioPlayer.pause();                          
+                            $scope.audioPlayer.setSrc('assets/media/blank.mp3');
                         }
                         Pace.on('hide', function(){
                             $scope.audioPlayer.play();

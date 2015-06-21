@@ -34,7 +34,7 @@ jQuery(document).ready(function($){
 	resizeWindow();
 	function resizeWindow(){
 		var window_width = $(window).width();
-		var deduct_padding = 12;
+		var deduct_padding = 13;
 		var content_height = ($(window).height() - $('#header').height() - $('#footer').height() - deduct_padding);
 		$("#content").height(content_height);
 		$("#content-overlay").height($(window).height());
