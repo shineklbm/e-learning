@@ -38,6 +38,7 @@ jQuery(document).ready(function($){
 		var content_height = ($(window).height() - $('#header').outerHeight(true) - $('#footer').height());
 		$("#content").height(content_height);
 		$("#content-overlay, #safari-start-overlay").height($(window).height());
+		$("#preloader-overlay").height($(window).height());
 		var start_course_top = ($(window).height()/2) - ($('#start-course').height()/2)
 		$('#start-course').css('margin-top', start_course_top);
 	}
@@ -68,4 +69,17 @@ jQuery(document).ready(function($){
 			return el.apply(this, arguments);
 		};
 	});
+
+	/*var loader = new PxLoader();
+
+	backgroundImg = loader.addImage('images/headerbg.jpg'), 
+	treesImg = loader.addImage('images/trees.png'), 
+	ufoImg = loader.addImage('images/ufo.png'); 
+
+	loader.addCompletionListener(function() {
+
+	}); 
+
+	// begin downloading images 
+	loader.start(); */
 });

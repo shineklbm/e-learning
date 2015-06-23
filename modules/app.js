@@ -73,6 +73,9 @@ angular.module("eLearning")
     }
 });
 function rootController($scope, $http){
+    $scope.preLoader = new PxLoader();
+    console.log($scope.preLoader);
+
     $http.get('configs/commons.json')
     .success(function(data){
         $scope.configs = data;
@@ -208,8 +211,18 @@ function rootController($scope, $http){
                 $scope.loadContent = function ($scope, $http){
                     $http.get('app/data/'+lang+'/'+$scope.page.data)
                     .success(function(data){
-                        $scope.contents = data;                        
-                        Pace.restart();
+                        $scope.contents = data;
+                        /*preload images*/
+                        var images = $scope.contents.preload.images;
+                        $(images).each(function(index, image){
+                            $scope.preLoader.addImage(image);
+                        })
+                        $scope.preLoader.addCompletionListener(function(){
+                            $("#preloader-overlay").fadeOut();
+                        });
+                        $scope.preLoader.start();
+                        
+
                         if($scope.contents.audio){
                             $('#audio-volume, #audio-play, #audio-replay, .icon-block, .mejs-time-loaded').removeClass("el-disabled"); 
                             $('#audio-volume, #audio-play, #audio-replay, .icon-block, .mejs-time-loaded').addClass("el-enabled"); 
@@ -227,16 +240,14 @@ function rootController($scope, $http){
                             $scope.audioPlayer.pause();                          
                             $scope.audioPlayer.setSrc('assets/media/blank.mp3');
                         }
-                        Pace.on('hide', function(){
-                            if((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)) || (navigator.userAgent.match(/iPad/i))) {
-                                if($scope.page.page_index == "01"){
-                                    $("#safari-start-overlay").show();
-                                }                                
-                            }
-                            else{
-                                $scope.audioPlayer.play();
-                            }                            
-                        })
+                        if((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)) || (navigator.userAgent.match(/iPad/i))) {
+                            if($scope.page.page_index == "01"){
+                                $("#safari-start-overlay").show();
+                            }                                
+                        }
+                        else{
+                            $scope.audioPlayer.play();
+                        }                            
                     });
                 }
                 $scope.loadContent($scope, $http);
