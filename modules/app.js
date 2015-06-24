@@ -80,11 +80,11 @@ function rootController($scope, $http){
         $scope.registerGlobalAssets = function(){
             if(typeof $scope.configs.background_image != 'undefined'){
                 /*console.log($scope.configs.background_image);*/
-                $scope.preLoader.addImage($scope.configs.background_image)
+                $scope.preLoader.addImage($scope.configs.path.images+$scope.configs.background_image)
             }
             if(typeof $scope.configs.background_music != 'undefined'){
                 /*console.log($scope.configs.background_image);*/
-                $scope.preLoader.addAudio($scope.configs.background_music)
+                $scope.preLoader.addAudio($scope.configs.path.audio+$scope.configs.background_music)
             }
         }
         $scope.registerGlobalAssets();
@@ -250,7 +250,7 @@ function rootController($scope, $http){
                             $('#audio-volume, #audio-play, #audio-replay, .icon-block, .mejs-time-loaded').removeClass("el-disabled"); 
                             $('#audio-volume, #audio-play, #audio-replay, .icon-block, .mejs-time-loaded').addClass("el-enabled"); 
                             $scope.audioPlayer.pause();           
-                            $scope.audioPlayer.setSrc($scope.configs.app_path.audio+$scope.contents.audio);
+                            $scope.audioPlayer.setSrc($scope.configs.app_path.audios+$scope.contents.audio);
                             $scope.audioPlayer.load();                  
                             $('.pause').show();
                             $('.play').hide();

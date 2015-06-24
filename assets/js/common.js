@@ -69,17 +69,4 @@ jQuery(document).ready(function($){
 			return el.apply(this, arguments);
 		};
 	});
-
-	/*var loader = new PxLoader();
-
-	backgroundImg = loader.addImage('images/headerbg.jpg'), 
-	treesImg = loader.addImage('images/trees.png'), 
-	ufoImg = loader.addImage('images/ufo.png'); 
-
-	loader.addCompletionListener(function() {
-
-	}); 
-
-	// begin downloading images 
-	loader.start(); */
 });
