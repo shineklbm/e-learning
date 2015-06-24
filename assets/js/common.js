@@ -41,6 +41,7 @@ jQuery(document).ready(function($){
 		$("#preloader-overlay").height($(window).height());
 		var start_course_top = ($(window).height()/2) - ($('#start-course').height()/2)
 		$('#start-course').css('margin-top', start_course_top);
+		$("#preloader-overlay").css("padding-top", (($(window).height()/2)-32));
 	}
 	$(window).resize(function(){
 		resizeWindow();

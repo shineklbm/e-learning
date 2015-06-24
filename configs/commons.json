@@ -5,6 +5,7 @@
     "logo": "logo.jpg",
     "background_color": "#fea",
     "background_image": "background.jpg",
+    "preloader_image": "preloader.gif",
     "background_music": "blank.mp3",
     "path": {
         "templates": "templates/",

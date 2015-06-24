@@ -104,7 +104,8 @@ function rootController($scope, $http){
             $scope.total_pages = total_pages;
         }
     });
-    var menu = $("#menu").bind("select_node.jstree", function (e, data) {    
+    var menu = $("#menu").bind("select_node.jstree", function (e, data) {
+    	$("#preloader-overlay").fadeIn();
         $scope.menuClickListener(data);
         return data.instance.toggle_node(data.node);
     });
