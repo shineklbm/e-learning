@@ -74,12 +74,22 @@ angular.module("eLearning")
 });
 function rootController($scope, $http){
     $scope.preLoader = new PxLoader();
-    console.log($scope.preLoader);
-
     $http.get('configs/commons.json')
     .success(function(data){
         $scope.configs = data;
+        $scope.registerGlobalAssets = function(){
+            if(typeof $scope.configs.background_image != 'undefined'){
+                /*console.log($scope.configs.background_image);*/
+                $scope.preLoader.addImage($scope.configs.background_image)
+            }
+            if(typeof $scope.configs.background_music != 'undefined'){
+                /*console.log($scope.configs.background_image);*/
+                $scope.preLoader.addAudio($scope.configs.background_music)
+            }
+        }
+        $scope.registerGlobalAssets();
     });
+
     $http.get('app/configs/menu.json')
     .success(function(data){
         $scope.menus = data;
@@ -197,37 +207,50 @@ function rootController($scope, $http){
                 page_pogress =($scope.page.page_index*100)/$scope.total_pages;
                 $("#page-progress .progress-bar").css("width",page_pogress+"%");
                 if($scope.page.page_index == "01"){
-                    $("#page-left-wrapper").css({'color':'#ccc','cursor':'default'});
+                    $("#page-left-wrapper").removeClass("el-enabled");
+                    $("#page-left-wrapper").addClass("el-disabled");
                 }
                 else{
-                    $("#page-left-wrapper").css({'color':'#333','cursor':'pointer'});
+                    $("#page-left-wrapper").removeClass("el-disabled");
+                    $("#page-left-wrapper").addClass("el-enabled");
                 }
-                if($scope.page.page_index === $scope.total_pages){
-                    $("#page-right-wrapper").css({'color':'#ccc','cursor':'default'});
+                if($scope.page.page_index === $scope.total_pages){                    
+                    $("#page-right-wrapper").removeClass("el-enabled");
+                    $("#page-right-wrapper").addClass("el-disabled");
                 }
                 else{
-                    $("#page-right-wrapper").css({'color':'#333','cursor':'pointer'});
+                    $("#page-right-wrapper").addClass("el-enabled");
+                    $("#page-right-wrapper").removeClass("el-disabled");
                 }
                 $scope.loadContent = function ($scope, $http){
                     $http.get('app/data/'+lang+'/'+$scope.page.data)
                     .success(function(data){
                         $scope.contents = data;
                         /*preload images*/
-                        var images = $scope.contents.preload.images;
-                        $(images).each(function(index, image){
-                            $scope.preLoader.addImage(image);
-                        })
+                        if(typeof $scope.contents.preload != 'undefined'){                            
+                            if(typeof $scope.contents.preload.images != 'undefined'){
+                                var preload_images = $scope.contents.preload.images;
+                                $(preload_images).each(function(index, image){
+                                    $scope.preLoader.addImage($scope.configs.app_path.images+image);
+                                })
+                            }
+                            if(typeof $scope.contents.preload.audios != 'undefined'){
+                                var preload_audios = $scope.contents.preload.audios;
+                                $(preload_audios).each(function(index, audio){
+                                    $scope.preLoader.addAudio($scope.configs.app_path.audios+audio);
+                                })
+                            }
+                        }
                         $scope.preLoader.addCompletionListener(function(){
                             $("#preloader-overlay").fadeOut();
                         });
                         $scope.preLoader.start();
-                        
 
                         if($scope.contents.audio){
                             $('#audio-volume, #audio-play, #audio-replay, .icon-block, .mejs-time-loaded').removeClass("el-disabled"); 
                             $('#audio-volume, #audio-play, #audio-replay, .icon-block, .mejs-time-loaded').addClass("el-enabled"); 
                             $scope.audioPlayer.pause();           
-                            $scope.audioPlayer.setSrc($scope.contents.audio);
+                            $scope.audioPlayer.setSrc($scope.configs.app_path.audio+$scope.contents.audio);
                             $scope.audioPlayer.load();                  
                             $('.pause').show();
                             $('.play').hide();
@@ -238,7 +261,7 @@ function rootController($scope, $http){
                             $('.pause').hide();
                             $('.play').show();  
                             $scope.audioPlayer.pause();                          
-                            $scope.audioPlayer.setSrc('assets/media/blank.mp3');
+                            $scope.audioPlayer.setSrc($scope.configs.path.audio+'blank.mp3');
                         }
                         if((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)) || (navigator.userAgent.match(/iPad/i))) {
                             if($scope.page.page_index == "01"){

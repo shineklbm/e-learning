@@ -1,7 +1,11 @@
 {
     "lang": "en",
     "course_title": "E-Learning App",
-    "course_subtitle": "Lorem Ipsum Text",
+    "course_subtitle": "Lorem Ipsum Text",    
+    "logo": "logo.jpg",
+    "background_color": "#fea",
+    "background_image": "background.jpg",
+    "background_music": "blank.mp3",
     "path": {
         "templates": "templates/",
         "components": "components/",
@@ -9,15 +13,13 @@
         "css": "assets/css/",
         "js": "assets/js/",
         "libs": "assets/libs/",
-        "media": "assets/images/",
         "images": "assets/images/",
-        "app_config": "app/configs/",
-        "app_images": "app/assets/images/",
-        "app_media": "app/assets/media/",
-        "app_data": "app/assets/data/"
+        "audio": "assets/audio/"
     },
-    "logo": "logo.jpg",
-    "background_color": "#fea",
-    "background_image": "background.jpg",
-    "background_music": ""
+    "app_path":{        
+        "config": "app/configs/",
+        "images": "app/assets/images/",
+        "audios": "app/assets/audio/",
+        "data": "app/assets/data/"
+    }
 }
