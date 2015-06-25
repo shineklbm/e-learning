@@ -75,6 +75,7 @@ angular.module("eLearning")
 function rootController($scope, $http){
     $scope.preLoader = new PxLoader();
     $scope.touch_device = false;
+    $scope.framework_loaded = false;
     var deviceAgent = navigator.userAgent.toLowerCase();
     var isTouchDevice = ('ontouchstart' in document.documentElement) || 
                         (deviceAgent.match(/(iphone|ipod|ipad)/) ||
@@ -129,14 +130,8 @@ function rootController($scope, $http){
         found = JSON.search(snapshot, '//*[contains(default, "true")]');
         var tree = $('#menu').jstree(true);
         $scope.refToMenuTree = tree;
-        alert("here:: "+$scope.touch_device);
-        if($scope.touch_device){
-            $("#preloader-overlay").fadeOut();
-            $("#safari-start-overlay").show();
-        }else{
-            tree.select_node(found[0].id);
-        }        
-        /*tree.select_node(found[0].id);*/
+
+        tree.select_node(found[0].id);
 
         var jstree_json = $("#menu").jstree(true).get_json('#', { 'flat': true });
         var counter = 0;
@@ -284,13 +279,13 @@ function rootController($scope, $http){
                             $scope.audioPlayer.setSrc($scope.configs.path.audio+'blank.mp3');
                         }
                         $scope.preLoader.addCompletionListener(function(){
-                            //alert($scope.touch_device);
                             $("#preloader-overlay").fadeOut();
-                            /*if($scope.touch_device){
-                                $("#safari-start-overlay").show();
-                            }else{*/
+                            if($scope.touch_device && $scope.framework_loaded == false){
+                                $("#safari-start-overlay").show();                                
+                            }else{
                                 $scope.audioPlayer.play();
-                            /*}*/
+                            }
+                            $scope.framework_loaded = true;
                         });
                         $scope.preLoader.start();   
                     });

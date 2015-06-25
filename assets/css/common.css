@@ -129,7 +129,7 @@ p{ font-size: 14px;}
 #safari-start-overlay,
 #preloader-overlay{ width: 100%; position: absolute; display: none; top: 0; left: 0; z-index: 100; background: rgba(0, 0, 0, .5);}
 #safari-start-overlay{ z-index: 10000; }
-#preloader-overlay{ z-index: 100001; display: block; background: #fff; color: #fff; text-align: center;}
+#preloader-overlay{ z-index: 100001; display: block; background: rba(255, 255, 255, .8); color: #fff; text-align: center;}
 #safari-start-overlay #start-course{ background: url('../images/play_btn.png'); width: 161px; height: 161px; cursor: pointer; margin: auto; }
 /*================================== COMPONENTS ==============================================*/
 
@@ -279,11 +279,11 @@ footer{background: #F2F2F2;min-height: 45px;max-width: 1110px;margin: 0 auto !im
 /*----------------- Menu -----------------*/
 
 /*---------------- Footer -----------------*/
-	#footer-content #left-block{padding-top: 5px; width:200px;}
+    #footer-content #left-block{position: absolute; left: 5px; top: 0; width: 30%; padding-top: 5px;}
+    #footer-content #right-block{position: absolute; right: 5px; top: 0; width: 60%;}
 	#footer-content #left-block .icon-block {margin-right: 12px;}
 	#footer-content #left-block i{font-size: 20px;}
 	#footer-content #left-block i::after{content: "|"; display: inline-block;color: #D7D6D6;top: 0;font-size: 25px;margin-left: 10px;}
-	#footer-content #right-block{width:320px;}
 	#footer-content #right-block .v-divider{right: 170px;}
 /*-----------------Footer ---------------*/
 	
