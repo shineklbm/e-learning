@@ -242,36 +242,35 @@ function rootController($scope, $http){
                                 })
                             }
                         }
-                        $scope.preLoader.addCompletionListener(function(){
-                            $("#preloader-overlay").fadeOut();
-                            if($scope.contents.audio){
-	                            $('#audio-volume, #audio-play, #audio-replay, .icon-block, .mejs-time-loaded').removeClass("el-disabled"); 
-	                            $('#audio-volume, #audio-play, #audio-replay, .icon-block, .mejs-time-loaded').addClass("el-enabled"); 
-	                            $scope.audioPlayer.pause();           
-	                            $scope.audioPlayer.setSrc($scope.configs.app_path.audios+$scope.contents.audio);
-	                            $scope.audioPlayer.load();                  
-	                            $('.pause').show();
-	                            $('.play').hide();
-	                        }
-	                        else{
-	                            $('#audio-volume, #audio-play, #audio-replay, .icon-block, .mejs-time-loaded').removeClass("el-enabled");
-	                            $('#audio-volume, #audio-play, #audio-replay, .icon-block, .mejs-time-loaded').addClass("el-disabled");
-	                            $('.pause').hide();
-	                            $('.play').show();  
-	                            $scope.audioPlayer.pause();                          
-	                            $scope.audioPlayer.setSrc($scope.configs.path.audio+'blank.mp3');
-	                        }
-                        });
-                        $scope.preLoader.start();
-                        
-                        if((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)) || (navigator.userAgent.match(/iPad/i))) {
-                            if($scope.page.page_index == "01"){
-                                $("#safari-start-overlay").show();
-                            }                                
+                        if($scope.contents.audio){
+                            $('#audio-volume, #audio-play, #audio-replay, .icon-block, .mejs-time-loaded').removeClass("el-disabled"); 
+                            $('#audio-volume, #audio-play, #audio-replay, .icon-block, .mejs-time-loaded').addClass("el-enabled"); 
+                            $scope.audioPlayer.pause();           
+                            $scope.audioPlayer.setSrc($scope.configs.app_path.audios+$scope.contents.audio);
+                            $scope.audioPlayer.load();                  
+                            $('.pause').show();
+                            $('.play').hide();
                         }
                         else{
-                            $scope.audioPlayer.play();
-                        }                            
+                            $('#audio-volume, #audio-play, #audio-replay, .icon-block, .mejs-time-loaded').removeClass("el-enabled");
+                            $('#audio-volume, #audio-play, #audio-replay, .icon-block, .mejs-time-loaded').addClass("el-disabled");
+                            $('.pause').hide();
+                            $('.play').show();  
+                            $scope.audioPlayer.pause();                          
+                            $scope.audioPlayer.setSrc($scope.configs.path.audio+'blank.mp3');
+                        }
+                        $scope.preLoader.addCompletionListener(function(){
+                            $("#preloader-overlay").fadeOut();
+                            if((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)) || (navigator.userAgent.match(/iPad/i))) {
+                                if($scope.page.page_index == "01"){
+                                    $("#safari-start-overlay").show();
+                                }                                
+                            }
+                            else{
+                                $scope.audioPlayer.play();
+                            }                         
+                        });
+                        $scope.preLoader.start();   
                     });
                 }
                 $scope.loadContent($scope, $http);
