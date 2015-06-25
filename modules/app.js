@@ -224,6 +224,7 @@ function rootController($scope, $http){
                     $("#page-right-wrapper").removeClass("el-disabled");
                 }
                 $scope.loadContent = function ($scope, $http){
+                    $scope.audioPlayer.pause();
                     $http.get('app/data/'+lang+'/'+$scope.page.data)
                     .success(function(data){
                         $scope.contents = data;
@@ -259,14 +260,14 @@ function rootController($scope, $http){
                             $scope.audioPlayer.pause();                          
                             $scope.audioPlayer.setSrc($scope.configs.path.audio+'blank.mp3');
                         }
-                        $scope.preLoader.addCompletionListener(function(){
-                            $("#preloader-overlay").fadeOut();
+                        $scope.preLoader.addCompletionListener(function(){                            
                             if((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)) || (navigator.userAgent.match(/iPad/i))) {
                                 if($scope.page.page_index == "01"){
                                     $("#safari-start-overlay").show();
                                 }                                
                             }
                             else{
+                                $("#preloader-overlay").fadeOut();
                                 $scope.audioPlayer.play();
                             }                         
                         });
