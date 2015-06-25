@@ -74,6 +74,21 @@ angular.module("eLearning")
 });
 function rootController($scope, $http){
     $scope.preLoader = new PxLoader();
+    $scope.touch_device = false;
+    var deviceAgent = navigator.userAgent.toLowerCase();
+    var isTouchDevice = ('ontouchstart' in document.documentElement) || 
+                        (deviceAgent.match(/(iphone|ipod|ipad)/) ||
+                        deviceAgent.match(/(android)/)  || 
+                        deviceAgent.match(/(iemobile)/) || 
+                        deviceAgent.match(/iphone/i) || 
+                        deviceAgent.match(/ipad/i) || 
+                        deviceAgent.match(/ipod/i) || 
+                        deviceAgent.match(/blackberry/i) || 
+                        deviceAgent.match(/bada/i));
+    if (isTouchDevice) {
+        $scope.touch_device = true;            
+    }
+
     $http.get('configs/commons.json')
     .success(function(data){
         $scope.configs = data;
@@ -113,7 +128,15 @@ function rootController($scope, $http){
         var snapshot = Defiant.getSnapshot($scope.menus);
         found = JSON.search(snapshot, '//*[contains(default, "true")]');
         var tree = $('#menu').jstree(true);
-        tree.select_node(found[0].id);
+        $scope.refToMenuTree = tree;
+        alert("here:: "+$scope.touch_device);
+        if($scope.touch_device){
+            $("#preloader-overlay").fadeOut();
+            $("#safari-start-overlay").show();
+        }else{
+            tree.select_node(found[0].id);
+        }        
+        /*tree.select_node(found[0].id);*/
 
         var jstree_json = $("#menu").jstree(true).get_json('#', { 'flat': true });
         var counter = 0;
@@ -260,16 +283,14 @@ function rootController($scope, $http){
                             $scope.audioPlayer.pause();                          
                             $scope.audioPlayer.setSrc($scope.configs.path.audio+'blank.mp3');
                         }
-                        $scope.preLoader.addCompletionListener(function(){                            
-                            if((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)) || (navigator.userAgent.match(/iPad/i))) {
-                                if($scope.page.page_index == "01"){
-                                    $("#safari-start-overlay").show();
-                                }                                
-                            }
-                            else{
-                                $("#preloader-overlay").fadeOut();
+                        $scope.preLoader.addCompletionListener(function(){
+                            //alert($scope.touch_device);
+                            $("#preloader-overlay").fadeOut();
+                            /*if($scope.touch_device){
+                                $("#safari-start-overlay").show();
+                            }else{*/
                                 $scope.audioPlayer.play();
-                            }                         
+                            /*}*/
                         });
                         $scope.preLoader.start();   
                     });
@@ -353,5 +374,6 @@ function rootController($scope, $http){
     $('#start-course').click(function(){
         $("#safari-start-overlay").fadeOut();
         $("#audio-play").trigger("click");
+        $scope.refToMenuTree.select_node(found[0].id);
     });
 }
