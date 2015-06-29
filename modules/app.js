@@ -121,7 +121,13 @@ function rootController($scope, $http){
         }
     });
     var menu = $("#menu").bind("select_node.jstree", function (e, data) {
-    	$("#preloader-overlay").fadeIn();
+    	var current_item = false;
+        if(typeof $scope.page != "undefined"){
+            current_item = $scope.page.page_id;
+        }
+    	if(data.node.parent != "#" &&  current_item != data.node.id){
+    		$("#preloader-overlay").fadeIn();
+    	}
         $scope.menuClickListener(data);
         return data.instance.toggle_node(data.node);
     });
@@ -269,6 +275,7 @@ function rootController($scope, $http){
                             $scope.audioPlayer.load();                  
                             $('.pause').show();
                             $('.play').hide();
+                            
                         }
                         else{
                             $('#audio-volume, #audio-play, #audio-replay, .icon-block, .mejs-time-loaded').removeClass("el-enabled");
@@ -309,6 +316,7 @@ function rootController($scope, $http){
 				$('.pause').hide();
                 $('.play').show();
                 $('#audio-play').removeClass('el-enabled').addClass('el-disabled');
+               
 			}, false);
 
             document.getElementById('audio-play')['onclick'] = function() {
