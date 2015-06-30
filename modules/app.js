@@ -267,8 +267,8 @@ function rootController($scope, $http){
                             }
                         }
                         if($scope.contents.audio){
-                            $('#audio-volume, #audio-play, #audio-replay, .icon-block, .mejs-time-loaded').removeClass("el-disabled"); 
-                            $('#audio-volume, #audio-play, #audio-replay, .icon-block, .mejs-time-loaded').addClass("el-enabled"); 
+                            $('#audio-volume, #audio-play, #audio-replay, .mejs-time-total').removeClass("el-disabled"); 
+                            $('#audio-volume, #audio-play, #audio-replay, .mejs-time-total').addClass("el-enabled"); 
                             $scope.audioPlayer.pause();           
                             $scope.audioPlayer.setSrc($scope.configs.app_path.audios+$scope.contents.audio);
                             $scope.audioPlayer.load();                  
@@ -277,8 +277,8 @@ function rootController($scope, $http){
                             
                         }
                         else{
-                            $('#audio-volume, #audio-play, #audio-replay, .icon-block, .mejs-time-loaded').removeClass("el-enabled");
-                            $('#audio-volume, #audio-play, #audio-replay, .icon-block, .mejs-time-loaded').addClass("el-disabled");
+                            $('#audio-volume, #audio-play, #audio-replay, .mejs-time-total').removeClass("el-enabled");
+                            $('#audio-volume, #audio-play, #audio-replay, .mejs-time-total').addClass("el-disabled");
                             $('.pause').hide();
                             $('.play').show();  
                             $scope.audioPlayer.pause();                          

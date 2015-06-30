@@ -39,9 +39,9 @@ h2{	font-size: 17px; }
 h3{ font-size: 16px; }
 p{ font-size: 14px;}
 
-.el-enabled, .el-enabled label,.el-enabled i{ opacity: 1; cursor: pointer !important; }
-.el-disabled, .el-disabled label, .el-disabled i { opacity: .5; cursor: default !important; }
-.el-disabled:hover{background:none !important;}
+.el-enabled, .el-enabled span, .el-enabled label,.el-enabled i{ opacity: 1; cursor: pointer !important; }
+.el-disabled,.el-disabled span, .el-disabled label, .el-disabled i { opacity: .5; cursor: default !important; }
+.el-disabled:hover{background:none !important;cursor: default !important; }
 
 .blue-wrapper{ background: #336699; color: #fff; padding:30px; margin-bottom: 30px; opacity: .9; }
 .white-wrapper{ background: #FFF; color: #fff; padding:30px; margin-bottom: 30px; opacity: .9; }
@@ -90,12 +90,14 @@ p{ font-size: 14px;}
 .tab-component .tab-content{background: #3E89B0; color: #fff; padding: 20px;}
 .tab-component .nav-pills > li.active > a,
 .tab-component .nav-pills > li.active > a:focus,
+.tab-component .nav-pills > li.active > a:hover{cursor: default;}
+.tab-component .nav-pills > li.active > a,
+.tab-component .nav-pills > li.active > a:focus,
 .tab-component .nav-pills > li.active > a:hover,
 .tab-component .nav-pills > li > a:hover{background-color:#E3801B !important; color: #fff; border-radius:0; outline: none !important;}
 .tab-component .nav-pills > li > a,
 .tab-component .nav-pills > li > a:focus{background:#A5C061 !important; color: #fff;outline: none !important;}
-.tab-component .nav-pills > li.active:after,
-.tab-component .nav-pills > li:hover::after {content: "\f05b"; font-family:'icomoon';font-size: 18px; position: absolute; display: block; margin-left: -9px;bottom:-16px; left:50%; z-index: 1000;	}
+.tab-component .nav-pills > li.active:after{content: "\f05b"; font-family:'icomoon';font-size: 18px; position: absolute; display: block; margin-left: -9px;bottom:-16px; left:50%; z-index: 1000;	}
 .tab-component .tab-content {border-top: 1px solid #fff;}
 .tab-component .tab-pane p{color: #fff;}
 
@@ -172,34 +174,35 @@ header #logo-wrapper span{ padding: 6px 0; display: inline-block; margin-right: 
 #vertical-menu-wrapper h3{color: #fff;font-size: 22px;margin-top: 0;display: inline-block;}
 #vertical-menu-wrapper .menu-close{color: #fff;font-size: 18px;margin-top: 0;float: right;display: block;cursor: pointer;opacity: 1;font-weight: normal;text-shadow:none;}
 #vertical-menu-wrapper .menu-close:after{content: '\e60b';font-family: 'icomoon';}
+#menu-container{max-height: 300px;}
 #menu{position: relative;background: #4E4E4E;color: #E1E1E1;}
 #menu ul{margin: 0;padding: 0;height: auto;background: #4E4E4E;color: #E1E1E1;}
 #menu ul li{margin: 0;display: block;background: #4E4E4E;color: #E1E1E1;}
 #menu ul li i.jstree-icon,#menu ul li i.jstree-ocl,#menu ul li i.jstree-icon:empty{display: none;}
-#menu ul li a{outline: 0;display: inline-block;padding: 4px 0px;font-size: 16px;font-weight: normal;width: 100%;border-bottom: 1px solid #838383;box-shadow: none;} 
+#menu ul li a{outline: 0; cursor: pointer; display: inline-block;padding: 4px 0px;font-size: 16px;font-weight: normal;width: 100%;border-bottom: 1px solid #838383;box-shadow: none;} 
 #menu ul li a{ padding-left: 10px;}
 #menu ul li:last-child{margin-bottom: 10px;}
-#menu ul li a:hover{background: #336699;color: #fff;outline: 0;border-radius: 0;border-bottom: 1px solid #4E4E4E;}
+#menu ul li a:hover{background: #336699;color: #fff;outline: 0;cursor: pointer; border-radius: 0;border-bottom: 1px solid #4E4E4E;}
 #menu ul li.jstree-open, 
 #menu ul li.jstree-open:focus{background: #E3801B;color: #E1E1E1;outline: 0; margin: 0; padding: 0;}
 #menu ul li.jstree-open a.jstree-clicked,
-#menu .current-page a{background: #336699;color: #E1E1E1;outline: 0;width: 100%;outline: 0;border-radius: 0;border-bottom: 1px solid #4E4E4E; /* cursor: default; */}
+#menu .current-page a{background: #336699;color: #E1E1E1;outline: 0; cursor: pointer; width: 100%;outline: 0;border-radius: 0;border-bottom: 1px solid #4E4E4E; /* cursor: default; */}
 #menu ul li.jstree-open ul li.jstree-last{margin-bottom: 0;}
 #menu ul li.jstree-closed a, 
-#menu ul li.jstree-closed a:focus{background: #336699;color: #E1E1E1;outline: 0;/* padding: 4px 0px; */ margin: 0; border-radius: 0;border-bottom: 1px solid #4E4E4E;}
-#menu ul li.jstree-closed > a:after{content: "\e60c";color: #E1E1E1;font-size: 16px;position: absolute;right: 10px;font-family: 'icomoon'; }
-#menu ul li.jstree-open > a:after{content: "\e60e";color: #E1E1E1;font-size: 16px;position: absolute;right: 10px;font-family: 'icomoon';}
-#menu ul li.jstree-node, #menu ul li a.jstree-anchor{height: auto;min-height: auto;}
-#menu ul li a:hover{background: #336699;color:#E1E1E1;outline: 0; }
-#menu ul li a.jstree-clicked:hover{background: #336699;color:#E1E1E1;outline: 0;}
-#menu ul li a.jstree-clicked{background: #4E4E4E;color:#E1E1E1;}
+#menu ul li.jstree-closed a:focus{background: #336699;color: #E1E1E1;outline: 0;cursor: pointer; /* padding: 4px 0px; */ margin: 0; border-radius: 0;border-bottom: 1px solid #4E4E4E;}
+#menu ul li.jstree-closed > a:after{content: "\e60c"; cursor: pointer; color: #E1E1E1;font-size: 16px;position: absolute;right: 10px;font-family: 'icomoon'; }
+#menu ul li.jstree-open > a:after{content: "\e60e"; cursor: pointer; color: #E1E1E1;font-size: 16px;position: absolute;right: 10px;font-family: 'icomoon';}
+#menu ul li.jstree-node, #menu ul li a.jstree-anchor{height: auto;min-height: auto; cursor: pointer;}
+#menu ul li a:hover{background: #336699;color:#E1E1E1;outline: 0;cursor: pointer; }
+#menu ul li a.jstree-clicked:hover{background: #336699;color:#E1E1E1;outline: 0; cursor: pointer;}
+#menu ul li a.jstree-clicked{background: #4E4E4E;color:#E1E1E1; cursor: pointer;}
 
 /* --- Sub Menu ---- */
 
 #menu ul li ul{margin: 0;padding: 0;height: auto;background: #4E4E4E;color: #E1E1E1;}
 #menu ul li ul li{margin: 0;padding: 0;background: #4E4E4E;color: #E1E1E1;}
-#menu ul li ul li > a{font-size: 14px;font-weight: normal;padding: 4px 20px;}
-#menu ul li ul li > a:hover{border-bottom: 1px solid #4E4E4E;}
+#menu ul li ul li > a{font-size: 14px;font-weight: normal;padding: 4px 20px; cursor: pointer;}
+#menu ul li ul li > a:hover{border-bottom: 1px solid #4E4E4E; cursor: pointer;}
 #menu ul li ul li.jstree-closed > a{background:#336699;color: #E1E1E1;border-bottom: 1px solid #4E4E4E;border-radius: 0;}
 #menu ul li ul li.jstree-open > a{background:#E3801B; color: #E1E1E1;border-bottom: 1px solid #4E4E4E;border-radius: 0;}
 
@@ -209,8 +212,9 @@ header #logo-wrapper span{ padding: 6px 0; display: inline-block; margin-right: 
 #content{padding-right: 0; padding-left: 0;}
 .pace{position: absolute;border: 0;}
 /*---- Scroll Bar ----*/
-.mCSB_outside + .mCSB_scrollTools { right: 0;}
-.mCSB_scrollTools .mCSB_draggerContainer {right: -15px;}
+.mCSB_outside + .mCSB_scrollTools{ right: -5px;}
+.mCSB_scrollTools .mCSB_draggerContainer {width: 10px;}
+.mCSB_scrollTools{width: 10px;}
 /*---------------------------------Footer----------------------------------*/
 /*------- Footer --------*/
 footer{background: #F2F2F2;min-height: 45px;max-width: 1110px;margin: 0 auto !important;bottom: 0; position: relative;}
