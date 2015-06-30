@@ -216,7 +216,6 @@ function rootController($scope, $http){
     });
 
     $scope.menuClickListener = function(data, custom){
-
         var current_item = false;
         if(typeof $scope.page != "undefined"){
             current_item = $scope.page.page_id;
@@ -251,7 +250,7 @@ function rootController($scope, $http){
                     $scope.audioPlayer.pause();
                     $http.get('app/data/'+lang+'/'+$scope.page.data)
                     .success(function(data){
-                        $scope.contents = data;
+                        $scope.contents = data;                        
                         /*preload images*/
                         if(typeof $scope.contents.preload != 'undefined'){                            
                             if(typeof $scope.contents.preload.images != 'undefined'){
