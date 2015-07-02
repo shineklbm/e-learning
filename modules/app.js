@@ -124,10 +124,17 @@ function rootController($scope, $http){
     	var current_item = false;
         if(typeof $scope.page != "undefined"){
             current_item = $scope.page.page_id;
+
         }
     	if(data.node.parent != "#" &&  current_item != data.node.id){
     		$("#preloader-overlay").fadeIn();
+            $('#'+current_item).removeClass('current-page');   
     	}
+        else if(data.node.parent == "#")
+            {
+                 alert(current_item);
+                 $('#'+current_item).addClass('current-page');
+            } 
         $scope.menuClickListener(data);
         return data.instance.toggle_node(data.node);
     });
@@ -226,6 +233,7 @@ function rootController($scope, $http){
             $http.get('app/pages/'+data.node.id+'.json')
             .success(function(data){
                 $scope.page = data;
+                $('#'+$scope.page.page_id).addClass('current-page');
                 $scope.page.page_index = $scope.page_index[$scope.page.page_id];
                 var page_pogress = 0;
                 page_pogress =($scope.page.page_index*100)/$scope.total_pages;
@@ -267,22 +275,22 @@ function rootController($scope, $http){
                             }
                         }
                         if($scope.contents.audio){
-                            $('#audio-volume, #audio-play, #audio-replay, .mejs-time-total').removeClass("el-disabled"); 
-                            $('#audio-volume, #audio-play, #audio-replay, .mejs-time-total').addClass("el-enabled"); 
+                            $('#audio-volume, #audio-play, #audio-replay, .mejs-time-total').removeClass("el-disabled").addClass("el-enabled"); 
                             $scope.audioPlayer.pause();           
                             $scope.audioPlayer.setSrc($scope.configs.app_path.audios+$scope.contents.audio);
                             $scope.audioPlayer.load();                  
                             $('.pause').show();
                             $('.play').hide();
-                            
+                            $('#click-me').hide();
+                            $('#audio-replay').removeClass("el-enabled").addClass("el-disabled");
                         }
                         else{
-                            $('#audio-volume, #audio-play, #audio-replay, .mejs-time-total').removeClass("el-enabled");
-                            $('#audio-volume, #audio-play, #audio-replay, .mejs-time-total').addClass("el-disabled");
+                            $('#audio-volume, #audio-play, #audio-replay, .mejs-time-total').removeClass("el-enabled").addClass("el-disabled");
                             $('.pause').hide();
                             $('.play').show();  
                             $scope.audioPlayer.pause();                          
                             $scope.audioPlayer.setSrc($scope.configs.path.audio+'blank.mp3');
+                            $('#click-me').show();
                         }
                         $scope.preLoader.addCompletionListener(function(){
                             $("#preloader-overlay").fadeOut();
@@ -310,11 +318,18 @@ function rootController($scope, $http){
             $('.play').hide();
             $('.pause').show();
             $('.audio-off').hide();
-
+            $('#click-me').hide();
+            $('#audio-replay').removeClass("el-enabled").addClass("el-disabled");
 			audioPlayer.addEventListener('ended', function(e) {
 				$('.pause').hide();
                 $('.play').show();
+                $('#click-me').show();
                 $('#audio-play').removeClass('el-enabled').addClass('el-disabled');
+                $('#audio-volume').removeClass('el-enabled').addClass('el-disabled');
+                $('.mejs-time-total').removeClass("el-enabled").addClass("el-disabled");
+                if($scope.contents.audio){
+                    $('#audio-replay').removeClass("el-disabled").addClass("el-enabled");
+                }
                
 			}, false);
 
@@ -324,10 +339,13 @@ function rootController($scope, $http){
                         audioPlayer.play();
                         $('.pause').show();
                         $('.play').hide();
+                        $('#click-me').hide();
+                        $('#audio-replay').removeClass("el-enabled").addClass("el-disabled");
                     }else{
                         audioPlayer.pause();
                         $('.play').show();
                         $('.pause').hide();
+                        $('#click-me').hide();
                     }
                 }
             };
@@ -349,8 +367,12 @@ function rootController($scope, $http){
                     $('.play').hide();
                     $('.pause').show();
                     $('#audio-play').removeClass('el-disabled').addClass('el-enabled');
+                    $('#audio-volume').removeClass('el-disabled').addClass('el-enabled');
+                    $('.mejs-time-total').removeClass("el-disabled").addClass("el-enabled");
+                    $('#audio-replay').removeClass("el-enabled").addClass("el-disabled");
                     audioPlayer.load();
                     audioPlayer.play();
+                    $('#click-me').hide();
                 }
             };
         }

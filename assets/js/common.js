@@ -1,5 +1,6 @@
 jQuery(document).ready(function($){
 	$("#content-overlay").hide();
+	$('[data-toggle="tooltip"]').tooltip();
 	$('.v-scroll').mCustomScrollbar({ theme:"light-1", scrollbarPosition: "outside",axis:"y"  });
 	$('.icon-menu-close').hide();
 	$('.icon-menu-main').on('click',function(){
@@ -70,4 +71,15 @@ jQuery(document).ready(function($){
 			return el.apply(this, arguments);
 		};
 	});
+	verticalMenuHeight();
+	function verticalMenuHeight(){
+		var vertical_menu_outer_height = ($('#content').outerHeight()) - ($('#menu-wrapper-stripe').outerHeight());
+		$('#vertical-menu-wrapper').css('height',vertical_menu_outer_height+'px');
+		//$('#vertical-menu-wrapper').css('height','auto');
+		var vertical_menu_height = $('#vertical-menu-wrapper').height();
+		var menu_heading_height =$('#menu-heading').height(); 
+		var outer_height = (vertical_menu_outer_height -vertical_menu_height)+menu_heading_height;
+		var menu_container_height = (vertical_menu_outer_height)-(outer_height);
+		 $('#menu-container').css('height',menu_container_height+'px');
+	}
 });
