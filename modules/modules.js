@@ -1,5 +1,3 @@
-angular.module("eLearning", []);
-
 angular.module("eLearning")
 .controller('rootCtrl', ['$scope', '$http', rootController])
 .run(function($rootScope, $templateCache) {
@@ -11,71 +9,13 @@ angular.module("eLearning")
     return function(val) {
         return $sce.trustAsHtml(val);
     };
-})
-.directive('textComponent', function(){
-    return {
-        restirct: "E",
-        scope: {},
-        templateUrl: 'components/text-component.html',
-        link: function(scope, element, attrs){
-            scope.$parent.$watch('contents', function(newValue, oldValue) {
-                if (newValue){
-                    scope.custom_classes = attrs.classes;
-                    scope.text_list = scope.$parent.contents[attrs.datasource];
-                }                       
-            }, true);
-        }
-    }
-})
-.directive('tabComponent', function(){
-    return {
-        restirct: "E",
-        scope: {},
-        templateUrl: 'components/tab-component.html',
-        link: function(scope, element, attrs){
-            scope.$parent.$watch('contents', function(newValue, oldValue) {
-                if (newValue){
-                    scope.custom_classes = attrs.classes;
-                    scope.tab_list = scope.$parent.contents[attrs.datasource];
-                }                       
-            }, true);
-        }
-    }
-})
-.directive('imageComponent', function(){
-    return {
-        restirct: "E",
-        scope: {},
-        templateUrl: 'components/image-component.html',
-        link: function(scope, element, attrs){
-            scope.$parent.$watch('contents', function(newValue, oldValue) {
-                if (newValue){
-                    scope.custom_classes = attrs.classes;
-                    scope.image_list = scope.$parent.contents[attrs.datasource];
-                }                       
-            }, true);
-        }
-    }
-})
-.directive('collapseComponent', function(){
-    return {
-        restirct: "E",
-        scope: {},
-        templateUrl: 'components/collapse-component.html',
-        link: function(scope, element, attrs){
-            scope.$parent.$watch('contents', function(newValue, oldValue) {
-                if (newValue){
-                    scope.custom_classes = attrs.classes;
-                    scope.collapse_list = scope.$parent.contents[attrs.datasource];
-                }                       
-            }, true);
-        }
-    }
 });
+
 function rootController($scope, $http){
     $scope.preLoader = new PxLoader();
     $scope.touch_device = false;
     $scope.framework_loaded = false;
+
     var deviceAgent = navigator.userAgent.toLowerCase();
     var isTouchDevice = ('ontouchstart' in document.documentElement) || 
                         (deviceAgent.match(/(iphone|ipod|ipad)/) ||
@@ -87,8 +27,11 @@ function rootController($scope, $http){
                         deviceAgent.match(/blackberry/i) || 
                         deviceAgent.match(/bada/i));
     if (isTouchDevice) {
-        $scope.touch_device = true;            
+        $scope.touch_device = true;
     }
+    /* touch device configuration */
+
+
 
     $http.get('configs/commons.json')
     .success(function(data){
@@ -103,7 +46,6 @@ function rootController($scope, $http){
                 $scope.preLoader.addAudio($scope.configs.path.audio+$scope.configs.background_music)
             }
         }
-        $scope.registerGlobalAssets();
     });
 
     $http.get('app/configs/menu.json')
@@ -132,13 +74,13 @@ function rootController($scope, $http){
     	}
         else if(data.node.parent == "#")
             {
-                 alert(current_item);
                  $('#'+current_item).addClass('current-page');
             } 
         $scope.menuClickListener(data);
         return data.instance.toggle_node(data.node);
     });
     menu.bind("loaded.jstree", function (e, data) {
+        //alert("test");
         var snapshot = Defiant.getSnapshot($scope.menus);
         found = JSON.search(snapshot, '//*[contains(default, "true")]');
         var tree = $('#menu').jstree(true);
@@ -223,6 +165,9 @@ function rootController($scope, $http){
     });
 
     $scope.menuClickListener = function(data, custom){
+
+        $scope.pausedAudio = new Object();
+
         var current_item = false;
         if(typeof $scope.page != "undefined"){
             current_item = $scope.page.page_id;
@@ -235,9 +180,11 @@ function rootController($scope, $http){
                 $scope.page = data;
                 $('#'+$scope.page.page_id).addClass('current-page');
                 $scope.page.page_index = $scope.page_index[$scope.page.page_id];
-                var page_pogress = 0;
+                
+                /*var page_pogress = 0;
                 page_pogress =($scope.page.page_index*100)/$scope.total_pages;
-                $("#page-progress .progress-bar").css("width",page_pogress+"%");
+                $("#page-progress .progress-bar").css("width",page_pogress+"%");*/
+
                 if($scope.page.page_index == "01"){
                     $("#page-left-wrapper").removeClass("el-enabled");
                     $("#page-left-wrapper").addClass("el-disabled");
@@ -332,7 +279,6 @@ function rootController($scope, $http){
                 }
                
 			}, false);
-
             document.getElementById('audio-play')['onclick'] = function() {
                 if($("#audio-player").attr("src") !== "" && !($("#audio-play").hasClass("el-disabled"))){
                     if (audioPlayer.paused){
@@ -346,6 +292,7 @@ function rootController($scope, $http){
                         $('.play').show();
                         $('.pause').hide();
                         $('#click-me').hide();
+                        $scope.pausedAudio.track_src = $('#audio-player').attr("src");
                     }
                 }
             };
@@ -389,11 +336,17 @@ function rootController($scope, $http){
     });
     $('#menu-wrapper-stripe').on("show", function(){
         $("#content-overlay").fadeIn();
+        $('.pause').hide();
+        $('.play').show();
         $scope.audioPlayer.pause();
     });
     $('#menu-wrapper-stripe').on("hide", function(){
         $("#content-overlay").fadeOut();
-        $scope.audioPlayer.play();
+        if(typeof $scope.pausedAudio.track_src == 'undefined'){
+            $scope.audioPlayer.play();
+            $('.play').hide();
+            $('.pause').show();
+        }           
     });
     $('#start-course').click(function(){
         $("#safari-start-overlay").fadeOut();

@@ -1,6 +1,5 @@
 jQuery(document).ready(function($){
 	$("#content-overlay").hide();
-	$('[data-toggle="tooltip"]').tooltip();
 	$('.v-scroll').mCustomScrollbar({ theme:"light-1", scrollbarPosition: "outside",axis:"y"  });
 	$('.icon-menu-close').hide();
 	$('.icon-menu-main').on('click',function(){

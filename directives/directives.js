@@ -1,43 +1,61 @@
-
-    directive('tumblrPost', ['$compile', '$http', '$templateCache', function($compile, $http, $templateCache) {
-
-        var getTemplate = function(contentType) {
-            var templateLoader,
-            baseUrl = '/templates/components/tumblr/',
-            templateMap = {
-                text: 'text.html',
-                photo: 'photo.html',
-                video: 'video.html',
-                quote: 'quote.html',
-                link: 'link.html',
-                chat: 'chat.html',
-                audio: 'audio.html',
-                answer: 'answer.html'
-            };
-
-            var templateUrl = baseUrl + templateMap[contentType];
-            templateLoader = $http.get(templateUrl, {cache: $templateCache});
-
-            return templateLoader;
-
+angular.module("eLearning")
+.directive('textComponent', function(){
+    return {
+        restirct: "E",
+        scope: {},
+        templateUrl: 'components/text-component.html',
+        link: function(scope, element, attrs){
+            scope.$parent.$watch('contents', function(newValue, oldValue) {
+                if (newValue){
+                    scope.custom_classes = attrs.classes;
+                    scope.text_list = scope.$parent.contents[attrs.datasource];
+                }                       
+            }, true);
         }
-
-        var linker = function(scope, element, attrs) {
-
-            var loader = getTemplate(scope.post.type);
-
-            var promise = loader.success(function(html) {
-                element.html(html);
-            }).then(function (response) {
-                element.replaceWith($compile(element.html())(scope));
-            });
+    }
+})
+.directive('tabComponent', function(){
+    return {
+        restirct: "E",
+        scope: {},
+        templateUrl: 'components/tab-component.html',
+        link: function(scope, element, attrs){
+            scope.$parent.$watch('contents', function(newValue, oldValue) {
+                if (newValue){
+                    scope.custom_classes = attrs.classes;
+                    scope.tab_list = scope.$parent.contents[attrs.datasource];
+                }                       
+            }, true);
         }
-
-        return {
-            restrict: 'E',
-            scope: {
-                post:'='
-            },
-            link: linker
-        };
-    }]);
+    }
+})
+.directive('imageComponent', function(){
+    return {
+        restirct: "E",
+        scope: {},
+        templateUrl: 'components/image-component.html',
+        link: function(scope, element, attrs){
+            scope.$parent.$watch('contents', function(newValue, oldValue) {
+                if (newValue){
+                    scope.custom_classes = attrs.classes;
+                    scope.image_list = scope.$parent.contents[attrs.datasource];
+                }                       
+            }, true);
+        }
+    }
+})
+.directive('collapseComponent', function(){
+    return {
+        restirct: "E",
+        scope: {},
+        templateUrl: 'components/collapse-component.html',
+        link: function(scope, element, attrs){
+            scope.$parent.$watch('contents', function(newValue, oldValue) {
+                if (newValue){
+                    scope.custom_classes = attrs.classes;
+                    scope.collapse_list = scope.$parent.contents[attrs.datasource];
+                }                       
+            }, true);
+        }
+    }
+});

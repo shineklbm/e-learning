@@ -12,21 +12,23 @@
     <link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
     <link rel="stylesheet" href="assets/css/common.css">
     <script src="assets/libs/angular.min.js"></script>
-    <script src="modules/app.js"></script>
+    <script src="controllers/controllers.js"></script>
+    <script src="directives/directives.js"></script>
+    <script src="modules/modules.js"></script>
 </head>
 <body class="ng-cloak">      
     <div id="inner-wrapper" class="container">
         <header id="header" class="row">
             <div id="menu-wrapper" class="col-xs-1">
-                <span class="icon-menu-main" aria-hidden="true" data-toggle="tooltip" data-placement="bottom" title="Menu"></span>
-                <span class="icon-menu-close" aria-hidden="true" data-toggle="tooltip" data-placement="bottom" title="Close"></span>   
+                <span class="icon-menu-main" aria-hidden="true"></span>
+                <span class="icon-menu-close" aria-hidden="true"></span>   
             </div>
             <div id="title-wrapper" class="col-xs-8">
                 <h1>{{ configs.course_title }}</h1>
                 <h2>{{ page.title }}</h2>                
             </div>
             <div id="logo-wrapper" class="col-xs-3">
-                <span data-toggle="tooltip" data-placement="bottom" title="Exit">
+                <span>
                     <a href="#" id="exit-app" data-toggle="modal" data-target="#exit-confirm">EXIT</a>
                 </span>
                 <img alt="aptara logo" data-ng-src="{{configs.path.images}}{{configs.logo}}" alt="">
@@ -36,17 +38,37 @@
         <!-- menu-wrapper-stripe -->
             <div  id ="menu-wrapper-stripe" class="col-xs-12">
                 <ul >
-                    <li><a href="#" id="stripe-menu" class="el-enabled" data-toggle="tooltip" data-placement="bottom" title="Menu"><i class="icon-menu"></i><label class=" hidden-xs hidden-sm">MENU</label></a></li>
-                    <li ><a href="#" id="stripe-help" class="el-disabled" data-toggle="tooltip" data-placement="bottom" title="Help"><i class="icon-help"></i><label class=" hidden-xs hidden-sm">HELP</label></a></li>
-                    <li><a href="#" id="stripe-glossary" class="el-disabled" data-toggle="tooltip" data-placement="bottom" title="Glossary"><i class="icon-glossory"></i><label class=" hidden-xs hidden-sm">GLOSSARY</label></a></li>
-                    <li><a href="#" id="stripe-resources" class="el-disabled" data-toggle="tooltip" data-placement="bottom" title="Resources"><i class="icon-resources"></i><label class=" hidden-xs hidden-sm">RESOURCES</label></a></li>
+                    <li>
+                        <a href="#" id="stripe-menu" class="el-enabled">
+                            <i class="icon-menu"></i>
+                            <label class=" hidden-xs hidden-sm">MENU</label>
+                        </a>
+                    </li>
+                    <li >
+                        <a href="#" id="stripe-help" class="el-disabled">
+                            <i class="icon-help"></i>
+                            <label class=" hidden-xs hidden-sm">HELP</label>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" id="stripe-glossary" class="el-disabled" >
+                            <i class="icon-glossory"></i>
+                            <label class=" hidden-xs hidden-sm">GLOSSARY</label>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" id="stripe-resources" class="el-disabled">
+                            <i class="icon-resources"></i>
+                            <label class=" hidden-xs hidden-sm">RESOURCES</label>
+                        </a>
+                    </li>
                 </ul> 
             </div>
             <!-- menu-wrapper-stripe -->
             <!-- vertical-menu-wrapper -->
             <div id="vertical-menu-wrapper" class="col-xs-12" >
                 <div id="menu-heading">
-                    <h3>Menu</h3><a href="#" class="menu-close" data-toggle="tooltip" data-placement="bottom" title="Close"></a>
+                    <h3>Menu</h3><a href="#" class="menu-close"></a>
                 </div>
                 <div id="menu-container" class="v-scroll">
                     <div id="menu"></div>
@@ -69,16 +91,16 @@
             </div>
             <div id="footer-content" class="col-lg-12">
                 <div id="left-block" class="pull-left">
-                    <div id="transcript-block" class="icon-block inline el-disabled" data-toggle="tooltip" data-placement="top" title="Transcript">
+                    <div id="transcript-block" class="icon-block inline el-disabled">
                         <i class="icon-transcript inline"></i>
                         <label class="hidden-xs hidden-sm inline">TRANSCRIPT</label>
                     </div>
                     <div id="audio-volume" class=" icon-block inline">
-                        <div class="audio-on" data-toggle="tooltip" data-placement="top" title="Audio ON">
+                        <div class="audio-on">
                            <i class="icon-audio_on  inline"></i>
                             <label class="hidden-xs hidden-sm inline" >AUDIO ON</label> 
                         </div>
-                        <div class="audio-off" data-toggle="tooltip" data-placement="top" title="Audio OFF">
+                        <div class="audio-off">
                             <i class="icon-audio_off  inline" ></i>
                             <label class=" hidden-xs hidden-sm inline" >AUDIO OFF</label>
                         </div>
@@ -87,16 +109,16 @@
                         <audio id="audio-player" controls="" preload="none" data-ng-src="configs.path.audio+configs.background_music"></audio>
                     </div>
                     <div id="audio-play" class="icon-block inline">
-                        <div class="play" data-toggle="tooltip" data-placement="top" title="Play">
+                        <div class="play">
                             <i class=" icon-play  inline" ></i>
                             <label class=" hidden-xs hidden-sm inline">PLAY</label>
                         </div> 
-                        <div class="pause" data-toggle="tooltip" data-placement="top" title="Pause">
+                        <div class="pause">
                             <i class=" icon-pause inline" ></i>
                             <label class="hidden-xs hidden-sm inline">PAUSE</label>
                         </div>  
                     </div>
-                    <div id="audio-replay" class="icon-block inline" data-toggle="tooltip" data-placement="top" title="Replay">
+                    <div id="audio-replay" class="icon-block inline" >
                         <i class="icon-replay inline"></i>
                         <label class="hidden-xs hidden-sm inline">REPLAY</label>
                     </div>
@@ -105,9 +127,9 @@
                     <p id="click-me" class="inline text-right">Click Next to continue.</p>
                     <span class="v-divider"></span>
                     <div id="pagination" class="pull-right">
-                        <span id="page-left-wrapper" data-ng-click="pagePrevious(page.page_id)" class="icon-left-arrow" data-toggle="tooltip" data-placement="top" title="Previous"></span>
+                        <span id="page-left-wrapper" data-ng-click="pagePrevious(page.page_id)" class="icon-left-arrow" ></span>
                         <span id="page-counter">{{ page.page_index}}/{{total_pages }}</span>
-                        <span id="page-right-wrapper" data-ng-click="pageNext(page.page_id)" class="icon-right-arrow" data-toggle="tooltip" data-placement="top" title="Next"></span>
+                        <span id="page-right-wrapper" data-ng-click="pageNext(page.page_id)" class="icon-right-arrow"></span>
                     </div>
                 </div>
             </div>
@@ -128,13 +150,13 @@
         <div class="modal-dialog modal-sm">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" data-toggle="tooltip" data-placement="top" title="Close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title" id="myModalLabel">Confirmartion</h4>
                 </div>
                 <div class="modal-body text-center">
                     <p>Are you sure to close this window ?</p> 
-                    <a class="btn btn-primary btn-close-yes" href="#" role="button" data-toggle="tooltip" data-placement="top" title="Yes">Yes</a>
-                    <a class="btn btn-primary btn-close-no" href="#" role="button" data-dismiss="modal" data-toggle="tooltip" data-placement="top" title="No">No</a>
+                    <a class="btn btn-primary btn-close-yes" href="#" role="button" >Yes</a>
+                    <a class="btn btn-primary btn-close-no" href="#" role="button" data-dismiss="modal">No</a>
                 </div>
             </div>
         </div>

@@ -79,7 +79,8 @@ p{ font-size: 14px;}
 .collapse-component .collapse{background:#3E89B0 !important; color: #fff !important;}
 .collapse-component .panel-title a{ display:block; max-width: 100%; padding: 10px 15px; text-decoration: none; outline: none !important; color: #fff !important;}
 .collapse-component .panel-title{ width: 100%;max-width: 100%; color: #fff  !important;}
-.collapse-component .panel-title a::after{ content: '\f05b'; font-family:'icomoon'; display:block;color: #fff !important; font-size: 16px; outline: none !important; position: absolute; display: block;margin-top: -16px; right: 45px;}
+.collapse-component .panel-title a[aria-expanded='true']::after{ content: '\f05b'; font-family:'icomoon'; display:block;color: #fff !important; font-size: 16px; outline: none !important; position: absolute; display: block;margin-top: -16px; right: 45px;}
+.collapse-component .panel-title a[aria-expanded='false']::after{ content: '\f05a'; font-family:'icomoon'; display:block;color: #fff !important; font-size: 16px; outline: none !important; position: absolute; display: block;margin-top: -16px; right: 45px;}
 .collapse-component .collapse .panel-body,
 .collapse-component .collapse .panel-body p{ color: #fff  !important;}
 
@@ -149,7 +150,7 @@ header #menu-wrapper span{ cursor: pointer; text-align: center; font-size: 22px;
 header h1, header h2{ display: inline-block; padding: 6px 0; margin: 0; }
 header h1{ border-right: #cecdcd 1px solid; padding-right: 17px; margin-right: 26px; }
 header #logo-wrapper{ text-align: right; }
-header #logo-wrapper span{ padding: 6px 0; display: inline-block; margin-right: 16px; padding-right: 18px; border-right: #cecdcd 1px solid; }
+header #logo-wrapper span{ padding: 6px 0; color:#3b3b3b;  display: inline-block; margin-right: 16px; padding-right: 18px; border-right: #cecdcd 1px solid; }
 /*--------------------------------- Header -------------------------------------  */
 
 /*--------------------------- fullwidth background -----------------------------*/
@@ -248,8 +249,8 @@ footer{background: #F2F2F2;min-height: 45px;max-width: 1110px;margin: 0 auto !im
 
 #right-block{float: right;width: 33%;}
 
-#footer-content #right-block #click-me{color: #E3801B;font-style: italic;/*padding-top: 11px;margin-left: 42px;*/position: absolute; right: 186px;top:11px;}
-#footer-content #right-block .v-divider{background: #D7D6D6;min-height: 44px;width: 1px;display: block;position: absolute;top: 0;right: 170px;}
+#footer-content #right-block #click-me{color: #E3801B;font-style: italic;margin:0; position: absolute; right: 186px;top:11px;}
+#footer-content #right-block .v-divider{background: #D7D6D6;min-height: 44px; width: 1px;display: block;position: absolute;top: 0;right: 170px;}
 #pagination{height: 44px;line-height: 2;}
 #pagination #page-left-wrapper,
 #pagination #page-right-wrapper{cursor: pointer;}
@@ -258,7 +259,7 @@ footer{background: #F2F2F2;min-height: 45px;max-width: 1110px;margin: 0 auto !im
 #pagination #page-right-wrapper{vertical-align: middle;font-size: 34px;display: inline-block;}
 #pagination #page-left-wrapper{padding-right: 8px;}
 #pagination #page-right-wrapper{padding-left: 8px;margin-right:-8px; }
-#pagination #page-counter{font-size: 18px;display: inline-block;background: #e3801b;color: #fff;/* line-height: 2.4; */padding: 4px 10px;}
+#pagination #page-counter{font-size: 18px;display: inline-block;background: #e3801b;color: #fff; padding: 4px 10px;}
 #pagination #page-left-wrapper:hover,
 #pagination #page-right-wrapper:hover{color: #000;}
 
@@ -306,7 +307,8 @@ footer{background: #F2F2F2;min-height: 45px;max-width: 1110px;margin: 0 auto !im
 	#footer-content #left-block .icon-block {margin-right: 12px;}
 	#footer-content #left-block i{font-size: 20px;}
 	#footer-content #left-block i::after{content: "|"; display: inline-block;color: #D7D6D6;top: 0;font-size: 25px;margin-left: 10px;}
-	#footer-content #right-block .v-divider{right: 170px;}
+	#footer-content #left-block .icon-block:last-child i::after{display: none;}
+    #footer-content #right-block .v-divider{right: 170px;}
     #footer-content #left-block .icon-block{min-width: 0 !important;}
 /*-----------------Footer ---------------*/
 	
@@ -383,6 +385,13 @@ footer{background: #F2F2F2;min-height: 45px;max-width: 1110px;margin: 0 auto !im
 	#footer-content #left-block i{font-size: 17px}
 	#footer-content #right-block .v-divider{right:147px}
 	#pagination #page-left-wrapper,#pagination #page-right-wrapper{padding: 0;}
+/*---------------- Footer ---------------*/
+ }
+ @media screen and (max-width: 317px){
+/*---------------- Footer ---------------*/
+    #footer-content #left-block{ width: 43%;}
+    #footer-content #right-block{width: 54%;}
+    #footer-content #right-block .v-divider{right:142px}
 /*---------------- Footer ---------------*/
  }
  
