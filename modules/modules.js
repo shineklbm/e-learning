@@ -16,6 +16,8 @@ function rootController($scope, $http){
     $scope.touch_device = false;
     $scope.framework_loaded = false;
     $scope.menu = new Object();
+    $scope.page_status = [];
+    $scope.previous_page;
 
     $scope.findElement = function(arr, key, value) {
             for (var d = 0, len = arr.length; d < len; d += 1) {
@@ -73,11 +75,9 @@ function rootController($scope, $http){
         $scope.configs = data;
         $scope.registerGlobalAssets = function(){
             if(typeof $scope.configs.background_image != 'undefined'){
-                /*console.log($scope.configs.background_image);*/
                 $scope.preLoader.addImage($scope.configs.path.images+$scope.configs.background_image)
             }
             if(typeof $scope.configs.background_music != 'undefined'){
-                /*console.log($scope.configs.background_image);*/
                 $scope.preLoader.addAudio($scope.configs.path.audio+$scope.configs.background_music)
             }
         }
@@ -102,16 +102,10 @@ function rootController($scope, $http){
     	var current_item = false;
         if(typeof $scope.page != "undefined"){
             current_item = $scope.page.page_id;
-
         }
     	if(data.node.parent != "#" &&  current_item != data.node.id){
     		$("#preloader-overlay").fadeIn();
-            $('#'+current_item).removeClass('current-page');   
     	}
-        else if(data.node.parent == "#")
-            {
-                 $('#'+current_item).addClass('current-page');
-            } 
         $scope.menuClickListener(data);
         return data.instance.toggle_node(data.node);
     });
@@ -125,7 +119,6 @@ function rootController($scope, $http){
 
         var jstree_json = tree.get_json('#', { 'flat': true });
         var counter = 0;
-
         var page_index = new Array();
 
         /**
@@ -196,7 +189,17 @@ function rootController($scope, $http){
         });
         $scope.page_index = page_index;
     });
-
+    $('#menu').on("changed.jstree", function (e, data) {
+        if(typeof data.node !== 'undefined' && data.node.parent == "#"){
+            if(typeof $scope.page != "undefined"){
+                $('#menu li').removeClass('');
+                $('#'+$scope.page.page_id).addClass("current-page");
+            }
+        }
+    });
+    $('#stripe-menu').on('click',function(){
+        $('#menu li').removeClass('current-page');
+    });
     $scope.menuClickListener = function(data, custom){
 
         $scope.pausedAudio = new Object();
@@ -213,6 +216,8 @@ function rootController($scope, $http){
                 $scope.page = data;
                 $('#'+$scope.page.page_id).addClass('current-page');
                 $scope.page.page_index = $scope.page_index[$scope.page.page_id];
+
+                $scope.page_status[$scope.page.page_id] = '1';
                 
                 /*var page_pogress = 0;
                 page_pogress =($scope.page.page_index*100)/$scope.total_pages;

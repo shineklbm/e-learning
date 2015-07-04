@@ -192,9 +192,9 @@ header #logo-wrapper span{ padding: 6px 0; color:#3b3b3b;  display: inline-block
 #menu ul li a{ padding-left: 10px;}
 #menu ul li:last-child{margin-bottom: 10px;}
 #menu ul li a:hover,#menu ul li a:focus{background: #336699;color: #fff;outline: 0;cursor: pointer; border-radius: 0;border-bottom: 1px solid #4E4E4E;}
-#menu ul li.jstree-open, 
+#menu ul li.jstree-open,
 #menu ul li.jstree-open:focus{background: #E3801B ;color: #E1E1E1;outline: 0; margin: 0; padding: 0;}
-#menu ul li.jstree-closed, 
+#menu ul li.jstree-closed,
 #menu ul li.jstree-closed:focus{background: #E3801B ;color: #E1E1E1;outline: 0; margin: 0; padding: 0;}
 /*#menu ul li.jstree-open a.jstree-clicked,*/
 #menu .current-page a{background: #336699;color: #E1E1E1;outline: 0; cursor: pointer; width: 100%;outline: 0;border-radius: 0;border-bottom: 1px solid #4E4E4E; /* cursor: default; */}
@@ -208,7 +208,8 @@ header #logo-wrapper span{ padding: 6px 0; color:#3b3b3b;  display: inline-block
 #menu ul li a.jstree-clicked:hover{background: #336699;color:#E1E1E1;outline: 0; cursor: pointer;}
 #menu ul li a.jstree-clicked{background: #336699 !important;color:#E1E1E1; cursor: pointer;} 
 
-
+#menu ul li.jstree-open a.jstree-clicked{ background: #E3801B !important;color: #E1E1E1; }
+div#menu ul.jstree-children li.jstree-open ul.jstree-children li a.jstree-clicked{ background: #336699 !important;color: #FFF; }
 /* --- Sub Menu ---- */
 
 #menu ul li ul{margin: 0;padding: 0;height: auto;background: #4E4E4E;color: #E1E1E1;}
