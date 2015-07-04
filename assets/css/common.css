@@ -17,10 +17,10 @@
 
 html, body { height: 100%; }
 html,body,header,footer,section,aside,div,span,label,input,article,p,a,h1,h2,h3,h4,h5,h6{
-	margin: 0;
-	padding: 0;
-	font-family: 'openSans';
-	outline: none !important;	
+    margin: 0;
+    padding: 0;
+    font-family: 'openSans';
+    outline: none !important;   
 }
 a{ text-decoration: none !important; color: #5F5F5F; cursor: pointer; outline: none !important;}
 a:hover{color: #000;}
@@ -35,8 +35,8 @@ a:hover{color: #000;}
 img{ max-width: 100%; height: auto; }
 header{ background: #e3e2e2; }
 h1, h2, h3,h4, h5, h6,p{ color: #3b3b3b; margin-bottom: 20px;}
-h1{	font-size: 19px; text-transform: uppercase; }
-h2{	font-size: 17px; }
+h1{ font-size: 19px; text-transform: uppercase; }
+h2{ font-size: 17px; }
 h3{ font-size: 16px; }
 p{ font-size: 14px;}
 
@@ -90,7 +90,7 @@ p{ font-size: 14px;}
 
 .tab-component .nav li{ background:#A5C061 !important; color: #fff;margin: 0 15px;}
 .tab-component .nav li:first-child{ margin-left: 0;}
-.tab-component .nav li:last-child{	margin-right: 0;}
+.tab-component .nav li:last-child{  margin-right: 0;}
 .tab-component .nav li.active { background-color:#E3801B !important;  color: #fff;}
 .tab-component .nav li.active:focus { background-color:#E3801B !important; color: #fff;}
 .tab-component .tab-content{background: #3E89B0; color: #fff; padding: 20px;}
@@ -103,7 +103,7 @@ p{ font-size: 14px;}
 .tab-component .nav-pills > li > a:hover{background-color:#E3801B !important; color: #fff; border-radius:0; outline: none !important;}
 .tab-component .nav-pills > li > a,
 .tab-component .nav-pills > li > a:focus{background:#A5C061 !important; color: #fff;outline: none !important;}
-.tab-component .nav-pills > li.active:after{content: "\f05b"; font-family:'icomoon';font-size: 18px; position: absolute; display: block; margin-left: -9px;bottom:-16px; left:50%; z-index: 1000;	}
+.tab-component .nav-pills > li.active:after{content: "\f05b"; font-family:'icomoon';font-size: 18px; position: absolute; display: block; margin-left: -9px;bottom:-16px; left:50%; z-index: 1000;   }
 .tab-component .tab-content {border-top: 1px solid #fff;}
 .tab-component .tab-pane p{color: #fff;}
 
@@ -130,7 +130,7 @@ p{ font-size: 14px;}
 
 .modal-backdrop { background-color: #fff; opacity:0.8; }
 .modal .modal-content{ border-radius: 0; box-shadow: none; border: 0;}
-.modal .modal-header{ background: #336699;	color: #fff; padding: 7px;}
+.modal .modal-header{ background: #336699;  color: #fff; padding: 7px;}
 .modal .modal-header .close{color: #fff;font-size: 34px; margin-top: 0; float: right; display: block; cursor: pointer; opacity: 1; font-weight: lighter; text-shadow:none; line-height: 0.7;}
 .modal .modal-header .close:hover{color: #000;}
 .modal .modal-title { color: #fff;font-weight: bold; font-size: 16px; }
@@ -191,25 +191,30 @@ header #logo-wrapper span{ padding: 6px 0; color:#3b3b3b;  display: inline-block
 #menu ul li a{outline:none; cursor: pointer; display: inline-block;padding: 4px 0px;font-size: 16px;font-weight: normal;width: 100%;border-bottom: 1px solid #838383;box-shadow: none;} 
 #menu ul li a{ padding-left: 10px;}
 #menu ul li:last-child{margin-bottom: 10px;}
+
 #menu ul li a:hover,#menu ul li a:focus{background: #336699;color: #fff;outline: 0;cursor: pointer; border-radius: 0;border-bottom: 1px solid #4E4E4E;}
+
 #menu ul li.jstree-open,
-#menu ul li.jstree-open:focus{background: #E3801B ;color: #E1E1E1;outline: 0; margin: 0; padding: 0;}
+#menu ul li.jstree-open:focus{outline: 0; margin: 0; padding: 0;}
 #menu ul li.jstree-closed,
-#menu ul li.jstree-closed:focus{background: #E3801B ;color: #E1E1E1;outline: 0; margin: 0; padding: 0;}
+#menu ul li.jstree-closed:focus{outline: 0; margin: 0; padding: 0;}
 /*#menu ul li.jstree-open a.jstree-clicked,*/
-#menu .current-page a{background: #336699;color: #E1E1E1;outline: 0; cursor: pointer; width: 100%;outline: 0;border-radius: 0;border-bottom: 1px solid #4E4E4E; /* cursor: default; */}
+#menu .current-page a{ outline: 0; cursor: pointer; width: 100%;outline: 0;border-radius: 0;border-bottom: 1px solid #4E4E4E; /* cursor: default; */}
 #menu ul li.jstree-open ul li.jstree-last{margin-bottom: 0;}
 #menu ul li.jstree-closed a, 
-#menu ul li.jstree-closed a:focus{background: #336699;color: #E1E1E1;outline: 0;cursor: pointer; /* padding: 4px 0px; */ margin: 0; border-radius: 0;border-bottom: 1px solid #4E4E4E;}
-#menu ul li.jstree-closed > a:after{content: "\e60c"; cursor: pointer; color: #E1E1E1;font-size: 16px;position: absolute;right: 10px;font-family: 'icomoon'; }
-#menu ul li.jstree-open > a:after{content: "\e60e"; cursor: pointer; color: #E1E1E1;font-size: 16px;position: absolute;right: 10px;font-family: 'icomoon';}
+#menu ul li.jstree-closed a:focus{outline: 0;cursor: pointer; /* padding: 4px 0px; */ margin: 0; border-radius: 0;border-bottom: 1px solid #4E4E4E;}
+#menu ul li.jstree-closed > a:after{content: "\e60c"; cursor: pointer; font-size: 16px;position: absolute;right: 10px;font-family: 'icomoon'; }
+#menu ul li.jstree-open > a:after{content: "\e60e"; cursor: pointer; font-size: 16px;position: absolute;right: 10px;font-family: 'icomoon';}
 #menu ul li.jstree-node, #menu ul li a.jstree-anchor{height: auto;min-height: auto; cursor: pointer;}
-#menu ul li a:hover{background: #336699;color:#E1E1E1;outline: 0;cursor: pointer; }
-#menu ul li a.jstree-clicked:hover{background: #336699;color:#E1E1E1;outline: 0; cursor: pointer;}
-#menu ul li a.jstree-clicked{background: #336699 !important;color:#E1E1E1; cursor: pointer;} 
+#menu ul li a:hover{outline: 0;cursor: pointer; }
+#menu ul li a.jstree-clicked:hover{outline: 0; cursor: pointer;}
+#menu ul li a.jstree-clicked{cursor: pointer;} 
 
-#menu ul li.jstree-open a.jstree-clicked{ background: #E3801B !important;color: #E1E1E1; }
-div#menu ul.jstree-children li.jstree-open ul.jstree-children li a.jstree-clicked{ background: #336699 !important;color: #FFF; }
+/* #menu ul li.jstree-open a.jstree-clicked, */
+
+div#menu .current-page a, .jstree-default .jstree-clicked, #menu ul li.jstree-closed, #menu ul li.jstree-open{ background:#336699;color: #E1E1E1; }
+div#menu ul.jstree-children li a.current-page-parent{ background:#E3801B; color: #E1E1E1; }
+
 /* --- Sub Menu ---- */
 
 #menu ul li ul{margin: 0;padding: 0;height: auto;background: #4E4E4E;color: #E1E1E1;}
@@ -282,51 +287,51 @@ footer{background: #F2F2F2;min-height: 45px;max-width: 1110px;margin: 0 auto !im
 @media screen and (max-width: 1199px) { 
 
 /*---------------- Footer -----------------*/
-	#footer-content #right-block .v-divider{right: 162px;}
+    #footer-content #right-block .v-divider{right: 162px;}
 /*---------------- Footer -----------------*/
 }
 @media screen and (max-width: 991px) {
 
 
 /*---------------- Header --------------  */
-	header h1, header h2{ display: block;border: 0;}
-	header #title-wrapper{border-right: #cecdcd 1px solid;}
-	header #logo-wrapper{margin-top: 20px;}
-	header #logo-wrapper span{display: none;}
-	header #menu-wrapper{margin-top: 10px;}
+    header h1, header h2{ display: block;border: 0;}
+    header #title-wrapper{border-right: #cecdcd 1px solid;}
+    header #logo-wrapper{margin-top: 20px;}
+    header #logo-wrapper span{display: none;}
+    header #menu-wrapper{margin-top: 10px;}
 /*---------------- Header --------------  */
 
 /*---------- menu-wrapper-strip ----------*/
-	#menu-wrapper-stripe a i {padding-right: 0; font-size: 25px;}
+    #menu-wrapper-stripe a i {padding-right: 0; font-size: 25px;}
 /*---------- menu-wrapper-strip ----------*/
 
 /*----------------- Menu -----------------*/
-	#menu ul li a{font-size: 18px;}
+    #menu ul li a{font-size: 18px;}
 /*----------------- Menu -----------------*/
 
 /*---------------- Footer -----------------*/
     #footer-content #left-block{position: absolute; left: 5px; top: 0; width: 30%; padding-top: 5px;}
     #footer-content #right-block{position: absolute; right: 5px; top: 0; width: 60%;}
-	#footer-content #left-block .icon-block {margin-right: 12px;}
-	#footer-content #left-block i{font-size: 20px;}
-	#footer-content #left-block i::after{content: "|"; display: inline-block;color: #D7D6D6;top: 0;font-size: 25px;margin-left: 10px;}
-	#footer-content #left-block .icon-block:last-child i::after{display: none;}
+    #footer-content #left-block .icon-block {margin-right: 12px;}
+    #footer-content #left-block i{font-size: 20px;}
+    #footer-content #left-block i::after{content: "|"; display: inline-block;color: #D7D6D6;top: 0;font-size: 25px;margin-left: 10px;}
+    #footer-content #left-block .icon-block:last-child i::after{display: none;}
     #footer-content #right-block .v-divider{right: 170px;}
     #footer-content #left-block .icon-block{min-width: 0 !important;}
 /*-----------------Footer ---------------*/
-	
+    
  }
  @media screen and (max-width: 767px) { 
 
 /*---------------- Header --------------  */
-	header #title-wrapper,header h1, header h2{margin-right: 0;padding-right: 0;}
+    header #title-wrapper,header h1, header h2{margin-right: 0;padding-right: 0;}
 /*---------------- Header --------------  */
 
 
 
 /*-------------- Component --------------*/
-	.tab-component{display: none;}
-	.collapse-component{display: block;}
+    .tab-component{display: none;}
+    .collapse-component{display: block;}
 /*-------------- Component --------------*/
 
 /*--------------- Footer ----------------*/
@@ -337,8 +342,8 @@ footer{background: #F2F2F2;min-height: 45px;max-width: 1110px;margin: 0 auto !im
 }
 @media screen and (max-width: 583px) {
 /*--------------- Footer ----------------*/
-	#footer-content #left-block .icon-block {margin-right: 5px;}
-	#footer-content #left-block i{font-size: 18px;}
+    #footer-content #left-block .icon-block {margin-right: 5px;}
+    #footer-content #left-block i{font-size: 18px;}
     #footer-content #left-block{ width: 32%;}
     #footer-content #right-block{width: 68%;}
 /*--------------- Footer ----------------*/
@@ -351,8 +356,8 @@ footer{background: #F2F2F2;min-height: 45px;max-width: 1110px;margin: 0 auto !im
 @media screen and (max-width: 525px){
 
 /*---------- menu-wrapper-strip ----------*/
-	#menu-wrapper-stripe a i {padding: 0;}
-	#menu-wrapper-stripe a {margin-right: 60px;}
+    #menu-wrapper-stripe a i {padding: 0;}
+    #menu-wrapper-stripe a {margin-right: 60px;}
 /*---------- menu-wrapper-strip ----------*/
 
 }
@@ -360,34 +365,34 @@ footer{background: #F2F2F2;min-height: 45px;max-width: 1110px;margin: 0 auto !im
  @media screen and (max-width: 446px) {
 
 /*---------------- Header --------------  */
- 	header h1{font-size: 16px;}
- 	header h2{ font-size: 14px;}
-	header #menu-wrapper span{font-size: 21px;}
-	header #menu-wrapper{margin-top: 8px;}
-	header #logo-wrapper{margin-top: 18px;}
+    header h1{font-size: 16px;}
+    header h2{ font-size: 14px;}
+    header #menu-wrapper span{font-size: 21px;}
+    header #menu-wrapper{margin-top: 8px;}
+    header #logo-wrapper{margin-top: 18px;}
 /*----------------- Header ----------------*/
 
 /*---------- menu-wrapper-strip ----------*/
-	#menu-wrapper-stripe a i {padding: 0;}
-	#menu-wrapper-stripe a {margin-right: 35px;}
+    #menu-wrapper-stripe a i {padding: 0;}
+    #menu-wrapper-stripe a {margin-right: 35px;}
 /*---------- menu-wrapper-strip ----------*/
 
  }
  @media screen and (max-width: 382px) {
     #footer-content #left-block, #footer-content #right-block{ width: 50%;}
-	#footer-content #left-block .icon-block {margin-right: 2px;}
-	#footer-content #left-block i::after{margin-left: 5px;}
+    #footer-content #left-block .icon-block {margin-right: 2px;}
+    #footer-content #left-block i::after{margin-left: 5px;}
  }
  @media screen and (max-width: 353px) {
 
 /*---------- menu-wrapper-strip ----------*/
-	#menu-wrapper-stripe a {margin-right: 30px;}
+    #menu-wrapper-stripe a {margin-right: 30px;}
 /*---------- menu-wrapper-strip ----------*/
 
 /*---------------- Footer ---------------*/
-	#footer-content #left-block i{font-size: 17px}
-	#footer-content #right-block .v-divider{right:147px}
-	#pagination #page-left-wrapper,#pagination #page-right-wrapper{padding: 0;}
+    #footer-content #left-block i{font-size: 17px}
+    #footer-content #right-block .v-divider{right:147px}
+    #pagination #page-left-wrapper,#pagination #page-right-wrapper{padding: 0;}
 /*---------------- Footer ---------------*/
  }
  @media screen and (max-width: 317px){
@@ -397,4 +402,3 @@ footer{background: #F2F2F2;min-height: 45px;max-width: 1110px;margin: 0 auto !im
     #footer-content #right-block .v-divider{right:142px}
 /*---------------- Footer ---------------*/
  }
- 

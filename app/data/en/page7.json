@@ -55,5 +55,11 @@
             "expanded": "false",
             "status":""
         }
-    ]
+    ],
+    "audio": "david.mp3",
+    "preload": {
+        "audios": [
+            "david.mp3"
+        ]
+    }
 }

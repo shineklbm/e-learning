@@ -4,7 +4,7 @@
     "course_subtitle": "Lorem Ipsum Text",    
     "logo": "logo.jpg",
     "background_color": "#fea",
-    "background_image": "background.jpg",
+    "background_image": "",
     "preloader_image": "preloader.gif",
     "background_music": "blank.mp3",
     "path": {

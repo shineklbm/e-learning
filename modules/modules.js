@@ -190,10 +190,15 @@ function rootController($scope, $http){
         $scope.page_index = page_index;
     });
     $('#menu').on("changed.jstree", function (e, data) {
+        $('#menu li a').removeClass('current-page-parent');
+        if(typeof $scope.menus !== 'undefined' && typeof $scope.page !== 'undefined'){
+            var current_page_menu = $scope.findElement($scope.menus.core.data,  'id', $scope.page.page_id);
+            var linknode = $("#"+current_page_menu.parent).find('a').first();
+            $(linknode).addClass('current-page-parent');
+        }
         if(typeof data.node !== 'undefined' && data.node.parent == "#"){
-            if(typeof $scope.page != "undefined"){
-                $('#menu li').removeClass('');
-                $('#'+$scope.page.page_id).addClass("current-page");
+            if(typeof $scope.page != "undefined"){                
+                $('#'+$scope.page.page_id).addClass("current-page");                
             }
         }
     });
@@ -243,7 +248,14 @@ function rootController($scope, $http){
                     $scope.audioPlayer.pause();
                     $http.get('app/data/'+lang+'/'+$scope.page.data)
                     .success(function(data){
-                        $scope.contents = data;                        
+                        $scope.contents = data;
+                        $('#menu li a').removeClass('current-page-parent');
+                        if(typeof $scope.menus !== 'undefined' && typeof $scope.page !== 'undefined'){
+                            var current_page_menu = $scope.findElement($scope.menus.core.data,  'id', $scope.page.page_id);
+                            var linknode = $("#"+current_page_menu.parent).find('a').first();
+                            $(linknode).addClass('current-page-parent');
+                        }
+
                         /*preload images*/
                         if(typeof $scope.contents.preload != 'undefined'){                            
                             if(typeof $scope.contents.preload.images != 'undefined'){
