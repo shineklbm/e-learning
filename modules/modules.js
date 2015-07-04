@@ -15,6 +15,27 @@ function rootController($scope, $http){
     $scope.preLoader = new PxLoader();
     $scope.touch_device = false;
     $scope.framework_loaded = false;
+    $scope.menu = new Object();
+
+    $scope.findElement = function(arr, key, value) {
+            for (var d = 0, len = arr.length; d < len; d += 1) {
+                if (arr[d][key] === value) {
+                    return arr[d];
+                }
+            }
+        }
+    $scope.findElements = function(arr, key, value) {
+            var elements = new Array();
+            var count = 0;
+            $(arr).each(function(index, val){
+                if(val[key] == value)
+                {
+                    elements[count] = value;
+                    count++;
+                }
+            })
+            return elements;
+        }
 
     var deviceAgent = navigator.userAgent.toLowerCase();
     var isTouchDevice = ('ontouchstart' in document.documentElement) || 
@@ -28,7 +49,21 @@ function rootController($scope, $http){
                         deviceAgent.match(/bada/i));
     if (isTouchDevice) {
         $scope.touch_device = true;
+        $('#audio-volume').hide();
     }
+
+    /*//AppleTouchDevice 
+    var isAppleTouchDevice =  (
+                                    deviceAgent.match(/(iphone|ipod|ipad)/) 
+                                    ||  deviceAgent.match(/iphone/i)
+                                    ||  deviceAgent.match(/ipad/i)
+                                    ||  deviceAgent.match(/ipod/i)
+                                )
+    if(isAppleTouchDevice){
+        $('#audio-volume').hide();
+    }*/
+     //AppleTouchDevice
+
     /* touch device configuration */
 
 
@@ -51,9 +86,10 @@ function rootController($scope, $http){
     $http.get('app/configs/menu.json')
     .success(function(data){
         $scope.menus = data;
-        $('#menu').jstree(data);
-        var snapshot = Defiant.getSnapshot($scope.menus);
-        found = JSON.search(snapshot, '//*[contains(parent, "#")]');
+        $scope.menu = $('#menu').jstree(data);
+        found = $scope.findElements($scope.menus.core.data, 'parent', '#' );
+
+
         var total_pages = $scope.menus.core.data.length - found.length;
         if(total_pages < 10){
             $scope.total_pages = '0'+total_pages;
@@ -62,7 +98,7 @@ function rootController($scope, $http){
             $scope.total_pages = total_pages;
         }
     });
-    var menu = $("#menu").bind("select_node.jstree", function (e, data) {
+    $('#menu').bind("select_node.jstree", function (e, data) {
     	var current_item = false;
         if(typeof $scope.page != "undefined"){
             current_item = $scope.page.page_id;
@@ -79,16 +115,15 @@ function rootController($scope, $http){
         $scope.menuClickListener(data);
         return data.instance.toggle_node(data.node);
     });
-    menu.bind("loaded.jstree", function (e, data) {
-        //alert("test");
-        var snapshot = Defiant.getSnapshot($scope.menus);
-        found = JSON.search(snapshot, '//*[contains(default, "true")]');
+    $('#menu').bind("loaded.jstree", function (e, data) {
         var tree = $('#menu').jstree(true);
         $scope.refToMenuTree = tree;
 
-        tree.select_node(found[0].id);
+        found = $scope.findElement($scope.menus.core.data, 'default', 'true');
 
-        var jstree_json = $("#menu").jstree(true).get_json('#', { 'flat': true });
+        $.jstree.reference('#menu').select_node(found.id);
+
+        var jstree_json = tree.get_json('#', { 'flat': true });
         var counter = 0;
 
         var page_index = new Array();
@@ -99,9 +134,8 @@ function rootController($scope, $http){
         $("#page-left-wrapper").click(function(){
             var previous_element = {};
             var page_id = $scope.page.page_id;
-            var tree = $('#menu').jstree(true);
-            $('#menu').jstree("deselect_all");
-            $('#menu').jstree('open_all');
+            $scope.menu.jstree("deselect_all");
+            $scope.menu.jstree('open_all');
 
             $(jstree_json).each(function(index, value){
                 if(value.id == page_id)
@@ -129,9 +163,8 @@ function rootController($scope, $http){
         $("#page-right-wrapper").click(function(){
             var next_element = {};
             var page_id = $scope.page.page_id;
-            var tree = $('#menu').jstree(true);
-            $('#menu').jstree("deselect_all");
-            $('#menu').jstree('open_all');
+            $scope.menu.jstree("deselect_all");
+            $scope.menu.jstree('open_all');
 
             $(jstree_json).each(function(index, value){
                 if(value.id == page_id)

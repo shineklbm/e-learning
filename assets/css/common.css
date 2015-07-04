@@ -79,8 +79,10 @@ p{ font-size: 14px;}
 .collapse-component .collapse{background:#3E89B0 !important; color: #fff !important;}
 .collapse-component .panel-title a{ display:block; max-width: 100%; padding: 10px 15px; text-decoration: none; outline: none !important; color: #fff !important;}
 .collapse-component .panel-title{ width: 100%;max-width: 100%; color: #fff  !important;}
-.collapse-component .panel-title a[aria-expanded='true']::after{ content: '\f05b'; font-family:'icomoon'; display:block;color: #fff !important; font-size: 16px; outline: none !important; position: absolute; display: block;margin-top: -16px; right: 45px;}
-.collapse-component .panel-title a[aria-expanded='false']::after{ content: '\f05a'; font-family:'icomoon'; display:block;color: #fff !important; font-size: 16px; outline: none !important; position: absolute; display: block;margin-top: -16px; right: 45px;}
+.collapse-component .panel-title a.collapsed{background: #A5C061!important;}
+.collapse-component .panel-title a.active::after{ content: '\f05b'; font-family:'icomoon'; display:block;color: #fff !important; font-size: 16px; outline: none !important; position: absolute; display: block;margin-top: -16px; right: 45px;}
+.collapse-component .panel-title a::after,
+.collapse-component .panel-title a.collapsed::after{ content: '\f05a'; font-family:'icomoon'; display:block;color: #fff !important; font-size: 16px; outline: none !important; position: absolute; display: block;margin-top: -16px; right: 45px;}
 .collapse-component .collapse .panel-body,
 .collapse-component .collapse .panel-body p{ color: #fff  !important;}
 
