@@ -1,0 +1,23 @@
+ 
+Our QA team has reported few bugs over phone:
+ 
+1. There is a problem in loading for IE10 (the framework is not loading when launched but it does when the page is refreshed)
+2. Sometimes the audio slider keeps on increasing even when the audio is paused/ any global popup opened.
+3. The menu should not get closed when the current page in the menu popup is clicked.
+4. When the last page is selected, the selected state is not coming up properly
+ 
+I am yet to receive the bug sheet from our QA team. Once I have it I will share the same with you.
+ 
+In the meantime please look into the above mentioned issue and optimise the coding and folder structure of the framework as discussed over phone. Please ensure these are finished by today so that we can focus on the rest of the development process from tomorrow.
+
+
+PFA the comment sheet from the QA team.
+ 
+1) Completed the verification on IE9, iphone4 & S3. Please find the attached updated comment sheet for same for not fixed issues.
+2) Review the framework on below browser and mobile devices –
+1. IE9, IE10, IE11
+2. iPhone 4
+3. S3
+4. Note8
+5. IPad.
+ 
