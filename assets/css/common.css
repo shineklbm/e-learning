@@ -195,7 +195,7 @@ header #logo-wrapper span{ padding: 6px 0; color:#3b3b3b;  display: inline-block
 #menu ul li a:hover,#menu ul li a:focus{background: #336699;color: #fff;outline: 0;cursor: pointer; border-radius: 0;border-bottom: 1px solid #4E4E4E;}
 
 #menu ul li.jstree-open,
-#menu ul li.jstree-open:focus{outline: 0; margin: 0; padding: 0;}
+#menu ul li.jstree-open:focus{outline: 0; margin: 0; padding: 0; background:#E3801B;}
 #menu ul li.jstree-closed,
 #menu ul li.jstree-closed:focus{outline: 0; margin: 0; padding: 0;}
 /*#menu ul li.jstree-open a.jstree-clicked,*/
@@ -230,9 +230,10 @@ div#menu ul.jstree-children li a.current-page-parent{ background:#E3801B; color:
 #content{padding-right: 0; padding-left: 0;}
 .pace{position: absolute;border: 0;}
 /*---- Scroll Bar ----*/
-.mCSB_outside + .mCSB_scrollTools{ right: -5px;}
-.mCSB_scrollTools .mCSB_draggerContainer {width: 10px;}
-.mCSB_scrollTools{width: 10px;}
+.mCSB_outside + .mCSB_scrollTools{ right: 1px;}
+.mCSB_scrollTools .mCSB_draggerContainer {width: 0px;}
+.mCSB_scrollTools{width: 0px;}
+.mCSB_dragger_bar{width: 2px !important;}
 /*---------------------------------Footer----------------------------------*/
 /*------- Footer --------*/
 /*footer{background: #F2F2F2;min-height: 45px; width:100%; max-width: 1110px; left: 30px; margin: 0 auto !important;bottom: 0; position: absolute;}*/

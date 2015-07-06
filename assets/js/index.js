@@ -13,4 +13,7 @@ jQuery(document).ready(function($){
 		var start_btn_height_position = (window_height/2) - ((start_btn_height)/2);
 		$('#btn-start').css({'left':start_btn_width_position+'px', 'top':start_btn_height_position+'px'});
 	}
+	 $( window ).resize(function() {
+		start_button_position();
+	});
 });

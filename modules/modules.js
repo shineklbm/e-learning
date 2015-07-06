@@ -52,18 +52,20 @@ function rootController($scope, $http){
     if (isTouchDevice) {
         $scope.touch_device = true;
         $('#audio-volume').hide();
+        $('#logo-wrapper span').css('display','none');
     }
 
-    /*//AppleTouchDevice 
-    var isAppleTouchDevice =  (
-                                    deviceAgent.match(/(iphone|ipod|ipad)/) 
-                                    ||  deviceAgent.match(/iphone/i)
-                                    ||  deviceAgent.match(/ipad/i)
-                                    ||  deviceAgent.match(/ipod/i)
-                                )
-    if(isAppleTouchDevice){
-        $('#audio-volume').hide();
-    }*/
+    //AppleTouchDevice 
+    // var isAppleTouchDevice =  (
+    //                                 deviceAgent.match(/(iphone|ipod|ipad)/) 
+    //                                 ||  deviceAgent.match(/iphone/i)
+    //                                 ||  deviceAgent.match(/ipad/i)
+    //                                 ||  deviceAgent.match(/ipod/i)
+    //                             )
+    // if(isAppleTouchDevice){
+        
+    //     $('#title-wrapper').css('display','block');
+    // }
      //AppleTouchDevice
 
     /* touch device configuration */

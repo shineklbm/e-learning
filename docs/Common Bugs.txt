@@ -1,0 +1,7 @@
+Common Bugs
+
+1.Menu & Menu Height 
+2.Audio &( Audio Progress bar in IE10)
+3.Page Progress Bar
+4.Scroll Bar
+5.Allignment problem in Header & Footer 
