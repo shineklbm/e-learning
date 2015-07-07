@@ -11,6 +11,12 @@ angular.module("eLearning")
     };
 });
 
+/**
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+RootController Initiates Here
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*/
+
 function rootController($scope, $http){
     $scope.preLoader = new PxLoader();
     $scope.touch_device = false;
