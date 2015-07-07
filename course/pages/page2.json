@@ -1,0 +1,8 @@
+{
+	"page_id"	: 	"page2",
+	"title" 	: 	"Page 2",
+	"subtitle"	: 	"Demo subtitle",
+	"template"	: 	"two-rows-template.html",
+	"data"		: 	"page2.json",
+	"style"		:	"page2.css"
+}

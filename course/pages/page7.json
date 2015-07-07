@@ -1,0 +1,8 @@
+{
+	"page_id"	: 	"page7",
+	"title" 	: 	" Page 7",
+	"subtitle"	: 	"Demo subtitle",
+	"template"	: 	"three-rows-template.html",
+	"data"		: 	"page7.json",
+	"style"		:	"page7.css"
+}

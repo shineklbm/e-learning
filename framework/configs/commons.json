@@ -1,0 +1,26 @@
+{
+    "lang": "en",
+    "course_title": "E-Learning App",
+    "course_subtitle": "Lorem Ipsum Text",    
+    "logo": "logo.jpg",
+    "background_color": "#fea",
+    "background_image": "",
+    "preloader_image": "preloader.gif",
+    "background_music": "blank.mp3",
+    "path": {
+        "templates": "framework/templates/",
+        "components": "framework/components/",
+        "directives": "framework/directives/",
+        "css": "framework/assets/css/",
+        "js": "framework/assets/js/",
+        "libs": "framework/assets/libs/",
+        "images": "framework/assets/images/",
+        "audio": "framework/assets/audio/"
+    },
+    "course_path":{        
+        "config": "course/configs/",
+        "images": "course/assets/images/",
+        "audios": "course/assets/audio/",
+        "data": "course/assets/data/"
+    }
+}

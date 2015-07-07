@@ -1,0 +1,23 @@
+<div class="row text-component-wrapper">
+	<article class="col-xs-12 tab-component {{custom_classes}}">		
+		<div class="row no-margin" role="tabpanel">
+			<!-- Nav tabs -->
+        	<ul class="nav nav-pills  col-xs-12">
+				 <li role="presentation" class="{{tab.status}}" data-ng-repeat="tab in tab_list">
+				 	<a href="#{{tab.id}}" aria-controls="{{tab.id}}" role="tab" data-toggle="tab"> 
+				 		{{tab.title}}
+				 	</a>
+				 </li>
+			</ul>
+			<!-- Nav tabs -->
+			<!-- Tab Content -->
+			<div class="tab-content col-xs-12">
+				<div role="tabpanel" class="tab-pane {{tab.status}}" id="{{tab.id}}"  data-ng-repeat="tab in tab_list">
+					 <div ng-bind-html="tab.content | unsafe"></div>
+				</div>
+			</div>
+			<!-- Tab Content -->
+		</div>
+	</article>
+</div>
+ <!-- tab-component-wrapper ends -->
