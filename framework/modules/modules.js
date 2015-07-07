@@ -343,6 +343,12 @@ function rootController($scope, $http){
                     $("#page-right-wrapper").addClass("el-enabled");
                     $("#page-right-wrapper").removeClass("el-disabled");
                 }
+
+                /**
+                +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                Load Content Function is here
+                +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                */
                 $scope.loadContent = function ($scope, $http){
                     $scope.audioPlayer.pause();
                     $http.get('course/data/'+lang+'/'+$scope.page.data)
