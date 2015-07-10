@@ -1,8 +1,0 @@
-{
-	"page_id"	: 	"page3",
-	"title" 	: 	"Page 3",
-	"subtitle"	: 	"Demo subtitle",
-	"template"	: 	"single-column-template.html",
-	"data"		: 	"page3.json",
-	"style"		:	"page3.css"
-}

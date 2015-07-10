@@ -1,8 +1,0 @@
-{
-	"page_id"	: 	"page8",
-	"title" 	: 	"Page 8",
-	"subtitle"	: 	"Demo subtitle",
-	"template"	: 	"four-column-template.html",
-	"data"		: 	"page8.json",
-	"style"		:	"page8.css"
-}
