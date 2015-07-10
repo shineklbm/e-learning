@@ -161,7 +161,7 @@ function rootController($scope, $http){
 
             var jstree_json = tree.get_json('#', { 'flat': true });
             var counter = 0;
-            var page_index = new Array();
+            var page_indexes = new Object();
 
             /**
             +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -171,7 +171,7 @@ function rootController($scope, $http){
             $('#menu').bind("select_node.jstree", function (e, data) {
                 var current_item = false;
                 if(typeof $scope.page != "undefined"){
-                    current_item = $scope.page.page_id;
+                    current_item = $scope.page.id;
                 }
                 if(data.node.parent != "#" &&  current_item != data.node.id){
                     $("#preloader-overlay").fadeIn();
@@ -195,13 +195,13 @@ function rootController($scope, $http){
             $('#menu').on("changed.jstree", function (e, data) {
                 $('#menu li a').removeClass('current-page-parent');
                 if(typeof $scope.menus !== 'undefined' && typeof $scope.page !== 'undefined'){
-                    var current_page_menu = $scope.findElement($scope.menus.core.data,  'id', $scope.page.page_id);
+                    var current_page_menu = $scope.findElement($scope.menus.core.data,  'id', $scope.page.id);
                     var linknode = $("#"+current_page_menu.parent).find('a').first();
                     $(linknode).addClass('current-page-parent');
                 }
                 if(typeof data.node !== 'undefined' && data.node.parent == "#"){
                     if(typeof $scope.page != "undefined"){                
-                        $('#'+$scope.page.page_id).addClass("current-page");                
+                        $('#'+$scope.page.id).addClass("current-page");                
                     }
                 }
             });
@@ -218,7 +218,7 @@ function rootController($scope, $http){
             */
             $("#page-left-wrapper").click(function(){
                 var previous_element = {};
-                var page_id = $scope.page.page_id;
+                var page_id = $scope.page.id;
                 $scope.menu.jstree("deselect_all");
                 $scope.menu.jstree('open_all');
 
@@ -252,7 +252,7 @@ function rootController($scope, $http){
             */
             $("#page-right-wrapper").click(function(){
                 var next_element = {};
-                var page_id = $scope.page.page_id;
+                var page_id = $scope.page.id;
                 $scope.menu.jstree("deselect_all");
                 $scope.menu.jstree('open_all');
 
@@ -287,12 +287,12 @@ function rootController($scope, $http){
                 if(value.data.has_children !== true){
                     counter++;
                     if(counter < 10)
-                        page_index[value.id] = '0'+counter;
+                        page_indexes[value.id] = '0'+counter;
                     else
-                        page_index[value.id] = counter;
+                        page_indexes[value.id] = counter;
                 }
             });
-            $scope.page_index = page_index;
+            $scope.page_indexes = page_indexes;
             /**
             +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
             Next Click Handler Ends Here
@@ -314,7 +314,7 @@ function rootController($scope, $http){
 
         var current_item = false;
         if(typeof $scope.page != "undefined"){
-            current_item = $scope.page.page_id;
+            current_item = $scope.page.id;
         }
 
         if(data.node.parent != "#" && current_item != data.node.id){
@@ -326,13 +326,34 @@ function rootController($scope, $http){
             */
             $scope.loadContent = function ($scope, $http){
                 $scope.audioPlayer.pause();
-                console.log(data.node.id);
+                $scope.page = $scope.findElement($scope.menus.core.data, 'id', data.node.id);
                 $http.get('course/data/'+lang+'/'+data.node.id+".json")
                 .success(function(data){
                     $scope.contents = data;
+
+                    $scope.page.index = $scope.page_indexes[$scope.page.id];
+                    
                     $('#menu li a').removeClass('current-page-parent');
+
+                    if($scope.page.index == "01"){
+                        $("#page-left-wrapper").removeClass("el-enabled");
+                        $("#page-left-wrapper").addClass("el-disabled");
+                    }
+                    else{
+                        $("#page-left-wrapper").removeClass("el-disabled");
+                        $("#page-left-wrapper").addClass("el-enabled");
+                    }
+                    if($scope.page.index === $scope.total_pages){                    
+                        $("#page-right-wrapper").removeClass("el-enabled");
+                        $("#page-right-wrapper").addClass("el-disabled");
+                    }
+                    else{
+                        $("#page-right-wrapper").addClass("el-enabled");
+                        $("#page-right-wrapper").removeClass("el-disabled");
+                    }
+
                     if(typeof $scope.menus !== 'undefined' && typeof $scope.page !== 'undefined'){
-                        var current_page_menu = $scope.findElement($scope.menus.core.data,  'id', $scope.page.page_id);
+                        var current_page_menu = $scope.findElement($scope.menus.core.data,  'id', $scope.page.id);
                         var linknode = $("#"+current_page_menu.parent).find('a').first();
                         $(linknode).addClass('current-page-parent');
                     }
