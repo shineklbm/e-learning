@@ -2,107 +2,107 @@
     "core": {
         "data": [
             {
-                "id": "page0",
-                "parent": "#",
-                "text": "Module1",
+                "id"            : "page0",
+                "parent"        : "#",
+                "text"          : "Module1",
                 "data": {
                     "has_children"  :   true
                 }
             },
             {
-                "id": "page1",
-                "parent": "page0",
-                "text": "Two Column Layout",
-                "default": "true",
-                "data": {
-                    "template"      :   "two-column-template.html",
-                    "data"          :   "page1.json",
-                    "style"         :   "page2.css",
+                "id"            :   "page1",
+                "parent"        :   "page0",
+                "text"          :   "Two Column Layout",
+                "default"       :   "true",
+                "template"      :   "two-column-template.html",
+                "data"          :   "page1.json",
+                "style"         :   "page2.css",
+                "data": {                    
                     "has_children"  :   false
                 }
             },
             {
-                "id": "page2",
-                "parent": "page0",
-                "text": "Two Rows Layout",
-                "data": {
-                    "template"      :   "two-rows-template.html",
-                    "data"          :   "page2.json",
-                    "style"         :   "page2.css",
+                "id"            :   "page2",
+                "parent"        :   "page0",
+                "text"          :   "Two Rows Layout",
+                "template"      :   "two-rows-template.html",
+                "data"          :   "page2.json",
+                "style"         :   "page2.css",
+                "data": {                    
                     "has_children"  :   false
                 }
             },
             {
-                "id": "page3",
-                "parent": "page0",
-                "text": "Single Column Layout",
-                "data": {
-                    "template"      :   "single-column-template.html",
-                    "data"          :   "page3.json",
-                    "style"         :   "page3.css",
+                "id"            :   "page3",
+                "parent"        :   "page0",
+                "text"          :   "Single Column Layout",
+                "template"      :   "single-column-template.html",
+                "data"          :   "page3.json",
+                "style"         :   "page3.css",
+                "data": {                    
                     "has_children"  :   false
                 }
             },
             {
-                "id": "page4",
-                "parent": "page0",
-                "text": "Complex Layout 1",
-                "data": {
-                    "template"      :   "complex-template.html",
-                    "data"          :   "page4.json",
-                    "style"         :   "page4.css",
+                "id"            :   "page4",
+                "parent"        :   "page0",
+                "text"          :   "Complex Layout 1",
+                "template"      :   "complex-template.html",
+                "data"          :   "page4.json",
+                "style"         :   "page4.css",
+                "data": {                    
                     "has_children"  :   false
                 }
             },
             {
-                "id": "root2",
-                "parent": "#",
-                "text": "Module2",
-                "data": {
+                "id"            :   "root2",
+                "parent"        :   "#",
+                "text"          :   "Module2",
+                "data"          :   {
                     "has_children": true
                 }
             },
             {
-                "id": "page5",
-                "parent": "root2",
-                "text": "Two Column with Text and Tab",
-                "data": {                                        
-                    "template"      :   "two-column-template2.html",
-                    "data"          :   "page5.json",
-                    "style"         :   "page5.css",
+                "id"            :   "page5",
+                "parent"        :   "root2",
+                "text"          :   "Two Column with Text and Tab",
+                "template"      :   "two-column-template2.html",
+                "data"          :   "page5.json",
+                "style"         :   "page5.css",
+                "data": {
                     "has_children": false
                 }
             },
             {
-                "id": "page6",
-                "parent": "root2",
-                "text": "Image Text Layout",
-                "data": {
-                    "template"      :   "two-column-text-image-template.html",
-                    "data"          :   "page6.json",
-                    "style"         :   "page6.css",
+                "id"            :   "page6",
+                "parent"        :   "root2",
+                "text"          :   "Image Text Layout",
+                "template"      :   "two-column-text-image-template.html",
+                "data"          :   "page6.json",
+                "style"         :   "page6.css",
+                "data": {                    
                     "has_children"  :   false
                 }
             },
             {
-                "id": "page7",
-                "parent": "root2",
-                "text": "Three Rows Layout",
-                "data": {
-                    "template"      :   "three-rows-template.html",
-                    "data"          :   "page7.json",
-                    "style"         :   "page7.css",
+                "id"            :   "page7",
+                "parent"        :   "root2",
+                "text"          :   "Three Rows Layout",
+                "template"      :   "three-rows-template.html",
+                "data"          :   "page7.json",
+                "style"         :   "page7.css",
+                "data": {                    
                     "has_children"  :   false
                 }
             },
             {
-                "id": "page8",
-                "parent": "root2",
-                "text": "Complex Layout 2",
-                "data": {
-                    "template"      :   "four-column-template.html",
-                    "data"          :   "page8.json",
-                    "style"         :   "page8.css",
+                "id"            :   "page8",
+                "parent"        :   "root2",
+                "text"          :   "Complex Layout 2",
+                "template"      :   "four-column-template.html",
+                "data"          :   "page8.json",
+                "style"         :   "page8.css",
+                "data": {                    
                     "has_children"  :   false
                 }
             }
