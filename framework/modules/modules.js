@@ -395,6 +395,7 @@ function rootController($scope, $http){
                         if($scope.touch_device && $scope.framework_loaded == false){
                             $("#safari-start-overlay").show();                                
                         }else{
+                            alert("testing");
                             $scope.audioPlayer.play();
                         }
                         $scope.framework_loaded = true;
